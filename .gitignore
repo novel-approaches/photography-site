@@ -1,0 +1,14 @@
+# Ignore js and node files
+bundle.js
+bundle.js.map
+node_modules/
+npm-debug.log
+
+# Ignore all logfiles and tempfiles.
+/log/*
+!/log/.keep
+/tmp
+.DS_Store
+
+# Ignore API Keys
+api.js
