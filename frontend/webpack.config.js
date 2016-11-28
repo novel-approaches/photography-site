@@ -1,18 +1,18 @@
 module.exports = {
   context: __dirname,
-  entry: "./admin_dev.js",
+  entry: "./photo_album.jsx",
   output: {
-    path: "",
-    filename: "admin.js"
+    path: "./static/",
+    filename: "bundle.js"
   },
   module: {
     loaders: [
       {
-        test: [/\.js?$/],
+        test: [/\.jsx?$/, /\.js?$/],
         exclude: /node_modules/,
-        loader: 'babel',
+        loader: 'babel-loader',
         query: {
-          presets: ['es2015']
+          presets: ['react', 'es2015']
         }
       }
     ]
@@ -25,6 +25,6 @@ module.exports = {
           },
   devtool: 'source-maps',
   resolve: {
-    extensions: [".js"]
+    extensions: [".js", ".jsx"]
   }
 };
