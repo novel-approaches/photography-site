@@ -1,9 +1,9 @@
 const webpack = require('webpack');
 module.exports = {
   context: __dirname,
-  entry: "./redux_main.jsx",
+  entry: "./photo_album.jsx",
   output: {
-    path: "./assets/deploy/",
+    path: "./static/",
     filename: "bundle.js"
   },
   module: {
@@ -39,6 +39,6 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: ["", ".js", ".jsx"]
+    extensions: [".js", ".jsx"]
   },
 };

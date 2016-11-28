@@ -3,11 +3,11 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
 
-const App extends React.Component {
+class App extends React.Component {
 
   _handleClick() {
     console.log('clicked');
-  },
+  }
 
   render() {
     return (
