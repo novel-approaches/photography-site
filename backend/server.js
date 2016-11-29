@@ -10,11 +10,6 @@ Server.use(Express.static(Path.join(__dirname + '/static')));
 
 Server.use(BodyParser.json());
 
-Server.get('/', function(req, res){
-  console.log("Hello.  Node Server is running");
-  res.send("Hello.  Node Server is running");
-});
-
 Server.get('/images', (req, res) => {
   let url = `${API.admin_url}/resources/image`;
   Request(url, (error, response, body) => {

@@ -4,7 +4,7 @@ import path from 'path';
 
 import Thumbnail from './Thumbnail';
 import Grid from '../PhotoGridAPI/scripts/Grid';
-import { FetchData } from '../APId';
+import { FetchImageData } from '../api_calls';
 
 
 const DATA = [
@@ -153,7 +153,7 @@ const IMAGE_URLS = [
   'v1480366606/kl3f711j7nx4uk1jtyhg.gif'
 ];
 
-// const renderThumbs = (pathsArr) => 
+// const renderThumbs = (pathsArr) =>
 //   pathsArr.map((path, index, list) => (
 //     <Thumbnail
 //       key={ `Thumb_${index}` }
@@ -196,7 +196,7 @@ export default ThumbnailsMap;
 
 // <PerfectGrid
 //   items={items}
-//   maxHeight={300}  // maximum height of row 
-//   margins={20}     // margins in pixels 
-//   order={true}     // keep images order or not 
+//   maxHeight={300}  // maximum height of row
+//   margins={20}     // margins in pixels
+//   order={true}     // keep images order or not
 // />

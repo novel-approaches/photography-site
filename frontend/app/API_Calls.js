@@ -1,6 +1,6 @@
 'use strict';
 
-export const FetchImageData = function(callback) {
+export function FetchImageData(callback) {
   $.ajax({
     url: '/images',
     type: 'get',
