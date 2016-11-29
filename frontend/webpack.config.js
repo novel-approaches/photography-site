@@ -5,7 +5,7 @@ module.exports = {
   context: __dirname,
   entry: "./app/App.jsx",
   output: {
-    path: "./static/",
+    path: "../backend/static/",
     filename: "bundle.js"
   },
   module: {

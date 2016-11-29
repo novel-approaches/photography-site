@@ -2,8 +2,11 @@
 const Express = require('express');
 const Request = require('request');
 const BodyParser = require('body-parser');
+const Path = require('path');
 const API = require('./api_be');
 const Server = Express();
+
+Server.use(Express.static(Path.join(__dirname + '/static')));
 
 Server.use(BodyParser.json());
 
