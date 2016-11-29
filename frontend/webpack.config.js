@@ -1,12 +1,13 @@
 const Webpack = require('webpack'),
       path = require('path');
 
+
 module.exports = {
   context: __dirname,
-  entry: "./app/App.jsx",
+  entry: './app/App.jsx',
   output: {
-    path: "../backend/static/",
-    filename: "bundle.js"
+    path: '../backend/static/',
+    filename: 'bundle.js'
   },
   module: {
     loaders: [
@@ -33,6 +34,6 @@ module.exports = {
   },
   devtool: 'source-maps',
   resolve: {
-    extensions: [".js", ".jsx"]
+    extensions: ['.js', '.jsx']
   }
 };
