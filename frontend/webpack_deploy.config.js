@@ -1,4 +1,6 @@
-const webpack = require('webpack');
+const Webpack = require('webpack'),
+      path = require('path');
+
 module.exports = {
   context: __dirname,
   entry: ".app/App.jsx",
