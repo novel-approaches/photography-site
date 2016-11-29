@@ -2,7 +2,9 @@
 import  React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
+import '../static/styles/master.scss';
 import Header from './components/Header';
+import ThumbnailsMap from './components/ThumbnailsMap';
 
 
 const API_BASE = 'https://res.cloudinary.com/clairephotography/image/upload/',
@@ -30,7 +32,8 @@ export default class App extends Component {
     return (
       <div>
         <Header />
-        {this.props.children}
+        <ThumbnailsMap />
+        { this.props.children }
       </div>
     );
   }
