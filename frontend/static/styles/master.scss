@@ -1,9 +1,10 @@
 
-.thumb {
+// .thumb {
+.perfect-grid__media {
   position: relative;
   display: inline-block;
   // width: 212px;
-  max-height: 200px;
+  // max-height: 200px;
   
   margin: 0 12px 12px 0;
   // padding-top: 0px;
@@ -32,6 +33,7 @@
 
   &:hover:after {
     height: 20px;
+    z-index: 1;
   }
 
   img {
