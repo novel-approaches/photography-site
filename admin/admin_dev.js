@@ -25,6 +25,23 @@ function handleUpload(event){
   }
 }
 
+function testSuccess(){
+  let res = JSON.parse(this.response);
+  debugger;
+  console.log(res.secure_url);
+}
+
+function testAPI(event){
+  // let xhr = new XMLHttpRequest();
+  // xhr.onload = testSuccess;
+  // xhr.open("get", `${API.admin_url}/resorces/image`, true);
+  // xhr.send();
+  // console.log(xhr.responseText);
+  $.getJSON(`${API.admin_url}/resorces/image`, (data) =>{
+    console.log(data);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   let div = document.createElement('div');
   div.innerHTML = 'HELLO';
@@ -34,4 +51,9 @@ document.addEventListener('DOMContentLoaded', () => {
   upload.setAttribute('multiple', true);
   document.body.appendChild(upload);
   upload.addEventListener('change', handleUpload);
+  //test API
+  let but = document.createElement('button');
+  but.innerHTML = 'TEST';
+  document.body.appendChild(but);
+  but.addEventListener('click', testAPI);
 });

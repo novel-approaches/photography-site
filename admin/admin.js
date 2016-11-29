@@ -94,6 +94,7 @@ module.exports = {
     "static_image_support": "false"
   },
   "env_var": "CLOUDINARY_URL=cloudinary://439198291915981:Mkg4z0aSdewn1XlM79gNvxz1EwY@clairephotography",
+  "admin_url": "https://439198291915981:Mkg4z0aSdewn1XlM79gNvxz1EwY@api.cloudinary.com/v1_1/clairephotography",
   "secure_delivery_url": "https://res.cloudinary.com/clairephotography/image/upload",
   "base_url": "https://api.cloudinary.com/v1_1/clairephotography/image/upload"
 };
@@ -131,6 +132,23 @@ function handleUpload(event) {
   }
 }
 
+function testSuccess() {
+  var res = JSON.parse(this.response);
+  debugger;
+  console.log(res.secure_url);
+}
+
+function testAPI(event) {
+  // let xhr = new XMLHttpRequest();
+  // xhr.onload = testSuccess;
+  // xhr.open("get", `${API.admin_url}/resorces/image`, true);
+  // xhr.send();
+  // console.log(xhr.responseText);
+  $.getJSON(API.admin_url + '/resorces/image', function (data) {
+    console.log(data);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   var div = document.createElement('div');
   div.innerHTML = 'HELLO';
@@ -140,6 +158,11 @@ document.addEventListener('DOMContentLoaded', function () {
   upload.setAttribute('multiple', true);
   document.body.appendChild(upload);
   upload.addEventListener('change', handleUpload);
+  //test API
+  var but = document.createElement('button');
+  but.innerHTML = 'TEST';
+  document.body.appendChild(but);
+  but.addEventListener('click', testAPI);
 });
 
 /***/ }
