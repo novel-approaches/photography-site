@@ -1,6 +1,8 @@
 # Ignore js and node files
 bundle.js
 bundle.js.map
+admin.js
+admin.js.map
 node_modules/
 npm-debug.log
 
