@@ -10,6 +10,7 @@
     "start": "nodemon",
     "watch": "webpack --watch",
     "lint": "eslint app",
+    "error-log": "webpack --display-error-details",
     "test": "mocha -w app/test/helpers/browser.js app/test/*_test.js",
     "setup": "webpack --config webpack.config.js",
     "deploy": "webpack --config webpack_deploy.config.js --progress -p",
@@ -39,8 +40,7 @@
     {
       "name": "Oliver Isenrich",
       "email": "IsenrichO@gmail.com"
-    },
-    {
+    }, {
       "name": "Travis O'Neill",
       "email": "travis.h.oneill@gmail.com"
     }
