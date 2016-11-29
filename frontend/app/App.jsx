@@ -8,10 +8,6 @@ import ThumbnailsMap from './components/ThumbnailsMap';
 
 //TEST API
 import { FetchImageData } from './api_calls';
-let data = null
-function getImages(res){
-  data = res;
-}
 //END TEST API`
 const App = ({ props }) => (
   <div>
@@ -25,8 +21,7 @@ export default App;
 
 document.addEventListener('DOMContentLoaded', () => {
   //TEST API
-  FetchImageData(getImages);
-  console.log(data);
+  FetchImageData(function(res){console.log(res)});
   //END API TEST
   ReactDOM.render(<App />, document.getElementById('root'));
 });
