@@ -10,7 +10,7 @@
     "deploy": "webpack --config webpack_deploy.config.js --progress -p"
   },
   "keywords": [],
-  "author": "",
+  "author": "Oliver Isenrich",
   "license": "ISC",
   "dependencies": {
     "babel-core": "^6.18.2",
@@ -20,5 +20,12 @@
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "webpack": "^2.1.0-beta.27"
+  },
+  "devDependencies": {
+    "autoprefixer-loader": "^3.2.0",
+    "css-loader": "^0.26.0",
+    "node-sass": "^3.13.0",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1"
   }
 }
