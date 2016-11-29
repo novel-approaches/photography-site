@@ -1,6 +1,9 @@
 {
   "name": "frontend",
   "version": "1.0.0",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
   "description": "Front-end repository for photography application's adminstrator view",
   "main": "webpack.config.js",
   "scripts": {
@@ -27,18 +30,24 @@
   "author": "Oliver Isenrich",
   "license": "ISC",
   "dependencies": {
-    "babel-core": "^6.18.2",
-    "babel-loader": "^6.2.8",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-preset-react": "^6.16.0",
     "justified-gallery": "^0.1.0",
+    "justifiedgallery": "^1.0.10",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-modal": "^1.5.2",
+    "react-perfect-grid": "^1.0.11",
     "webpack": "^2.1.0-beta.27"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.8",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-object-assign": "^6.8.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "babelify": "^7.3.0",
     "css-loader": "^0.26.0",
     "node-sass": "^3.13.0",
     "sass-loader": "^4.0.2",
