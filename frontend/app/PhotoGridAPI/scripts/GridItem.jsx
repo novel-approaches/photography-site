@@ -8,7 +8,7 @@ export default class GridItem extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-      console.log('item props:', this.props);
+      // console.log('item props:', this.props);
   }
 
   onClick(evt) {
