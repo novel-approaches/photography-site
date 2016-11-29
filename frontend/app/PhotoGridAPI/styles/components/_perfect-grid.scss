@@ -1,26 +1,22 @@
 .perfect-grid {
-
-  box-sizing: border-box;
-  *, *:before, *:after {
-    box-sizing: inherit;
-  }
-
   position: relative;
   display: flex;
-  flex: 1;
-  max-width: 100%;
   // width: 100%;
-  //flex-direction: column;
+  max-width: 100%;
+  box-sizing: border-box;
+  flex: 1;
   flex-wrap: wrap;
   align-content: flex-start;
+  //flex-direction: column;
 
-  &__link {
-    cursor: pointer;
-  }
+  *,
+  *:before,
+  *:after { box-sizing: inherit; }
 
-  &__rows {
-    display: flex;
-  }
+
+  &__link { cursor: pointer; }
+
+  &__rows { display: flex; }
 
   &__row {
     display: inline-flex;
@@ -40,6 +36,7 @@
     position: relative;
     display: flex;
     overflow: hidden;
+
     > * {
       // position: absolute;
       z-index: 2;
@@ -48,16 +45,17 @@
 
   &__media {
     position: relative;
-    z-index: 1;
-    width: 100%;
     height: 100%;
-    img, video {
+    width: 100%;
+    z-index: 1;
+
+    img,
+    video {
+      position: relative;
       display: block;
       height: 100%;
-      position: relative;
+      background-color: #000;
       z-index: 1;
-      background-color: black;
     }
   }
-
 }
