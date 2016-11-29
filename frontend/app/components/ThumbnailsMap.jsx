@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import path from 'path';
 
 import Thumbnail from './Thumbnail';
+import Grid from '../PhotoGridAPI/scripts/Grid';
+
 
 console.log(
   path,
@@ -155,18 +157,58 @@ const IMAGE_URLS = [
   'v1480366606/kl3f711j7nx4uk1jtyhg.gif'
 ];
 
-const renderThumbs = (pathsArr) => 
-  pathsArr.map((path, index, list) => (
-    <Thumbnail
-      key={ `Thumb_${index}` }
-      path={ path.secure_url.replace(/^(.+)(v\d+.+)$/, "$2") }
-      nativeDimensions={ `${path.width} x ${path.height} px` }
-      domain="cloudinary.com" />
-  )
-);
+// const renderThumbs = (pathsArr) => 
+//   pathsArr.map((path, index, list) => (
+//     <Thumbnail
+//       key={ `Thumb_${index}` }
+//       path={ path.secure_url.replace(/^(.+)(v\d+.+)$/, "$2") }
+//       nativeDimensions={ `${path.width} x ${path.height} px` }
+//       domain="cloudinary.com" />
+//   )
+// );
 
-const ThumbnailsMap = () => (
-  <main>{ renderThumbs(DATA) }</main>
-);
+// const justify = () => {
+//   $('#photo-gallery').justifiedGallery({
+//     rowHeight: 70,
+//     lastRow: 'nojustify',
+//     margins: 3
+//   });
+// };
+
+
+const ThumbnailsMap = () => {
+  let items = [
+    { url: 'https://res.cloudinary.com/clairephotography/image/upload/v1480368582/iq4sy5drl6viareno3hr.jpg' },
+    { url: 'https://res.cloudinary.com/clairephotography/image/upload/v1480367907/mmhqphjs5fohx0vljsjd.jpg' },
+    { url: 'https://res.cloudinary.com/clairephotography/image/upload/v1480367907/cvtavj9flxyvdadryjiq.gif' },
+    { url: 'https://res.cloudinary.com/clairephotography/image/upload/v1480367907/r3eqb3rulk5ksfkb2gmb.jpg' },
+    { url: 'https://res.cloudinary.com/clairephotography/image/upload/v1480367906/m35pyne0tfcho33xqznj.jpg' },
+    { url: 'https://res.cloudinary.com/clairephotography/image/upload/v1480367754/qconp93imcktgsfnii80.jpg' },
+    { url: 'https://res.cloudinary.com/clairephotography/image/upload/v1480367720/khjkrbqh8gpuyt3hdnzp.jpg' },
+    { url: 'https://res.cloudinary.com/clairephotography/image/upload/v1480367446/uaejtj7reyqupsccth7o.jpg' },
+    { url: 'https://res.cloudinary.com/clairephotography/image/upload/v1480367139/azkc56ixa5jmgmwie1gf.jpg' },
+    { url: 'https://res.cloudinary.com/clairephotography/image/upload/v1480366606/kl3f711j7nx4uk1jtyhg.gif' }
+  ];
+
+  return (
+    <main id="photo-gallery">
+      <Grid
+        items={ DATA }
+        maxHeight={ 300 }
+        margins={ 20 }
+        order={ true } />
+    </main>
+  );
+};
 
 export default ThumbnailsMap;
+
+
+// return (<main id="photo-gallery">{ renderThumbs(DATA) }</main>);
+
+// <PerfectGrid
+//   items={items}
+//   maxHeight={300}  // maximum height of row 
+//   margins={20}     // margins in pixels 
+//   order={true}     // keep images order or not 
+// />
