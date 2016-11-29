@@ -1,7 +1,9 @@
-const webpack = require('webpack');
+const Webpack = require('webpack'),
+      path = require('path');
+
 module.exports = {
   context: __dirname,
-  entry: "./photo_album.jsx",
+  entry: ".app/App.jsx",
   output: {
     path: "./static/",
     filename: "bundle.js"
@@ -15,6 +17,14 @@ module.exports = {
         query: {
           presets: ['react', 'es2015']
         }
+      }, {
+        test: /\.scss$/,
+        loaders: [
+          'style-loader',
+          'css-loader',
+          'autoprefixer-loader?browsers=last 3 versions',
+          'sass-loader?outputStyle=expanded'
+        ]
       }
     ]
   },
