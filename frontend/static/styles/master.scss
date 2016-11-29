@@ -12,8 +12,39 @@
   vertical-align: top;
   z-index: 1;
   
+  &:after {
+    position: absolute;
+    content: 'Res. ' attr(data-dims) ' - ' attr(data-domain);
+    width: 100%;
+    height: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(184, 187, 195, 0.6);
+    color: #FFF;
+    font: 200 0.85rem 'Helvetica Neue', sans-serif;
+    text-indent: 0.75rem;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition:    all 0.3s ease-out;
+    -ms-transition:     all 0.3s ease-out;
+    -o-transition:      all 0.3s ease-out;
+    transition:         all 0.3s ease-out;
+  }
+
+  &:hover:after {
+    height: 20px;
+  }
+
   img {
     position: relative;
     height: 100%;
   }
+}
+
+main {
+  position: relative;
+  display: flex;
+  margin: auto;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
 }
