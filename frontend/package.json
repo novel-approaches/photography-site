@@ -8,10 +8,12 @@
   "main": "webpack.config.js",
   "scripts": {
     "start": "nodemon",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint app",
+    "test": "mocha -w app/test/helpers/browser.js app/test/*_test.js",
     "watch": "webpack --watch",
     "setup": "webpack --config webpack.config.js",
-    "deploy": "webpack --config webpack_deploy.config.js --progress -p"
+    "deploy": "webpack --config webpack_deploy.config.js --progress -p",
+    "dev": "webpack-dev-server --progress --profile --colors"
   },
   "repository": {
     "type": "git",
@@ -21,26 +23,33 @@
     "url": "https://github.com/novel-approaches/photography-site/issues"
   },
   "homepage": "https://github.com/novel-approaches/photography-site/blob/master/README.md",
+  "readme": "ERROR: No README data found!",
   "keywords": [
     "Photo Wall",
     "Photography",
     "Claire",
     "Novel Approaches"
   ],
-  "author": "Oliver Isenrich",
-  "license": "ISC",
-  "dependencies": {
-    "justified-gallery": "^0.1.0",
-    "justifiedgallery": "^1.0.10",
-    "react": "^15.4.1",
-    "react-dom": "^15.4.1",
-    "react-modal": "^1.5.2",
-    "react-perfect-grid": "^1.0.11",
-    "webpack": "^2.1.0-beta.27"
+  "author": {
+    "name": "Oliver Isenrich",
+    "email": "IsenrichO@gmail.com",
+    "url": "http://isenrich.io"
   },
+  "maintainers": [
+    {
+      "name": "Oliver Isenrich",
+      "email": "IsenrichO@gmail.com"
+    }, {
+      "name": "Travis O'Neill",
+      "email": "travis.h.oneill@gmail.com"
+    }
+  ],
+  "license": "ISC",
+  "dependencies": {},
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",
     "babel-core": "^6.18.2",
+    "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.8",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-plugin-transform-object-assign": "^6.8.0",
@@ -49,8 +58,21 @@
     "babel-preset-stage-0": "^6.16.0",
     "babelify": "^7.3.0",
     "css-loader": "^0.26.0",
+    "eslint": "^3.11.1",
+    "eslint-plugin-react": "^6.7.1",
+    "mocha": "^3.2.0",
     "node-sass": "^3.13.0",
+    "nodemon": "^1.11.0",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "react-modal": "^1.5.2",
     "sass-loader": "^4.0.2",
-    "style-loader": "^0.13.1"
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "react": ">=0.14"
   }
 }
