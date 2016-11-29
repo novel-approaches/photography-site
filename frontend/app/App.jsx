@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import '../static/styles/master.scss';
 import Header from './components/Header';
 import ThumbnailsMap from './components/ThumbnailsMap';
+import { getURLs } from './api_calls';
 
 
 const API_BASE = 'https://res.cloudinary.com/clairephotography/image/upload/',
@@ -39,6 +40,6 @@ export default class App extends Component {
   }
 };
 
-document.addEventListener('DOMContentLoaded', () => { 
+document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(<App />, document.getElementById('root'));
 });
