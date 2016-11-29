@@ -2,15 +2,15 @@
   "name": "frontend",
   "version": "1.0.0",
   "engines": {
-    "node": ">= 0.8.0"
+    "node": ">=0.8.0"
   },
   "description": "Front-end repository for photography application's adminstrator view",
   "main": "webpack.config.js",
   "scripts": {
     "start": "nodemon",
+    "watch": "webpack --watch",
     "lint": "eslint app",
     "test": "mocha -w app/test/helpers/browser.js app/test/*_test.js",
-    "watch": "webpack --watch",
     "setup": "webpack --config webpack.config.js",
     "deploy": "webpack --config webpack_deploy.config.js --progress -p",
     "dev": "webpack-dev-server --progress --profile --colors"
@@ -39,13 +39,16 @@
     {
       "name": "Oliver Isenrich",
       "email": "IsenrichO@gmail.com"
-    }, {
+    },
+    {
       "name": "Travis O'Neill",
       "email": "travis.h.oneill@gmail.com"
     }
   ],
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "react": "^15.4.1"
+  },
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",
     "babel-core": "^6.18.2",
