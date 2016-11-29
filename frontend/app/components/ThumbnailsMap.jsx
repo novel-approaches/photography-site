@@ -4,6 +4,7 @@ import path from 'path';
 
 import Thumbnail from './Thumbnail';
 import Grid from '../PhotoGridAPI/scripts/Grid';
+import { FetchData } from '../APId';
 
 
 const DATA = [
@@ -161,14 +162,6 @@ const IMAGE_URLS = [
 //       domain='cloudinary.com' />
 //   )
 // );
-
-// const justify = () => {
-//   $('#photo-gallery').justifiedGallery({
-//     rowHeight: 70,
-//     lastRow: 'nojustify',
-//     margins: 3
-//   });
-// };
 
 
 const ThumbnailsMap = () => {
