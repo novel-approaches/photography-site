@@ -1,24 +1,22 @@
-const Webpack = require('webpack'),
+const webpack = require('webpack'),
       path = require('path');
+
 
 module.exports = {
   context: __dirname,
-  entry: ".app/App.jsx",
+  entry: './.app/App.jsx',
   output: {
-    path: "./static/",
-    filename: "bundle.js"
+    path: './static/',
+    filename: 'bundle.js'
   },
   module: {
     loaders: [
       {
-        test: [/\.jsx?$/, /\.js?$/],
+        test: /\.jsx?$/i,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['react', 'es2015']
-        }
+        loader: 'babel-loader'
       }, {
-        test: /\.scss$/,
+        test: /\.scss$/i,
         loaders: [
           'style-loader',
           'css-loader',
@@ -49,6 +47,6 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: [".js", ".jsx"]
+    extensions: ['', '.js', '.jsx']
   },
 };

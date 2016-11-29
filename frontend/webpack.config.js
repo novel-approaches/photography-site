@@ -1,4 +1,4 @@
-const Webpack = require('webpack'),
+const webpack = require('webpack'),
       path = require('path');
 
 
@@ -12,11 +12,11 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.jsx?$/,
+        test: /\.jsx?$/i,
         exclude: /node_modules/,
         loader: 'babel-loader'
       }, {
-        test: /\.scss$/,
+        test: /\.scss$/i,
         loaders: [
           'style-loader',
           'css-loader',
@@ -34,6 +34,6 @@ module.exports = {
   },
   devtool: 'source-maps',
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['', '.js', '.jsx']
   }
 };
