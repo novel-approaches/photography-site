@@ -9,7 +9,10 @@
     "setup": "webpack --config webpack.config.js",
     "deploy": "webpack --config webpack_deploy.config.js --progress -p"
   },
-  "keywords": [],
+  "keywords": [
+    "Photo Wall",
+    "Photography"
+  ],
   "author": "Oliver Isenrich",
   "license": "ISC",
   "dependencies": {
