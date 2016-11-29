@@ -5,7 +5,6 @@ export function FetchImageData(callback) {
     url: '/images',
     type: 'get',
     success(res) {
-      console.log(res);
       callback(res);
     },
     error(err) {
