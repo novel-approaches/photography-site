@@ -40,17 +40,21 @@
     {
       "name": "Oliver Isenrich",
       "email": "IsenrichO@gmail.com"
-    }, {
+    },
+    {
       "name": "Travis O'Neill",
       "email": "travis.h.oneill@gmail.com"
-    }, {
+    },
+    {
       "name": "Daniel Cuperman",
       "email": "dacuperman@gmail.com"
     }
   ],
   "license": "ISC",
   "dependencies": {
-    "react": "^15.4.1"
+    "react": "^15.4.1",
+    "simple-react-forms": "^1.1.1",
+    "simple-react-modal": "^0.5.1"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",

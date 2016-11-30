@@ -12,3 +12,16 @@ export function FetchImageData(callback) {
     }
   });
 };
+
+export function PlaceImageOrder(data) {
+  $.ajax({
+    url: '/orders',
+    type: 'post',
+    success(res) {
+      console.log('Order Placed!')
+    },
+    error(err) {
+      console.log(err);
+    }
+  });
+};
