@@ -7,8 +7,9 @@ import Header from './components/Header';
 import ThumbnailsMap from './components/ThumbnailsMap';
 
 //TEST API
-import { FetchImageData } from './api_calls';
+import { FetchImageData } from './API_Calls';
 //END TEST API`
+
 const App = ({ props }) => (
   <div>
     <Header />

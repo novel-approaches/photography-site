@@ -1,4 +1,5 @@
 'use strict';
+
 const nodemailer = require('nodemailer');
 
 //Config options for the SMTP. See https://nodemailer.com/2-0-0-beta/setup-smtp/well-known-services/

@@ -4,7 +4,7 @@ import path from 'path';
 
 import Thumbnail from './Thumbnail';
 import Grid from '../PhotoGridAPI/scripts/Grid';
-import { FetchImageData } from '../api_calls';
+import { FetchImageData } from '../API_Calls';
 
 
 const DATA = [
