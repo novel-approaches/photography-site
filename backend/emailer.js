@@ -6,10 +6,11 @@ const smtpConfig = {
     service: 'mailgun',
     auth: {
         user: 'postmaster@sandbox44ddf02b5433449d8f1e314174949ced.mailgun.org',
-        pass: '788c1d71be0d0fdc88517c2a6ba364df' //TODO obfuscate this email PW, the account is a trash gmail account for now, so no risk is assumed.
+        pass: '' //TODO obfuscate this password(which has been changed). Save it to a .txt file that is deployed to the server. .json is fine.
     }
 };
-  const transporter = nodemailer.createTransport(smtpConfig);
+
+const transporter = nodemailer.createTransport(smtpConfig);
 
 
 
