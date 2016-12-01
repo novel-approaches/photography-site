@@ -2,9 +2,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import path from 'path';
+
 import Thumbnail from './Thumbnail';
 import Grid from '../PhotoGridAPI/scripts/Grid';
 import { FetchImageURLs, FetchImageURLs1, FetchImageData } from '../API_Calls';
+
 
 const DATA = [
     {
@@ -140,7 +142,6 @@ const DATA = [
   ];
 
 
-<<<<<<< HEAD
 // const renderThumbs = (pathsArr) =>
 //   pathsArr.map((path, index, list) => (
 //     <Thumbnail
@@ -150,20 +151,16 @@ const DATA = [
 //       domain='cloudinary.com' />
 //   )
 // );
-=======
-// console.log('URLS:', FetchImageURLs());
-// console.log('Data:', FetchImageData());
->>>>>>> dev
+  // console.log('URLS:', FetchImageURLs());
+  // console.log('Data:', FetchImageData());
 
 // const dataDef = FetchImageData.done(function() {});
   // console.log('Deferred Data:', dataDef);
 
-console.log('$GET:', FetchImageData().responseJSON);
+// console.log('$GET:', FetchImageData().responseJSON);
 
 
 const ThumbnailsMap = ({ gridMargins, gridSize }) => {
-  // const data = FetchImageData();
-
   return (
     <main id='photo-gallery'>
       <Grid
@@ -180,7 +177,6 @@ let mapStateToProps = (state) => ({
   gridSize: state.gridSize
 });
 
-// export default ThumbnailsMap;
 export default connect(mapStateToProps)(ThumbnailsMap);
 
 
