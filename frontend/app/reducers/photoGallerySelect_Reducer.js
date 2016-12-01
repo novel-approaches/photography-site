@@ -4,6 +4,19 @@ import { TOGGLE_PHOTO_SELECTION_STATE } from '../actions/index';
 
 const DATA = [
   {
+    "public_id":"test_DSC6091_b9qrtx",
+    "format":"jpg","version":1480453840,
+    "resource_type":"image",
+    "type":"upload",
+    "created_at":"2016-11-29T21:10:40Z",
+    "bytes":5812291,
+    "width":4508,
+    "height":3000,
+    "selected": false,
+    "url":"http://res.cloudinary.com/clairephotography/image/upload/v1480453840/test_DSC6091_b9qrtx.jpg",
+    "secure_url":"https://res.cloudinary.com/clairephotography/image/upload/v1480453840/test_DSC6091_b9qrtx.jpg"
+  },
+  {
     'public_id': 'iq4sy5drl6viareno3hr',
     'format': 'jpg',
     'version': 1480368582,
@@ -16,7 +29,8 @@ const DATA = [
     'selected': false,
     'url': 'http://res.cloudinary.com/clairephotography/image/upload/v1480368582/iq4sy5drl6viareno3hr.jpg',
     'secure_url': 'https://res.cloudinary.com/clairephotography/image/upload/v1480368582/iq4sy5drl6viareno3hr.jpg'
-  }, {
+  },
+  {
     'public_id': 'mmhqphjs5fohx0vljsjd',
     'format': 'jpg',
     'version': 1480367907,
@@ -29,7 +43,8 @@ const DATA = [
     'selected': false,
     'url': 'http://res.cloudinary.com/clairephotography/image/upload/v1480367907/mmhqphjs5fohx0vljsjd.jpg',
     'secure_url': 'https://res.cloudinary.com/clairephotography/image/upload/v1480367907/mmhqphjs5fohx0vljsjd.jpg'
-  }, {
+  },
+  {
     'public_id': 'cvtavj9flxyvdadryjiq',
     'format': 'gif',
     'version': 1480367907,
@@ -42,7 +57,8 @@ const DATA = [
     'selected': false,
     'url': 'http://res.cloudinary.com/clairephotography/image/upload/v1480367907/cvtavj9flxyvdadryjiq.gif',
     'secure_url': 'https://res.cloudinary.com/clairephotography/image/upload/v1480367907/cvtavj9flxyvdadryjiq.gif'
-  }, {
+  },
+  {
     'public_id': 'r3eqb3rulk5ksfkb2gmb',
     'format': 'jpg',
     'version': 1480367907,
@@ -55,7 +71,8 @@ const DATA = [
     'selected': false,
     'url': 'http://res.cloudinary.com/clairephotography/image/upload/v1480367907/r3eqb3rulk5ksfkb2gmb.jpg',
     'secure_url': 'https://res.cloudinary.com/clairephotography/image/upload/v1480367907/r3eqb3rulk5ksfkb2gmb.jpg'
-  }, {
+  },
+  {
     'public_id': 'm35pyne0tfcho33xqznj',
     'format': 'jpg',
     'version': 1480367906,
@@ -68,7 +85,8 @@ const DATA = [
     'selected': false,
     'url': 'http://res.cloudinary.com/clairephotography/image/upload/v1480367906/m35pyne0tfcho33xqznj.jpg',
     'secure_url': 'https://res.cloudinary.com/clairephotography/image/upload/v1480367906/m35pyne0tfcho33xqznj.jpg'
-  }, {
+  },
+  {
     'public_id': 'qconp93imcktgsfnii80',
     'format': 'jpg',
     'version': 1480367754,
@@ -81,7 +99,8 @@ const DATA = [
     'selected': false,
     'url': 'http://res.cloudinary.com/clairephotography/image/upload/v1480367754/qconp93imcktgsfnii80.jpg',
     'secure_url': 'https://res.cloudinary.com/clairephotography/image/upload/v1480367754/qconp93imcktgsfnii80.jpg'
-  }, {
+  },
+  {
     'public_id': 'khjkrbqh8gpuyt3hdnzp',
     'format': 'jpg',
     'version': 1480367720,
@@ -94,7 +113,8 @@ const DATA = [
     'selected': false,
     'url': 'http://res.cloudinary.com/clairephotography/image/upload/v1480367720/khjkrbqh8gpuyt3hdnzp.jpg',
     'secure_url': 'https://res.cloudinary.com/clairephotography/image/upload/v1480367720/khjkrbqh8gpuyt3hdnzp.jpg'
-  }, {
+  },
+  {
     'public_id': 'uaejtj7reyqupsccth7o',
     'format': 'jpg',
     'version': 1480367446,
@@ -107,7 +127,8 @@ const DATA = [
     'selected': false,
     'url': 'http://res.cloudinary.com/clairephotography/image/upload/v1480367446/uaejtj7reyqupsccth7o.jpg',
     'secure_url': 'https://res.cloudinary.com/clairephotography/image/upload/v1480367446/uaejtj7reyqupsccth7o.jpg'
-  }, {
+  },
+  {
     'public_id': 'azkc56ixa5jmgmwie1gf',
     'format': 'jpg',
     'version': 1480367139,
@@ -120,7 +141,8 @@ const DATA = [
     'selected': false,
     'url': 'http://res.cloudinary.com/clairephotography/image/upload/v1480367139/azkc56ixa5jmgmwie1gf.jpg',
     'secure_url': 'https://res.cloudinary.com/clairephotography/image/upload/v1480367139/azkc56ixa5jmgmwie1gf.jpg'
-  }, {
+  },
+  {
     'public_id': 'kl3f711j7nx4uk1jtyhg',
     'format': 'gif',
     'version': 1480366606,
