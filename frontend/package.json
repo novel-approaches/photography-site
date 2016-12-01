@@ -26,9 +26,11 @@
   "homepage": "https://github.com/novel-approaches/photography-site/blob/master/README.md",
   "readme": "ERROR: No README data found!",
   "keywords": [
+    "Front-End",
+    "Galleria Scola",
     "Photo Wall",
     "Photography",
-    "Claire",
+    "Claire Wilson",
     "Novel Approaches"
   ],
   "author": {
@@ -40,7 +42,8 @@
     {
       "name": "Oliver Isenrich",
       "email": "IsenrichO@gmail.com"
-    }, {
+    },
+    {
       "name": "Travis O'Neill",
       "email": "travis.h.oneill@gmail.com"
     }
@@ -63,12 +66,17 @@
     "css-loader": "^0.26.0",
     "eslint": "^3.11.1",
     "eslint-plugin-react": "^6.7.1",
+    "json-loader": "^0.5.4",
     "mocha": "^3.2.0",
     "node-sass": "^3.13.0",
     "nodemon": "^1.11.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-modal": "^1.5.2",
+    "react-redux": "^4.4.6",
+    "redux": "^3.6.0",
+    "redux-logger": "^2.7.4",
+    "redux-thunk": "^2.1.0",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.3",

@@ -13,12 +13,12 @@ Server.use(BodyParser.json());
 Server.get('/images', (req, res) => {
   let url = `${API.admin_url}/resources/image`;
   Request(url, (error, response, body) => {
-    res.send(JSON.parse(body).resources.map(obj => obj.secure_url));
+    res.send(JSON.parse(body).resources);
   });
 });
 
 if (module === require.main) {
-  var server = Server.listen(process.env.PORT || 8000, function () {
+  var server = Server.listen(process.env.PORT || 8000, function() {
     var port = server.address().port;
     console.log('Node Server listening on port %s', port);
   });

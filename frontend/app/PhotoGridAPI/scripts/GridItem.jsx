@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 
 import Thumbnail from '../../components/Thumbnail';
+import CheckboxGlyph from '../../constants/svg/CheckboxGlyph_SVG';
 
 
 export default class GridItem extends Component {
@@ -59,15 +60,16 @@ export default class GridItem extends Component {
 
     return (
       <div
-        className={"perfect-grid__item" + (link ? ' perfect-grid__link' : '')}
+        className={ 'perfect-grid__item' + (link ? ' perfect-grid__link' : '') }
         onClick={onClick}
         style={style}>
         { over }
         <div
           className="perfect-grid__media"
           data-dims={ this.props.nativeDimensions }
-          data-domain={ this.props.domain }
-          >
+          data-domain={ this.props.domain }>
+          <CheckboxGlyph
+            className="checkbox-glyph" />
           { media }
         </div>
       </div>

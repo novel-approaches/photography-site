@@ -1,27 +1,32 @@
 'use strict';
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import rootReducer from './reducers/rootReducer';
 import '../static/styles/master.scss';
 import Header from './components/Header';
 import ThumbnailsMap from './components/ThumbnailsMap';
+import GridControls from './components/GridControls';
 
-//TEST API
-import { FetchImageData } from './api_calls';
-//END TEST API`
+const store = createStore(rootReducer);
+
+
 const App = ({ props }) => (
-  <div>
-    <Header />
-    <ThumbnailsMap />
-    { props }
-  </div>
+  <Provider store={ store }>
+    <div>
+      <Header />
+      <div className="midsection">
+        <GridControls />
+        <ThumbnailsMap />
+      </div>
+      { props }
+    </div>
+  </Provider>
 );
 
 export default App;
 
 document.addEventListener('DOMContentLoaded', () => {
-  //TEST API
-  FetchImageData(function(res){console.log(res)});
-  //END API TEST
   ReactDOM.render(<App />, document.getElementById('root'));
 });

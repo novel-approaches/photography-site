@@ -1,11 +1,10 @@
 'use strict';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import path from 'path';
-
 import Thumbnail from './Thumbnail';
 import Grid from '../PhotoGridAPI/scripts/Grid';
-import { FetchImageData } from '../api_calls';
-
+import { FetchImageURLs, FetchImageURLs1, FetchImageData } from '../API_Calls';
 
 const DATA = [
     {
@@ -140,18 +139,51 @@ const DATA = [
     }
   ];
 
-const IMAGE_URLS = [
-  'v1480368582/iq4sy5drl6viareno3hr.jpg',
-  'v1480367907/mmhqphjs5fohx0vljsjd.jpg',
-  'v1480367907/cvtavj9flxyvdadryjiq.gif',
-  'v1480367907/r3eqb3rulk5ksfkb2gmb.jpg',
-  'v1480367906/m35pyne0tfcho33xqznj.jpg',
-  'v1480367754/qconp93imcktgsfnii80.jpg',
-  'v1480367720/khjkrbqh8gpuyt3hdnzp.jpg',
-  'v1480367446/uaejtj7reyqupsccth7o.jpg',
-  'v1480367139/azkc56ixa5jmgmwie1gf.jpg',
-  'v1480366606/kl3f711j7nx4uk1jtyhg.gif'
-];
+
+<<<<<<< HEAD
+// const renderThumbs = (pathsArr) =>
+//   pathsArr.map((path, index, list) => (
+//     <Thumbnail
+//       key={ `Thumb_${index}` }
+//       path={ path.secure_url.replace(/^(.+)(v\d+.+)$/, '$2') }
+//       nativeDimensions={ `${path.width} x ${path.height} px` }
+//       domain='cloudinary.com' />
+//   )
+// );
+=======
+// console.log('URLS:', FetchImageURLs());
+// console.log('Data:', FetchImageData());
+>>>>>>> dev
+
+// const dataDef = FetchImageData.done(function() {});
+  // console.log('Deferred Data:', dataDef);
+
+console.log('$GET:', FetchImageData().responseJSON);
+
+
+const ThumbnailsMap = ({ gridMargins, gridSize }) => {
+  // const data = FetchImageData();
+
+  return (
+    <main id='photo-gallery'>
+      <Grid
+        items={ DATA }
+        maxHeight={ gridSize }
+        margins={ gridMargins }
+        order={ true } />
+    </main>
+  );
+};
+
+let mapStateToProps = (state) => ({
+  gridMargins: state.gridMargins,
+  gridSize: state.gridSize
+});
+
+// export default ThumbnailsMap;
+export default connect(mapStateToProps)(ThumbnailsMap);
+
+
 
 // const renderThumbs = (pathsArr) =>
 //   pathsArr.map((path, index, list) => (
@@ -163,33 +195,6 @@ const IMAGE_URLS = [
 //   )
 // );
 
-
-const ThumbnailsMap = () => {
-  let items = [
-    { url: 'https://res.cloudinary.com/clairephotography/image/upload/v1480368582/iq4sy5drl6viareno3hr.jpg' },
-    { url: 'https://res.cloudinary.com/clairephotography/image/upload/v1480367907/mmhqphjs5fohx0vljsjd.jpg' },
-    { url: 'https://res.cloudinary.com/clairephotography/image/upload/v1480367907/cvtavj9flxyvdadryjiq.gif' },
-    { url: 'https://res.cloudinary.com/clairephotography/image/upload/v1480367907/r3eqb3rulk5ksfkb2gmb.jpg' },
-    { url: 'https://res.cloudinary.com/clairephotography/image/upload/v1480367906/m35pyne0tfcho33xqznj.jpg' },
-    { url: 'https://res.cloudinary.com/clairephotography/image/upload/v1480367754/qconp93imcktgsfnii80.jpg' },
-    { url: 'https://res.cloudinary.com/clairephotography/image/upload/v1480367720/khjkrbqh8gpuyt3hdnzp.jpg' },
-    { url: 'https://res.cloudinary.com/clairephotography/image/upload/v1480367446/uaejtj7reyqupsccth7o.jpg' },
-    { url: 'https://res.cloudinary.com/clairephotography/image/upload/v1480367139/azkc56ixa5jmgmwie1gf.jpg' },
-    { url: 'https://res.cloudinary.com/clairephotography/image/upload/v1480366606/kl3f711j7nx4uk1jtyhg.gif' }
-  ];
-
-  return (
-    <main id='photo-gallery'>
-      <Grid
-        items={ DATA }
-        maxHeight={ 300 }
-        margins={ 20 }
-        order={ true } />
-    </main>
-  );
-};
-
-export default ThumbnailsMap;
 
 
 // return (<main id='photo-gallery'>{ renderThumbs(DATA) }</main>);
