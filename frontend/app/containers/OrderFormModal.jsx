@@ -6,16 +6,26 @@ import { connect } from 'react-redux';
 
 import { orderPhoto, toggleModal } from '../actions/index';
 import OrderFormModalStyles from '../constants/json/OrderFormModalStyles.json';
+import ProductOrderItem from '../components/ProductOrderItem';
 
 
 class OrderFormModal extends Component {
   constructor(props) {
     super(props);
     this.closeOrderFormModal = this.closeOrderFormModal.bind(this);
+    this.renderProducts = this.renderProducts.bind(this);
   }
 
   closeOrderFormModal(evt) {
     this.props.toggleModal();
+  }
+
+  renderProducts(cart) {
+    return Object.values(cart).map((item, index, list) =>
+      <ProductOrderItem
+        key={ `ProductOrder_${index}` }
+        item={ item } />
+    );
   }
 
   render() {
@@ -24,6 +34,7 @@ class OrderFormModal extends Component {
         isOpen={ this.props.orderFormModal }
         style={ OrderFormModalStyles }>
         <h4>Your Order</h4>
+        { this.renderProducts(this.props.shoppingCart) }
         <i
           id="close-modal-btn"
           onClick={ this.closeOrderFormModal }>
@@ -36,7 +47,8 @@ class OrderFormModal extends Component {
 
 let mapStateToProps = (state) => ({
   photoOrder: state.photoOrder,
-  orderFormModal: state.orderFormModal
+  orderFormModal: state.orderFormModal,
+  shoppingCart: state.shoppingCart
 });
 
 let mapDispatchToProps = (dispatch) => bindActionCreators({
