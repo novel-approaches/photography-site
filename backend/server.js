@@ -19,6 +19,11 @@ Server.get('/images', (req, res) => {
   });
 });
 
+Server.post('/order', (req, res) => {
+  let emailed = Emailer.sendOrderEmail(req.body)
+  res.send(JSON.parse(emailed));
+});
+
 if (module === require.main) {
   var server = Server.listen(process.env.PORT || 8000, function() {
     var port = server.address().port;
