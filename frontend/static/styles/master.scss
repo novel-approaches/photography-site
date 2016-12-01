@@ -184,11 +184,19 @@ label {
 
 
 .perfect-grid__item {
-  .checkbox-glyph {
+  .checkbox {
     position: absolute;
-    width: auto;
+    width: 2.25rem;
     height: 2.25rem;
     margin: 0.5rem;
+    fill: #FFF;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .checkbox-glyph {
+    width: auto;
+    height: inherit;
     fill: #FFF;
     opacity: 1;
     fill-opacity: 0;
@@ -196,13 +204,25 @@ label {
     transition:         all 0.135s cubic-bezier(0.0, 0.0, 0.2, 1);
     -webkit-transition-property: opacity, fill-opacity;
     transition-property:         opacity, fill-opacity;
-    cursor: pointer;
-    z-index: 2;
 
     &:hover {
       fill-opacity: 1 !important;
     }
   }
+
+
+
+    &.checked {
+      background-color: #EEE;
+    }
+
+    .perfect-grid__media {
+      -webkit-transform: translateZ(0) scale3d(0.89, 0.85, 1);
+      -moz-transform:    translateZ(0) scale3d(0.89, 0.85, 1);
+      -ms-transform:     translateZ(0) scale3d(0.89, 0.85, 1);
+      -o-transform:      translateZ(0) scale3d(0.89, 0.85, 1);
+      transform:         translateZ(0) scale3d(0.89, 0.85, 1);
+    }
 
   &:hover .checkbox-glyph {
     fill-opacity: 0.54;
