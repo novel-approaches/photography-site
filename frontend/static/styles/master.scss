@@ -193,6 +193,7 @@ label {
     transition:         all 0.135s cubic-bezier(0.0, 0.0, 0.2, 1);
     -webkit-transition-property: opacity, fill-opacity;
     transition-property:         opacity, fill-opacity;
+    cursor: pointer;
     z-index: 2;
   }
 
