@@ -1,4 +1,5 @@
 'use strict';
+
 export const FetchImageURLs = function(callback = function() {}) {
   $.ajax({
     url: '/images',
@@ -20,6 +21,20 @@ export const FetchImageURLs1 = function() {
     success(res) {
       console.log(res);
       // callback(res);
+    },
+    error(err) {
+      console.log(err);
+    }
+  });
+};
+
+export const FetchImageData = function(callback = function() {}) {
+  return $.ajax({
+    url: '/gallery-data',
+    type: 'get',
+    success(res) {
+      console.log(res);
+      callback(res);
     },
     error(err) {
       console.log(err);
