@@ -23,6 +23,9 @@ module.exports = {
           'autoprefixer?browsers=last 3 versions',
           'sass?outputStyle=expanded'
         ]
+      }, {
+        test: /\.json$/i,
+        loader: 'json'
       }
     ]
   },
