@@ -1,14 +1,31 @@
 {
   "name": "admin",
   "version": "1.0.0",
-  "description": "",
+  "description": "Administrator repository for photography application's adminstrator view",
   "main": "admin.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch"
   },
-  "keywords": [],
+  "keywords": [
+    "Admin",
+    "Administrator",
+    "Galleria Scola",
+    "Photo Wall",
+    "Photography",
+    "Claire Wilson",
+    "Novel Approaches"
+  ],
   "author": "",
+  "maintainers": [
+    {
+      "name": "Oliver Isenrich",
+      "email": "IsenrichO@gmail.com"
+    }, {
+      "name": "Travis O'Neill",
+      "email": "travis.h.oneill@gmail.com"
+    }
+  ],
   "license": "ISC",
   "dependencies": {
     "babel-core": "^6.18.2",
