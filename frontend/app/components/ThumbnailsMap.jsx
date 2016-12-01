@@ -160,11 +160,11 @@ const DATA = [
 // console.log('$GET:', FetchImageData().responseJSON);
 
 
-const ThumbnailsMap = ({ gridMargins, gridSize }) => {
+const ThumbnailsMap = ({ gridMargins, gridSize, photoGallery }) => {
   return (
     <main id='photo-gallery'>
       <Grid
-        items={ DATA }
+        items={ photoGallery }
         maxHeight={ gridSize }
         margins={ gridMargins }
         order={ true } />
@@ -174,12 +174,14 @@ const ThumbnailsMap = ({ gridMargins, gridSize }) => {
 
 let mapStateToProps = (state) => ({
   gridMargins: state.gridMargins,
-  gridSize: state.gridSize
+  gridSize: state.gridSize,
+  photoGallery: state.photoGallery
 });
 
 export default connect(mapStateToProps)(ThumbnailsMap);
 
 
+// DATA.map(obj => Object.assign(obj, { selected: false }))
 
 // const renderThumbs = (pathsArr) =>
 //   pathsArr.map((path, index, list) => (
@@ -190,8 +192,6 @@ export default connect(mapStateToProps)(ThumbnailsMap);
 //       domain='cloudinary.com' />
 //   )
 // );
-
-
 
 // return (<main id='photo-gallery'>{ renderThumbs(DATA) }</main>);
 
