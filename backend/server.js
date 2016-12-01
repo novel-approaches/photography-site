@@ -13,7 +13,9 @@ Server.use(BodyParser.json());
 Server.get('/images', (req, res) => {
   let url = `${API.admin_url}/resources/image`;
   Request(url, (error, response, body) => {
-    res.send(JSON.parse(body).resources);
+    let data = JSON.parse(body).resources;
+    data.forEach( obj => obj.selected = false );
+    res.send(data);
   });
 });
 
