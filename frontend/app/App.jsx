@@ -11,7 +11,6 @@ import GridControls from './components/GridControls';
 
 const store = createStore(rootReducer);
 
-
 const App = ({ props }) => (
   <Provider store={ store }>
     <div>

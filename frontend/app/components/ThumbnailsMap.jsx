@@ -6,6 +6,7 @@ import Thumbnail from './Thumbnail';
 import Grid from '../PhotoGridAPI/scripts/Grid';
 import { FetchImageURLs, FetchImageURLs1, FetchImageData } from '../API_Calls';
 
+
 const DATA = [
     {
       'public_id': 'iq4sy5drl6viareno3hr',

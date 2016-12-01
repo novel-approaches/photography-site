@@ -27,13 +27,12 @@ export const FetchImageURLs1 = function() {
   });
 };
 
-export const FetchImageData = function(callback = function() {}) {
-  return $.ajax({
-    url: '/gallery-data',
-    type: 'get',
+export function PlaceImageOrder(data) {
+  $.ajax({
+    url: '/orders',
+    type: 'post',
     success(res) {
-      console.log(res);
-      callback(res);
+      console.log('Order Placed!')
     },
     error(err) {
       console.log(err);
