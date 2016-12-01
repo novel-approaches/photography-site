@@ -10,8 +10,8 @@
     "zIndex": 150
   }, 
   "content": {
-    "minWidth": "90vw",
-    "minHeight": "90vh",
+    "position": "fixed",
+    "width": "55vw",
     "top": "50%",
     "left": "50%",
     "right": "auto",
@@ -24,7 +24,7 @@
     "MsTransform": "translate(-50%, -50%)",
     "OTransform": "translate(-50%, -50%)",
     "transform": "translate(-50%, -50%)",
-    "overflow": "hidden",
+    "overflow": "visible",
     "zIndex": 200
   }  
 }
