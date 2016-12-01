@@ -33,13 +33,15 @@ class OrderFormModal extends Component {
       <Modal
         isOpen={ this.props.orderFormModal }
         style={ OrderFormModalStyles }>
-        <h4>Your Order</h4>
-        { this.renderProducts(this.props.shoppingCart) }
+        <h3>Your Order Summary</h3>
         <i
           id="close-modal-btn"
           onClick={ this.closeOrderFormModal }>
           &times;
         </i>
+        <ul id="orders-list">
+          { this.renderProducts(this.props.shoppingCart) }
+        </ul>
       </Modal>
     );
   }
