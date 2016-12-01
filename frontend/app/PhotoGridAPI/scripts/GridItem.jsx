@@ -1,15 +1,16 @@
 'use strict';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Thumbnail from '../../components/Thumbnail';
 import PhotoCheckbox from '../../components/PhotoCheckbox';
 
 
-export default class GridItem extends Component {
+class GridItem extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
-      // console.log('item props:', this.props);
+    // this.assignClass = this.assignClass.bind(this);
+    console.log('GRIDITEM:', this.props.photo);
   }
 
   onClick(evt) {
@@ -26,6 +27,19 @@ export default class GridItem extends Component {
   //   )
   // }
   
+  assignClass(link = null) {
+    // const photoData = this.props.photoSelect;
+      // console.log('Photo Data:', photoData);
+    // return photoData['selected'] && photoData.selected ? 'checked' : '';
+    
+    // perfect-grid__item ${link ? 'perfect-grid__link' : ''} ${this.assignClass()}
+    // return `perfect-grid__item ${link ? 'perfect-grid__link' : ''}`;
+
+    let selectState = this.props.photoGallerySelect[this.props.photo.public_id].selected;
+      console.log('\n\nSELECT STATE:', selectState);
+
+    return `perfect-grid__item ${selectState ? 'checked' : ''}`;
+  }
 
   render() {
     let { H, margins, over, media, ratio, type, element, link } = this.props;
@@ -35,22 +49,31 @@ export default class GridItem extends Component {
     let width = H * ratio;
 
     let style = {
-      height: height + 'px',
-      width: width + 'px',
-      margin: margins / 2 + 'px'
+      height: `${height}px`,
+      width: `${width}px`,
+      margin: `${margins / 2}px`
     };
 
-    if (type === 'image') {
-      media = <img src={src} />
-    } else if (type === 'video') {
-      media = <video src={src} controls />
-    } else if (type === 'element') {
-      // element.style = style
-      return (
-        <div onClick={onClick} className="perfect-grid__item" style={style}>
-          { element }
-        </div>
-      )
+
+    switch (type) {
+      case 'image':
+        media = <img src={ src } />
+        break;
+      case 'video':
+        media = <video src={ src } controls />
+        break;
+      case 'element':
+        return (
+          <div
+            className="perfect-grid__item"
+            style={ style }
+            onClick={ onClick }>
+            { element }
+          </div>
+        );
+      default:
+        throw new Error(`Unrecognized media format: ${type}`);
+        break;
     }
 
     // let onClick = link ? ::this.onClick : null;
@@ -58,11 +81,15 @@ export default class GridItem extends Component {
 
     // over = over ? <div className="perfect-grid__over" >{ over }</div> : null
 
+    console.log('12312313', this.props.photoGallerySelect)
     return (
       <div
-        className={ 'perfect-grid__item' + (link ? ' perfect-grid__link' : '') }
-        onClick={onClick}
-        style={style}>
+        className={
+          'perfect-grid__item' + '  ' + this.props.photoGallerySelect[this.props.photo.public_id]
+        }
+        data-pgs={ this.props.photoGallerySelect[this.props.photo.public_id].selected }
+        onClick={ onClick }
+        style={ style }>
         { over }
         <div
           className="perfect-grid__media"
@@ -78,6 +105,12 @@ export default class GridItem extends Component {
   }
 };
 
+let mapStateToProps = (state) => ({
+  photoSelect: state.photoSelect,
+  photoGallerySelect: state.photoGallerySelect
+});
+
+export default connect(mapStateToProps)(GridItem);
 
 // <Thumbnail
 //   path={ this.props.secure_url.replace(/^(.+)(v\d+.+)$/, "$2") }
