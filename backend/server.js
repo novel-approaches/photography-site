@@ -10,9 +10,16 @@ Server.use(Express.static(Path.join(__dirname + '/static')));
 
 Server.use(BodyParser.json());
 
-Server.get('/', function(req, res){
+Server.get('/', function(req, res) {
   console.log("Hello.  Node Server is running");
   res.send("Hello.  Node Server is running");
+});
+
+Server.get('/gallery-data', (req, res) => {
+  const url = `${API.admin_url}/resources/image`;
+  Request(url, (error, response, body) => {
+    res.send(JSON.parse(body).resources);
+  });
 });
 
 Server.get('/images', (req, res) => {
@@ -23,7 +30,7 @@ Server.get('/images', (req, res) => {
 });
 
 if (module === require.main) {
-  var server = Server.listen(process.env.PORT || 8000, function () {
+  var server = Server.listen(process.env.PORT || 8000, function() {
     var port = server.address().port;
     console.log('Node Server listening on port %s', port);
   });
