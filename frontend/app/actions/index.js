@@ -7,6 +7,7 @@ export const ORDER_PHOTO = 'ORDER_PHOTO';
 export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 export const ADD_TO_SHOPPING_CART = 'ADD_TO_SHOPPING_CART';
 export const SELECT_PHOTO = 'SELECT_PHOTO';
+export const TOGGLE_PHOTO_SELECTION_STATE = 'TOGGLE_PHOTO_SELECTION_STATE';
 
 
 export const modifyGridMargins = (margins) => ({
@@ -36,5 +37,10 @@ export const addToShoppingCart = (payload) => ({
 
 export const selectPhoto = (photo) => ({
   type: SELECT_PHOTO,
+  photo
+});
+
+export const toggleGalleryPhotoSelection = (photo) => ({
+  type: TOGGLE_PHOTO_SELECTION_STATE,
   photo
 });
