@@ -186,6 +186,9 @@ label {
 .perfect-grid__item {
   .checkbox-glyph {
     position: absolute;
+    width: auto;
+    height: 2.25rem;
+    margin: 0.5rem;
     fill: #FFF;
     opacity: 1;
     fill-opacity: 0;
@@ -195,6 +198,10 @@ label {
     transition-property:         opacity, fill-opacity;
     cursor: pointer;
     z-index: 2;
+
+    &:hover {
+      fill-opacity: 1 !important;
+    }
   }
 
   &:hover .checkbox-glyph {
