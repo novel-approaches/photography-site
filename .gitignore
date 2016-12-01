@@ -14,3 +14,4 @@ npm-debug.log
 
 # Ignore API Keys
 api.js
+auth.js

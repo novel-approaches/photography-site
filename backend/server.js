@@ -5,7 +5,7 @@ const BodyParser = require('body-parser');
 const Path = require('path');
 const API = require('./api_be');
 const Server = Express();
-const Emailer = require('./emailer.js')
+const Emailer = require('./emailer');
 
 Server.use(Express.static(Path.join(__dirname + '/static')));
 
@@ -18,10 +18,11 @@ Server.get('/images', (req, res) => {
   });
 });
 
-Server.post('/orders', (req, res) => {
-  let emailed = Emailer.sendOrderEmail(req.body) //TODO figure out how the data is coming from the front end. Also the email action should be async, make this a promise.
-
-  res.send(JSON.parse(emailed)); //FIXME this needs to be fixed to send appropriate response to front end.
+Server.post('/order', (req, res) => {
+  // console.log(req.body);
+  let emailed = Emailer.sendOrderEmail(req.body); //TODO figure out how the data is coming from the front end. Also the email action should be async, make this a promise.
+  //
+  // res.send(JSON.parse(emailed)); //FIXME this needs to be fixed to send appropriate response to front end.
 });
 
 if (module === require.main) {
