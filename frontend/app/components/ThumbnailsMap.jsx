@@ -139,25 +139,6 @@ const DATA = [
     }
   ];
 
-
-<<<<<<< HEAD
-// const renderThumbs = (pathsArr) =>
-//   pathsArr.map((path, index, list) => (
-//     <Thumbnail
-//       key={ `Thumb_${index}` }
-//       path={ path.secure_url.replace(/^(.+)(v\d+.+)$/, '$2') }
-//       nativeDimensions={ `${path.width} x ${path.height} px` }
-//       domain='cloudinary.com' />
-//   )
-// );
-=======
-// console.log('URLS:', FetchImageURLs());
-// console.log('Data:', FetchImageData());
->>>>>>> dev
-
-// const dataDef = FetchImageData.done(function() {});
-  // console.log('Deferred Data:', dataDef);
-
 console.log('$GET:', FetchImageData().responseJSON);
 
 
