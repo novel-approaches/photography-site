@@ -4,6 +4,7 @@ const Request = require('request');
 const BodyParser = require('body-parser');
 const Path = require('path');
 const API = require('./api_be');
+const Emailer = require('./emailer');
 const Server = Express();
 
 Server.use(Express.static(Path.join(__dirname + '/static')));
@@ -15,12 +16,15 @@ Server.get('/images', (req, res) => {
   Request(url, (error, response, body) => {
     let data = JSON.parse(body).resources;
     data.forEach( obj => obj.selected = false );
+    console.log(data);
     res.send(data);
   });
 });
 
 Server.post('/order', (req, res) => {
   let emailed = Emailer.sendOrderEmail(req.body)
+  console.log('HERE');
+  console.log(emailed);
   res.send(JSON.parse(emailed));
 });
 

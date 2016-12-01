@@ -12,6 +12,7 @@ import ScrollHandler from './ScrollHandler';
 export default class Grid extends Component {
   constructor(props) {
     super();
+    debugger;
     this.resizeTimeout = null;
     let items = props.order ? Array(props.items.length).fill(null) : [];
     this.state = {

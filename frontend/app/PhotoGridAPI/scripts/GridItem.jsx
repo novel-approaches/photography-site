@@ -26,12 +26,12 @@ class GridItem extends Component {
   //       domain="cloudinary.com" />
   //   )
   // }
-  
+
   assignClass(link = null) {
     // const photoData = this.props.photoSelect;
       // console.log('Photo Data:', photoData);
     // return photoData['selected'] && photoData.selected ? 'checked' : '';
-    
+
     // perfect-grid__item ${link ? 'perfect-grid__link' : ''} ${this.assignClass()}
     // return `perfect-grid__item ${link ? 'perfect-grid__link' : ''}`;
 
@@ -82,6 +82,7 @@ class GridItem extends Component {
     // over = over ? <div className="perfect-grid__over" >{ over }</div> : null
 
     console.log('12312313', this.props.photoGallerySelect)
+    debugger;
     return (
       <div
         className={

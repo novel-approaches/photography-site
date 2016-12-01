@@ -1,6 +1,5 @@
 'use strict';
 
-
 export const MODIFY_GRID_MARGINS = 'MODIFY_GRID_MARGINS';
 export const MODIFY_GRID_SIZE = 'MODIFY_GRID_SIZE';
 export const ORDER_PHOTO = 'ORDER_PHOTO';
@@ -8,7 +7,6 @@ export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 export const ADD_TO_SHOPPING_CART = 'ADD_TO_SHOPPING_CART';
 export const SELECT_PHOTO = 'SELECT_PHOTO';
 export const TOGGLE_PHOTO_SELECTION_STATE = 'TOGGLE_PHOTO_SELECTION_STATE';
-
 
 export const modifyGridMargins = (margins) => ({
   type: MODIFY_GRID_MARGINS,

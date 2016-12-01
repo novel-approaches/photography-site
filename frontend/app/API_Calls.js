@@ -27,9 +27,9 @@ export const FetchImageURLs1 = function() {
   });
 };
 
-export const FetchImageData = function(callback = function() {}) {
+export function FetchImageData(callback) {
   return $.ajax({
-    url: '/gallery-data',
+    url: '/images',
     type: 'get',
     success(res) {
       console.log(res);
