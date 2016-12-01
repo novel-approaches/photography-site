@@ -237,11 +237,12 @@ export default class Grid extends Component {
       row.slice.forEach((item, j) => {
         perfectGrid.push(
           <GridItem
-            key={i+'.'+j}
-            path={item.url}
-            H={row.H}
+            key={ `GridItem_(${i}.${j})` }
+            path={ item.url }
+            H={ row.H }
             domain="cloudinary.com"
-            margins={margins}
+            margins={ margins }
+            photo={ item }
             nativeDimensions={ `${item.width} x ${item.height} px` }
             {...item} />
         )
@@ -249,7 +250,7 @@ export default class Grid extends Component {
     })
 
     let style = {
-      padding: margins/2 + 'px'
+      padding: margins / 2 + 'px'
     };
 
     return (
