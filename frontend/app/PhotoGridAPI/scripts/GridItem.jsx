@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 
 import Thumbnail from '../../components/Thumbnail';
-import CheckboxGlyph from '../../constants/svg/CheckboxGlyph_SVG';
+import PhotoCheckbox from '../../components/PhotoCheckbox';
 
 
 export default class GridItem extends Component {
@@ -68,8 +68,9 @@ export default class GridItem extends Component {
           className="perfect-grid__media"
           data-dims={ this.props.nativeDimensions }
           data-domain={ this.props.domain }>
-          <CheckboxGlyph
-            className="checkbox-glyph" />
+          <PhotoCheckbox
+            photo={ this.props.photo }
+            className="checkbox" />
           { media }
         </div>
       </div>
