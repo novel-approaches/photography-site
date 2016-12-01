@@ -19,7 +19,7 @@ const DATA = [
     "height":3000,
     "url":"http://res.cloudinary.com/clairephotography/image/upload/v1480453840/test_DSC6091_b9qrtx.jpg",
     "secure_url":"https://res.cloudinary.com/clairephotography/image/upload/v1480453840/test_DSC6091_b9qrtx.jpg"
-  }
+  },
   {
     'public_id': 'iq4sy5drl6viareno3hr',
     'format': 'jpg',
