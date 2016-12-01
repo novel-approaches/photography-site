@@ -4,10 +4,7 @@ import ReactDOM from 'react-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import {
-  modifyGridMargins,
-  modifyGridSize
-} from '../actions/index';
+import { modifyGridMargins, modifyGridSize } from '../actions/index';
 
 
 class GridControls extends Component {
