@@ -26,14 +26,17 @@ class Header extends Component {
   render() {
     return(
       <header>
-        <p>Welcome to Photo Album</p>
-        <strong
-          onClick={ this.renderModal }>&plus;</strong>
+        <img
+          src="http://res.cloudinary.com/clairephotography/image/upload/e_make_transparent:10,q_100/logo_lv7v7x.png"
+          alt="Site logo home, Galleria Scola"
+          role="logo" />
         <img
           src="https://cdn4.iconfinder.com/data/icons/greicons-2/1052/CARRITO-512.png"
           alt="Shopping cart glyph icon (Gray)."
           height="35px"
           onClick={ this.addToShoppingCart } />
+        <strong
+          onClick={ this.renderModal }>Shopping Cart</strong>
         <OrderFormModal />
       </header>
     );
