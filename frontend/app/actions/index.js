@@ -7,6 +7,26 @@ export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 export const ADD_TO_SHOPPING_CART = 'ADD_TO_SHOPPING_CART';
 export const SELECT_PHOTO = 'SELECT_PHOTO';
 export const TOGGLE_PHOTO_SELECTION_STATE = 'TOGGLE_PHOTO_SELECTION_STATE';
+export const GET_IMAGE_OBJECT = 'GET_IMAGE_OBJECT';
+
+export function imageObject() {
+  const FetchImageURLs = (
+    $.ajax({
+      url: '/images',
+      type: 'get',
+      success(res) {
+        return res;
+      },
+      error(err) {
+        console.log(err);
+      }
+    })
+  );
+  return {
+    type: GET_IMAGE_OBJECT,
+    payload: FetchImageURLs
+  };
+}
 
 export const modifyGridMargins = (margins) => ({
   type: MODIFY_GRID_MARGINS,

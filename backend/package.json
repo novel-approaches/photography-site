@@ -19,7 +19,8 @@
     {
       "name": "Oliver Isenrich",
       "email": "IsenrichO@gmail.com"
-    }, {
+    },
+    {
       "name": "Travis O'Neill",
       "email": "travis.h.oneill@gmail.com"
     }
@@ -29,6 +30,7 @@
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "nodemailer": "^2.6.4",
+    "redux-promise": "^0.5.3",
     "request": "^2.79.0"
   }
 }

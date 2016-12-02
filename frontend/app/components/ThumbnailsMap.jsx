@@ -2,27 +2,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import path from 'path';
-
+import { imageObject } from '../actions/index';
 import Thumbnail from './Thumbnail';
 import Grid from '../PhotoGridAPI/scripts/Grid';
 // import { FetchImageURLs, FetchImageURLs1, FetchImageData } from '../API_Calls';
 
 import { FetchImageData } from '../API_Calls';
 
-import { DATA } from '../seed';
+// import { DATA } from '../seed';
 
 class ThumbnailsMap extends Component {
   constructor(props){
     super(props);
-    this.state = { items: DATA };
+  }
+
+  componentWillMount(){
+    this.props.imageObject();
   }
 
   render(){
-    debugger;
+    // debugger;
+
     return (
       <main id='photo-gallery'>
         <Grid
-          items={ this.state.items }
+          items={ this.props.items }
           maxHeight={ this.props.gridSize }
           margins={ this.props.gridMargins }
           order={ true } />
@@ -31,13 +35,15 @@ class ThumbnailsMap extends Component {
   }
 }
 
-let mapStateToProps = (state) => ({
-  gridMargins: state.gridMargins,
-  gridSize: state.gridSize,
-});
+function mapStateToProps(state){
+  return {
+    gridMargins: state.gridMargins,
+    gridSize: state.gridSize,
+    items: state.imageObject
+  }
+};
 
-export default connect(mapStateToProps)(ThumbnailsMap);
-
+export default connect(mapStateToProps, {imageObject})(ThumbnailsMap);
 
 // DATA.map(obj => Object.assign(obj, { selected: false }))
 

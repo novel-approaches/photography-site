@@ -82,7 +82,6 @@ class GridItem extends Component {
     // over = over ? <div className="perfect-grid__over" >{ over }</div> : null
 
     console.log('12312313', this.props.photoGallerySelect)
-    debugger;
     return (
       <div
         className={

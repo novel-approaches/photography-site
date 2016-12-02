@@ -8,12 +8,13 @@ import '../static/styles/master.scss';
 import Header from './components/Header';
 import ThumbnailsMap from './components/ThumbnailsMap';
 import GridControls from './components/GridControls';
+import promise from 'redux-promise';
 
-const store = createStore(rootReducer);
+const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 
 const App = ({ props }) => (
-  <Provider store={ store }>
+  <Provider store={createStoreWithMiddleware(rootReducer)} >
     <div>
       <Header />
       <div className="midsection">

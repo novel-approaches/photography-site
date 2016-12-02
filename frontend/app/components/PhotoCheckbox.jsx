@@ -16,8 +16,8 @@ class PhotoCheckbox extends Component {
   selectPhoto(evt) {
     evt.currentTarget.classList.toggle('checked');
     let $parEl = $(evt.currentTarget);
-      console.log('Parent Element:', $(this), '\n', 'EVT:', $(evt.currentTarget));
-
+    console.log('Parent Element:', $(this), '\n', 'EVT:', $(evt.currentTarget));
+    debugger;
     this.props.selectPhoto(this.props.photo);
     this.props.toggleGalleryPhotoSelection(this.props.photo);
   };

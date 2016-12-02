@@ -9,6 +9,7 @@ import shoppingCart from './shoppingCart_Reducer';
 import photoSelect from './photoSelect_Reducer';
 import photoGallery from './photoGallery_Reducer';
 import photoGallerySelect from './photoGallerySelect_Reducer';
+import imageObject from './image_object_reducer';
 
 
 const rootReducer = combineReducers({
@@ -19,7 +20,8 @@ const rootReducer = combineReducers({
   shoppingCart,
   photoSelect,
   photoGallery,
-  photoGallerySelect
+  photoGallerySelect,
+  imageObject
 });
 
 export default rootReducer;

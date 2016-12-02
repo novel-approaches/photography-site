@@ -12,9 +12,10 @@ import ScrollHandler from './ScrollHandler';
 export default class Grid extends Component {
   constructor(props) {
     super();
-    debugger;
     this.resizeTimeout = null;
+    if(props.items.responseJSON){ props.items = props.items.responseJSON; }
     let items = props.order ? Array(props.items.length).fill(null) : [];
+    debugger;
     this.state = {
       items,
       W: 0,
@@ -53,12 +54,13 @@ export default class Grid extends Component {
 
   componentWillReceiveProps(nextProps) {
     // console.log('componentWillReceiveProps', nextProps.items);
+    debugger;
 
     let flag = false;
     for (let i = 0; i < nextProps.items.length; i++) {
       let itemNext = nextProps.items[i],
           item = this.props.items[i];
-      if (itemNext.url !== item.url) {
+      if (item && itemNext.url !== item.url) {
         flag = true;
       }
     }
@@ -70,6 +72,8 @@ export default class Grid extends Component {
   }
 
   loadItems(props = this.props) {
+    if (Object.getOwnPropertyNames(props.items).length === 0){ return; }
+    // console.log(props.items.getOwnPropertyNames);
     if (this.props.debug) console.debug('Load items', props.items)
     let promises = props.items.map((item, i) => {
       return this
