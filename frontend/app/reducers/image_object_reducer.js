@@ -9,7 +9,7 @@ export default function imageObject(state = DATA, action) {
       // console.log(`Action <${action.type}> registered with payload <size: ${action.size}>`);
       console.log(action.payload);
       // debugger;
-      return { state: action.payload };
+      return action.payload;
     default:
       return state;
   }
