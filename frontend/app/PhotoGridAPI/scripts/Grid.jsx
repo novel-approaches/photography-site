@@ -1,6 +1,7 @@
 'use strict';
 import '../styles/main.scss'
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import GridItem from './GridItem';
 import ScrollHandler from './ScrollHandler';
@@ -11,11 +12,12 @@ import ScrollHandler from './ScrollHandler';
 
 export default class Grid extends Component {
   constructor(props) {
-    super();
+    super(props);
     this.resizeTimeout = null;
-    if(props.items.responseJSON){ props.items = props.items.responseJSON; }
-    let items = props.order ? Array(props.items.length).fill(null) : [];
-    debugger;
+    // if(props.items.responseJSON){ props.items = props.items.responseJSON; }
+    // let items = props.order ? Array(props.items.length).fill(null) : [];
+    let items = props.items;
+    // this.loadItems = this.loadItems.bind(this);
     this.state = {
       items,
       W: 0,
@@ -31,7 +33,10 @@ export default class Grid extends Component {
   }
 
   componentWillMount() {
-    this.loadItems();
+    var self = this;
+    setTimeout(function() {
+      self.loadItems();
+    }, 3000);
   }
 
   componentDidMount() {
@@ -48,14 +53,11 @@ export default class Grid extends Component {
     */
   }
 
-  componentWillUnmount() {
-    window.removeEventListener('resize', ::this.setContainerWidth);
-  }
+  // componentWillUnmount() {
+  //   window.removeEventListener('resize', ::this.setContainerWidth);
+  // }
 
   componentWillReceiveProps(nextProps) {
-    // console.log('componentWillReceiveProps', nextProps.items);
-    debugger;
-
     let flag = false;
     for (let i = 0; i < nextProps.items.length; i++) {
       let itemNext = nextProps.items[i],
@@ -71,9 +73,8 @@ export default class Grid extends Component {
     }
   }
 
+
   loadItems(props = this.props) {
-    if (Object.getOwnPropertyNames(props.items).length === 0){ return; }
-    // console.log(props.items.getOwnPropertyNames);
     if (this.props.debug) console.debug('Load items', props.items)
     let promises = props.items.map((item, i) => {
       return this
@@ -88,6 +89,25 @@ export default class Grid extends Component {
       // this.setContainerWidth()
     })
   }
+
+
+  // loadItems(props = this.props) {
+  //   if (Object.getOwnPropertyNames(props.items).length === 0){ return; }
+  //   // console.log(props.items.getOwnPropertyNames);
+  //   if (this.props.debug) console.debug('Load items', props.items)
+  //   let promises = props.items.map((item, i) => {
+  //     return this
+  //       .loadItem(item, i)
+  //       .then(::this.addMedia)
+  //       .then(::this.setContainerWidth)
+  //   })
+
+  //   Promise.all(promises).then((images) => {
+  //     if (this.props.success) this.props.success()
+  //     if (this.props.debug) console.debug('All images loaded!')
+  //     // this.setContainerWidth()
+  //   })
+  // }
 
   setContainerWidth() {
     if (this.refs.perfectGrid) {
@@ -278,3 +298,11 @@ Grid.defaultProps = {
   maxHeight: 300,
   debug: false
 }
+
+
+// let mapStateToProps = (state) => ({
+//   items: state.imageObject
+//   // imgObj: state.imageObject
+// });
+
+// export default connect(mapStateToProps)(Grid);
