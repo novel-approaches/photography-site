@@ -11,7 +11,7 @@ import { addToShoppingCart, toggleModal } from '../actions/index';
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.addToShoppingCart = this.addToShoppingCart.bind(this);
+    // this.addToShoppingCart = this.addToShoppingCart.bind(this);
     this.renderModal = this.renderModal.bind(this);
   }
 
@@ -19,9 +19,9 @@ class Header extends Component {
     this.props.toggleModal();
   }
 
-  addToShoppingCart() {
-    this.props.addToShoppingCart(this.props.photoSelect);
-  }
+  // addToShoppingCart() {
+  //   this.props.addToShoppingCart(this.props.photoSelect);
+  // }
 
   render() {
     return(
@@ -34,9 +34,8 @@ class Header extends Component {
           src="https://cdn4.iconfinder.com/data/icons/greicons-2/1052/CARRITO-512.png"
           alt="Shopping cart glyph icon (Gray)."
           height="35px"
+          id="shopping-cart-icon"
           onClick={ this.addToShoppingCart } />
-        <strong
-          onClick={ this.renderModal }>Shopping Cart</strong>
         <OrderFormModal />
       </header>
     );
@@ -54,3 +53,13 @@ let mapDispatchToProps = (dispatch) => bindActionCreators({
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
+
+
+// <img
+//   src="https://cdn4.iconfinder.com/data/icons/greicons-2/1052/CARRITO-512.png"
+//   alt="Shopping cart glyph icon (Gray)."
+//   height="35px"
+//   onClick={ this.addToShoppingCart } />
+
+// <strong
+//   onClick={ this.renderModal }>Shopping Cart</strong>
