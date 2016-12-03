@@ -16,8 +16,7 @@ class PhotoCheckbox extends Component {
   selectPhoto(evt) {
     evt.currentTarget.classList.toggle('checked');
     let $parEl = $(evt.currentTarget);
-    console.log('Parent Element:', $(this), '\n', 'EVT:', $(evt.currentTarget));
-    debugger;
+      // console.log('Parent Element:', $(this), '\n', 'EVT:', $(evt.currentTarget));
     this.props.selectPhoto(this.props.photo);
     this.props.toggleGalleryPhotoSelection(this.props.photo);
   };
@@ -34,10 +33,6 @@ class PhotoCheckbox extends Component {
   }
 };
 
-
-// let mapStateToProps = (state) = ({
-
-// });
 
 let mapDispatchToProps = (dispatch) => bindActionCreators({
   selectPhoto,
