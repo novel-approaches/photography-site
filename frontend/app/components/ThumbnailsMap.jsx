@@ -5,8 +5,6 @@ import { connect } from 'react-redux';
 import path from 'path';
 
 import { addToShoppingCart, getPhotos } from '../actions/index';
-import { FetchImageData } from '../API_Calls';
-import Thumbnail from './Thumbnail';
 import Grid from '../PhotoGridAPI/scripts/Grid';
 
 
@@ -21,7 +19,7 @@ class ThumbnailsMap extends Component {
   }
 
   addToShoppingCart() {
-    this.props.addToSoppingCart(this.props.photoSelect);
+    this.props.addToShoppingCart(this.props.photoSelect);
   }
 
   render() {
