@@ -7,6 +7,7 @@
   "description": "Back-end repository for photography application's adminstrator view",
   "main": "server.js",
   "scripts": {
+    "start": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -45,8 +46,11 @@
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "nodemailer": "^2.6.4",
-    "redux-promise": "^0.5.3",
     "request": "^2.79.0",
     "util": "^0.10.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0",
+    "redux-promise": "^0.5.3"
   }
 }
