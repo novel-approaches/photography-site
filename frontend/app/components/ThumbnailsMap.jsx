@@ -5,9 +5,9 @@ import { connect } from 'react-redux';
 import path from 'path';
 
 import { addToShoppingCart, getPhotos } from '../actions/index';
+import { FetchImageData } from '../API_Calls';
 import Thumbnail from './Thumbnail';
 import Grid from '../PhotoGridAPI/scripts/Grid';
-import { FetchImageData } from '../API_Calls';
 
 
 class ThumbnailsMap extends Component {
@@ -17,46 +17,12 @@ class ThumbnailsMap extends Component {
   }
 
   componentWillMount() {
-    // var that = this;
-    // setTimeout(function() {
-    //   that.show();
-    // }, 5000);   // that.props.wait
     this.props.getPhotos();
   }
 
   addToShoppingCart() {
-    this.props.addToShoppingCart(this.props.photoSelect);
+    this.props.addToSoppingCart(this.props.photoSelect);
   }
-
-  // show() {
-  //   // this.setState({ hidden: '' });
-  //   let ph = this.props.getPhotos();
-  //   console.log('PH:', this.props.getPhotos, this.props.getPhotos());
-
-  //   let PP = this.props.imgObj;
-  //   console.log('PP:', this.props.imgObj);
-  //   this.setState({ fotes: PP })
-  // }
-
-  // componentWillMount() {
-  //   this.props.getPhotos();
-  // }
-
-  // componentDidMount() {
-  //   console.log('COMPONENT DID MOUNT:\n', this.state.fotes);
-  //   this.props.getPhotos();
-  // }
-
-  // componentDidMount() {
-  //   this.props.getPhotos();
-  // }
-
-  // Lifecycle method:
-  // componentDidUpdate(nextProps) {
-  //   if (this.props.imgObj.length) {
-  //     // this.initJob(this.props.jobs[0]);
-  //   }
-  // }
 
   render() {
     return (
@@ -76,7 +42,8 @@ class ThumbnailsMap extends Component {
       </main>
     );
   }
-}
+};
+
 
 let mapStateToProps = (state) => ({
   gridMargins: state.gridMargins,
@@ -91,21 +58,6 @@ let mapDispatchToProps = (dispatch) => bindActionCreators({
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(ThumbnailsMap);
-
-
-// DATA.map(obj => Object.assign(obj, { selected: false }))
-
-// const renderThumbs = (pathsArr) =>
-//   pathsArr.map((path, index, list) => (
-//     <Thumbnail
-//       key={ `Thumb_${index}` }
-//       path={ path.secure_url.replace(/^(.+)(v\d+.+)$/, '$2') }
-//       nativeDimensions={ `${path.width} x ${path.height} px` }
-//       domain='cloudinary.com' />
-//   )
-// );
-
-// return (<main id='photo-gallery'>{ renderThumbs(DATA) }</main>);
 
 // <PerfectGrid
 //   items={items}
