@@ -75,8 +75,11 @@ body {
   margin: 0 12px 12px 0;
   // padding-top: 0px;
   // padding-bottom: 0px;
-  overflow: hidden;
   vertical-align: top;
+  -webkit-transition: -webkit-transform .135s cubic-bezier(0, 0, 0.2, 1);
+  -webkit-transition: transform .135s cubic-bezier(0, 0, 0.2, 1);
+  transition:         transform .135s cubic-bezier(0, 0, 0.2, 1);
+  overflow: hidden;
   z-index: 1;
   
   &:before {
@@ -224,7 +227,7 @@ label {
     cursor: pointer;
     z-index: 2;
 
-    &.checked .checkbox-glyph {
+    .checked .checkbox-glyph {
       fill: #9651DF;
       fill-opacity: 1;
     }
@@ -247,9 +250,10 @@ label {
   }
 
   &.checked {
-    background-color: #EEE;
+    background-color: rgba(150, 81, 223, 0.17);
     
     .perfect-grid__media {
+      margin: auto;
       -webkit-transform: translateZ(0) scale3d(0.89, 0.85, 1);
       -moz-transform:    translateZ(0) scale3d(0.89, 0.85, 1);
       -ms-transform:     translateZ(0) scale3d(0.89, 0.85, 1);
@@ -320,10 +324,10 @@ header {
 }
 
 #add-to-cart-btn {
-  position: absolute;
+  position: relative;
   display: block;
   width: calc(100% - 58px);
-  height: 50px;
+  height: 0;
   left: 15px;
   top: 0;
   padding: 0;
@@ -331,15 +335,29 @@ header {
   text-align: center;
   background-color: #9651DF;
   color: #FFF;
-  font: bold 2rem/1 Helvetica, sans-serif;
-  cursor: pointer;
-  z-index: 5;
+  font: normal small-caps bold ultra-expanded 2rem/1 'Helvetica Neue', Helvetica, sans-serif;
+  letter-spacing: 1px;
+  transition: all .25s ease-in-out;
+
+  &.active {
+    height: 50px;
+    
+    &:hover {
+      background-color: #8033D1;
+      -webkit-box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.24),
+                          0 4px 20px 0 rgba(0, 0, 0, 0.35);
+      -moz-box-shadow:    0 10px 10px 0 rgba(0, 0, 0, 0.24),
+                          0 4px 20px 0 rgba(0, 0, 0, 0.35);
+      box-shadow:         0 10px 10px 0 rgba(0, 0, 0, 0.24),
+                          0 4px 20px 0 rgba(0, 0, 0, 0.35);
+    }
+  }
 }
 
 .grid-wrap {
   position: relative;
   height: calc(100% - 57.5px);
-  top: 57.5px;
+  top: 20px;
   overflow-y: scroll;
 }
 
