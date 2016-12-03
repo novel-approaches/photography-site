@@ -1,8 +1,11 @@
 {
   "name": "admin",
   "version": "1.0.0",
+  "engines": {
+    "node": ">=0.8.0"
+  },
   "description": "Administrator repository for photography application's adminstrator view",
-  "main": "admin.js",
+  "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch"
@@ -16,7 +19,10 @@
     "Claire Wilson",
     "Novel Approaches"
   ],
-  "author": "",
+  "author": {
+    "name": "Travis O'Neill",
+    "email": "travis.h.oneill@gmail.com"
+  },
   "maintainers": [
     {
       "name": "Oliver Isenrich",
