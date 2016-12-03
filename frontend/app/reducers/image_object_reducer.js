@@ -1,6 +1,6 @@
 'use strict';
 import { GET_IMAGE_OBJECT } from '../actions/index';
-import { SEED_DATA } from '../seed';
+import { SEED_DATA } from '../constants/SeedData';
 
 
 export default function imageObject(state = [], action) {

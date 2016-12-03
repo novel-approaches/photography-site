@@ -1,6 +1,6 @@
 'use strict';
 import { TOGGLE_PHOTO_SELECTION_STATE } from '../actions/index';
-import { SEED_DATA } from '../seed';
+import { SEED_DATA } from '../constants/SeedData';
 
 
 const DATA2 = SEED_DATA.reduce((memo, curr) => {
