@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import OrderFormModal from '../containers/OrderFormModal';
 import { toggleModal } from '../actions/index';
+import Logo from '../../static/images/logo_lv7v7x.png';
 
 
 // const Header = () => (
@@ -12,25 +13,33 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.renderModal = this.renderModal.bind(this);
+    this.displayCartCount = this.displayCartCount.bind(this);
   }
 
   renderModal(evt) {
     this.props.toggleModal();
   }
 
+  displayCartCount() {
+    return Object.keys(this.props.shoppingCart).length;
+  }
+
   render() {
     return(
       <header>
         <img
-          src="http://res.cloudinary.com/clairephotography/image/upload/e_make_transparent:10,q_100/logo_lv7v7x.png"
+          // src="http://res.cloudinary.com/clairephotography/image/upload/e_make_transparent:10,q_100/logo_lv7v7x.png"
+          src={ Logo }
           alt="Site logo home, Galleria Scola"
           role="logo" />
-        <img
-          src="https://cdn4.iconfinder.com/data/icons/greicons-2/1052/CARRITO-512.png"
-          alt="Shopping cart glyph icon (Gray)."
-          height="35px"
-          id="shopping-cart-icon"
-          onClick={ this.renderModal } />
+        <div className="shopping-cart">
+          <img
+            src="https://cdn4.iconfinder.com/data/icons/greicons-2/1052/CARRITO-512.png"
+            alt="Shopping cart glyph icon (Gray)."
+            id="shopping-cart-icon"
+            onClick={ this.renderModal } />
+          <i>{ this.displayCartCount() }</i>
+        </div>
         <OrderFormModal />
       </header>
     );
@@ -39,7 +48,8 @@ class Header extends Component {
 
 let mapStateToProps = (state) => ({
   orderFormModal: state.orderFormModal,
-  photoSelect: state.photoSelect
+  photoSelect: state.photoSelect,
+  shoppingCart: state.shoppingCart
 });
 
 let mapDispatchToProps = (dispatch) => bindActionCreators({
