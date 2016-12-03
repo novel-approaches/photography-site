@@ -4,24 +4,19 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import OrderFormModal from '../containers/OrderFormModal';
-import { addToShoppingCart, toggleModal } from '../actions/index';
+import { toggleModal } from '../actions/index';
 
 
 // const Header = () => (
 class Header extends Component {
   constructor(props) {
     super(props);
-    // this.addToShoppingCart = this.addToShoppingCart.bind(this);
     this.renderModal = this.renderModal.bind(this);
   }
 
   renderModal(evt) {
     this.props.toggleModal();
   }
-
-  // addToShoppingCart() {
-  //   this.props.addToShoppingCart(this.props.photoSelect);
-  // }
 
   render() {
     return(
@@ -35,7 +30,7 @@ class Header extends Component {
           alt="Shopping cart glyph icon (Gray)."
           height="35px"
           id="shopping-cart-icon"
-          onClick={ this.addToShoppingCart } />
+          onClick={ this.renderModal } />
         <OrderFormModal />
       </header>
     );
@@ -48,7 +43,6 @@ let mapStateToProps = (state) => ({
 });
 
 let mapDispatchToProps = (dispatch) => bindActionCreators({
-  addToShoppingCart,
   toggleModal
 }, dispatch);
 
@@ -60,6 +54,3 @@ export default connect(mapStateToProps, mapDispatchToProps)(Header);
 //   alt="Shopping cart glyph icon (Gray)."
 //   height="35px"
 //   onClick={ this.addToShoppingCart } />
-
-// <strong
-//   onClick={ this.renderModal }>Shopping Cart</strong>
