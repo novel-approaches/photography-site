@@ -10,7 +10,6 @@ class GridItem extends Component {
   constructor(props) {
     super(props);
     // this.assignClass = this.assignClass.bind(this);
-    console.log('GRIDITEM:', this.props.photo);
   }
 
   onClick(evt) {
@@ -35,14 +34,14 @@ class GridItem extends Component {
     // perfect-grid__item ${link ? 'perfect-grid__link' : ''} ${this.assignClass()}
     // return `perfect-grid__item ${link ? 'perfect-grid__link' : ''}`;
 
-    let selectState = this.props.photoGallerySelect[this.props.photo.public_id].selected;
-      console.log('\n\nSELECT STATE:', selectState);
+    // let selectState = this.props.photoGallerySelect[this.props.photo.public_id].selected;
+      // console.log('\n\nSELECT STATE:', selectState);
 
     return `perfect-grid__item ${selectState ? 'checked' : ''}`;
   }
 
   render() {
-    let { H, margins, over, media, ratio, type, element, link } = this.props;
+    let { H, margins, over, media, ratio, resource_type, type, element, link } = this.props;
     let src = media ? media.src : null;
 
     let height = H;
@@ -55,7 +54,7 @@ class GridItem extends Component {
     };
 
 
-    switch (type) {
+    switch (resource_type) {
       case 'image':
         media = <img src={ src } />
         break;
@@ -81,13 +80,12 @@ class GridItem extends Component {
 
     // over = over ? <div className="perfect-grid__over" >{ over }</div> : null
 
-    console.log('12312313', this.props.photoGallerySelect)
     return (
       <div
         className={
           'perfect-grid__item' + '  ' + this.props.photoGallerySelect[this.props.photo.public_id]
         }
-        data-pgs={ this.props.photoGallerySelect[this.props.photo.public_id].selected }
+        // data-pgs={ this.props.photoGallerySelect[this.props.photo.public_id].selected }
         onClick={ onClick }
         style={ style }>
         { over }
