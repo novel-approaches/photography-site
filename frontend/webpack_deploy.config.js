@@ -4,9 +4,9 @@ const webpack = require('webpack'),
 
 module.exports = {
   context: __dirname,
-  entry: './.app/App.jsx',
+  entry: './app/App.jsx',
   output: {
-    path: './static/',
+    path: '../backend/static/',
     filename: 'bundle.js'
   },
   module: {
@@ -23,6 +23,12 @@ module.exports = {
           'autoprefixer-loader?browsers=last 3 versions',
           'sass-loader?outputStyle=expanded'
         ]
+      }, {
+        test: /\.json$/i,
+        loader: 'json'
+      }, {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loader: 'file-loader?name=[name].[ext]&ouputPath=app/static/images'
       }
     ]
   },
