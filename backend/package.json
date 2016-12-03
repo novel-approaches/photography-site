@@ -1,8 +1,11 @@
 {
   "name": "backend",
   "version": "1.0.0",
+  "engines": {
+    "node": ">=0.8.0"
+  },
   "description": "Back-end repository for photography application's adminstrator view",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,7 +17,10 @@
     "Claire Wilson",
     "Novel Approaches"
   ],
-  "author": "",
+  "author": {
+    "name": "Travis O'Neill",
+    "email": "travis.h.oneill@gmail.com"
+  },
   "maintainers": [
     {
       "name": "Oliver Isenrich",
@@ -31,6 +37,7 @@
     "express": "^4.14.0",
     "nodemailer": "^2.6.4",
     "redux-promise": "^0.5.3",
-    "request": "^2.79.0"
+    "request": "^2.79.0",
+    "util": "^0.10.3"
   }
 }
