@@ -1,4 +1,6 @@
 'use strict';
+import axios from 'axios';
+
 
 export const MODIFY_GRID_MARGINS = 'MODIFY_GRID_MARGINS';
 export const MODIFY_GRID_SIZE = 'MODIFY_GRID_SIZE';
@@ -9,22 +11,43 @@ export const SELECT_PHOTO = 'SELECT_PHOTO';
 export const TOGGLE_PHOTO_SELECTION_STATE = 'TOGGLE_PHOTO_SELECTION_STATE';
 export const GET_IMAGE_OBJECT = 'GET_IMAGE_OBJECT';
 
-export function imageObject() {
-  const FetchImageURLs = (
-    $.ajax({
-      url: '/images',
-      type: 'get',
-      success(res) {
-        return res;
-      },
-      error(err) {
-        console.log(err);
-      }
-    })
-  );
+// export const getPhotos = () => {
+//   const FetchImageURLs = (
+//     $.ajax({
+//       url: '/images',
+//       type: 'get',
+//       success(res) {
+//         console.log('RES:', res);
+//         return res;
+//       },
+//       error(err) {
+//         console.log(err);
+//       }
+//     })
+//   );
+//   console.log('GOT PHOTOS:', FetchImageURLs);
+//   return {
+//     type: GET_IMAGE_OBJECT,
+//     payload: FetchImageURLs
+//   };
+// }
+
+// export const fetchJobs = (jobSearch, city) => {
+//   const request = axios.post('/api/v1/jobs', {
+//     jobTitle: jobSearch,
+//     city: city,
+//     _csrf: getCookie('_csrf')
+//   });
+//   return {
+//     type: 'FETCH_JOBS',
+//     payload: request
+//   };
+// };
+export const getPhotos = () => {
+  const request = axios.get('/images');
   return {
     type: GET_IMAGE_OBJECT,
-    payload: FetchImageURLs
+    payload: request
   };
 }
 
