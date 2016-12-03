@@ -1,49 +1,97 @@
 'use strict';
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import path from 'path';
-import { imageObject } from '../actions/index';
+
+import { addToShoppingCart, getPhotos } from '../actions/index';
 import Thumbnail from './Thumbnail';
 import Grid from '../PhotoGridAPI/scripts/Grid';
-// import { FetchImageURLs, FetchImageURLs1, FetchImageData } from '../API_Calls';
-
 import { FetchImageData } from '../API_Calls';
 
-// import { DATA } from '../seed';
 
 class ThumbnailsMap extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
+    this.addToShoppingCart = this.addToShoppingCart.bind(this);
   }
 
-  componentWillMount(){
-    this.props.imageObject();
+  componentWillMount() {
+    // var that = this;
+    // setTimeout(function() {
+    //   that.show();
+    // }, 5000);   // that.props.wait
+    this.props.getPhotos();
   }
 
-  render(){
-    // debugger;
+  addToShoppingCart() {
+    this.props.addToShoppingCart(this.props.photoSelect);
+  }
 
+  // show() {
+  //   // this.setState({ hidden: '' });
+  //   let ph = this.props.getPhotos();
+  //   console.log('PH:', this.props.getPhotos, this.props.getPhotos());
+
+  //   let PP = this.props.imgObj;
+  //   console.log('PP:', this.props.imgObj);
+  //   this.setState({ fotes: PP })
+  // }
+
+  // componentWillMount() {
+  //   this.props.getPhotos();
+  // }
+
+  // componentDidMount() {
+  //   console.log('COMPONENT DID MOUNT:\n', this.state.fotes);
+  //   this.props.getPhotos();
+  // }
+
+  // componentDidMount() {
+  //   this.props.getPhotos();
+  // }
+
+  // Lifecycle method:
+  // componentDidUpdate(nextProps) {
+  //   if (this.props.imgObj.length) {
+  //     // this.initJob(this.props.jobs[0]);
+  //   }
+  // }
+
+  render() {
     return (
-      <main id='photo-gallery'>
-        <Grid
-          items={ this.props.items }
-          maxHeight={ this.props.gridSize }
-          margins={ this.props.gridMargins }
-          order={ true } />
+      <main id="photo-gallery">
+        <button
+          id="add-to-cart-btn"
+          onClick= { this.addToShoppingCart }>
+          Add To Cart
+        </button>
+        <div className="grid-wrap">
+          <Grid
+            items={ this.props.imgObj }
+            maxHeight={ this.props.gridSize }
+            margins={ this.props.gridMargins }
+            order={ true } />
+        </div>
       </main>
     );
   }
 }
 
-function mapStateToProps(state){
-  return {
-    gridMargins: state.gridMargins,
-    gridSize: state.gridSize,
-    items: state.imageObject
-  }
-};
+let mapStateToProps = (state) => ({
+  gridMargins: state.gridMargins,
+  gridSize: state.gridSize,
+  imgObj: state.imageObject,
+  photoSelect: state.photoSelect
+});
 
-export default connect(mapStateToProps, {imageObject})(ThumbnailsMap);
+let mapDispatchToProps = (dispatch) => bindActionCreators({
+  addToShoppingCart,
+  getPhotos
+}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(ThumbnailsMap);
+
 
 // DATA.map(obj => Object.assign(obj, { selected: false }))
 
