@@ -26,9 +26,10 @@ module.exports = {
       }, {
         test: /\.json$/i,
         loader: 'json'
-      }, {
+      }
+      , {
         test: /\.(jpe?g|png|gif|svg)$/i,
-        loader: 'file-loader?name=[name].[ext]&ouputPath=app/static/images'
+        loader: 'file-loader?name=[name].[ext]&ouputPath=app/static/images/'
         // "file-loader?name=[name].[ext]&publicPath=assets/foo/&outputPath=app/images/"
       }
     ]
