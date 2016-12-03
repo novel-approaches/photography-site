@@ -10,6 +10,7 @@ import photoSelect from './photoSelect_Reducer';
 import photoGallery from './photoGallery_Reducer';
 import photoGallerySelect from './photoGallerySelect_Reducer';
 import imageObject from './image_object_reducer';
+import ajaxSpinner from './ajaxSpinner_Reducer';
 
 
 const rootReducer = combineReducers({
@@ -21,7 +22,8 @@ const rootReducer = combineReducers({
   photoSelect,
   photoGallery,
   photoGallerySelect,
-  imageObject
+  imageObject,
+  ajaxSpinner
 });
 
 export default rootReducer;
