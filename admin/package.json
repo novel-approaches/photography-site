@@ -10,6 +10,15 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/novel-approaches/photography-site.git"
+  },
+  "bugs": {
+    "url": "https://github.com/novel-approaches/photography-site/issues"
+  },
+  "homepage": "https://github.com/novel-approaches/photography-site/blob/master/README.md",
+  "readme": "ERROR: No README data found!",
   "keywords": [
     "Admin",
     "Administrator",
