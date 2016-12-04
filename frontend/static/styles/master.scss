@@ -158,7 +158,8 @@ form[name='grid-form'] {
 
   fieldset {
     width: 5vw;
-    height: 25%;
+    height: 25vh;
+    min-height: 250px;
     padding: 0;
     margin: auto;
     border: none;
@@ -168,13 +169,6 @@ form[name='grid-form'] {
   output,
   label {
     display: block;
-  }
-
-  input {
-    display: block;
-    width: inherit;
-    height: 65%;
-    margin: auto;
   }
 
   .output-wrapper {
@@ -194,17 +188,6 @@ form[name='grid-form'] {
   width: 100vw;
   height: 87.5vh;
   flex-flow: row nowrap;
-}
-
-.vrange {
-  margin-top: 50px;
-  -webkit-appearance: slider-vertical;
-
-  // -webkit-transform: rotate(270deg);
-  // -moz-transform:    rotate(270deg);
-  // -ms-transform:     rotate(270deg);
-  // -o-transform:      rotate(270deg);
-  // transform:         rotate(270deg);
 }
 
 fieldset {
@@ -305,7 +288,7 @@ fieldset {
   }
 
   > li {
-    padding: 1rem 0.5rem;
+    padding: 1rem 0.5rem 1.5rem 0.5rem;
 
     &:nth-of-type(odd) {
       background-color: #E8E8E8;
@@ -423,6 +406,8 @@ header {
       height: auto;
       min-height: 50px;
       max-height: 100px;
+      outline: 5px inset Gold;
+      outline-offset: 5px;
     }
   }
 
@@ -470,4 +455,158 @@ sup {
 }
 
 
+// Style <input> Elements of Type `range`:
+input[type='range'] {
+  -webkit-appearance: none;
+  -webkit-transform: rotate(-270deg);
+  -moz-transform:    rotate(-270deg);
+  -ms-transform:     rotate(-270deg);
+  -o-transform:      rotate(-270deg);
+  transform:         rotate(-270deg);
+}
 
+// .vrange {
+//   margin-top: 50px;
+//   // -webkit-appearance: slider-vertical;
+
+//   // -webkit-transform: rotate(270deg);
+//   // -moz-transform:    rotate(270deg);
+//   // -ms-transform:     rotate(270deg);
+//   // -o-transform:      rotate(270deg);
+//   // transform:         rotate(270deg);
+// }
+
+
+// input[type='range']::-webkit-slider-runnable-track {
+//   width: 5px;
+//   height: 300px;
+//   background: #DDD;
+//   border: none;
+//   border-radius: 3px;
+// }
+
+// input[type='range']::-webkit-slider-thumb {
+//   -webkit-appearance: none;
+//   width: 16px;
+//   height: 16px;
+//   margin-top: -4px;
+//   border: none;
+//   border-radius: 50%;
+//   background: Goldenrod;
+// }
+
+// input[type='range']:focus {
+//   outline: none;
+// }
+
+// input[type='range']:focus::-webkit-slider-runnable-track {
+//   background: #CCC;
+// }
+
+
+/* Special styling for WebKit/Blink */
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid #000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: Gold;  // #FFF;
+  cursor: pointer;
+  margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  box-shadow: 1px 1px 1px #000,
+              0 0 1px #0D0D0D; /* Add cool effects to your sliders! */
+}
+
+/* All the same stuff for Firefox */
+input[type='range']::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000,
+              0 0 1px #0D0D0D;
+  border: 1px solid #000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #FFF;
+  cursor: grab;
+}
+
+/* All the same stuff for IE */
+input[type='range']::-ms-thumb {
+  box-shadow: 1px 1px 1px #000,
+              0 0 1px #0D0D0D;
+  border: 1px solid #000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #FFF;
+  cursor: pointer;
+}
+
+
+
+// Styling the runnable-track:
+input[type='range']::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000,
+              0 0 1px #0D0D0D;
+  background: #9651DF;  // #3071A9; (Blue)
+  border-radius: 10px;
+  border: 0.2px solid #010101;
+}
+
+input[type='range']:focus::-webkit-slider-runnable-track {
+  background: #9651DF;  // #367EBD; (Lighter Blue)
+  // border: none;
+  outline: none;
+}
+
+input[type='range']::-moz-range-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000,
+              0 0 1px #0D0D0D;
+  background: #9651DF;  // #3071A9; (Blue)
+  border-radius: 2px;
+  border: 0.2px solid #010101;
+}
+
+input[type='range']::-ms-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+input[type='range']::-ms-fill-lower {
+  background: #9651DF;  // #2A6495; (Blue)
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000,
+              0 0 1px #0D0D0D;
+}
+input[type='range']:focus::-ms-fill-lower {
+  background: #9651DF;  // #3071A9; (Blue)
+  // border: none;
+  outline: none;
+}
+input[type='range']::-ms-fill-upper {
+  background: #9651DF;  // #3071A9; (Blue)
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000,
+              0 0 1px #0D0D0D;
+}
+input[type='range']:focus::-ms-fill-upper {
+  background: #9651DF;  // #367EBD; (Lighter Blue)
+  outline: none;
+  border: none;
+}
+
+input[type='range']:focus {
+  outline: none;
+}
