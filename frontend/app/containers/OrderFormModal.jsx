@@ -23,10 +23,11 @@ class OrderFormModal extends Component {
   }
 
   renderProducts(cart) {
-    return Object.values(cart).map((item, index, list) =>
+    return Object.values(cart).map((photo, index, list) =>
       <ProductOrderItem
         key={ `ProductOrder_${index}` }
-        item={ item } />
+        photo={ photo }
+        itemNum={ index + 1 } />
     );
   }
 
