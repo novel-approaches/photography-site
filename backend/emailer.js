@@ -8,30 +8,49 @@ const smtpConfig = {
   auth: mail_auth
 };
 
+const makeHTML = (obj) => {
+  let html = ''
+  let order = obj.order;
+  let total = 0;
+  let prices = {
+    '4x6': 10,
+    '5x7': 15,
+    '8x10': 20
+  }
+  console.log(order);
+  for (var name in order) {
+    let photo = order[name];
+    let photoHTML = `<p>${name}:<br/><br/>`
+    for (var size in photo.quantity){
+      total += prices[size] * photo.quantity[size];
+      photoHTML += `${size}: ${photo.quantity[size]}<br/>`
+    }
+    photoHTML += '</p>'
+    html += photoHTML
+  }
+  html += `<p>Total: $${total}.00</p>`
+  return html
+}
+
 const transporter = nodemailer.createTransport(smtpConfig);
 
-console.log(smtpConfig);
-
 module.exports = {
-  sendOrderEmail(incomingFormData) {
-    console.log(incomingFormData);
+  sendOrderEmail(incomingFormData, action) {
+    let body = makeHTML(incomingFormData);
     // setup e-mail data with unicode symbols. This needs to be adjusted for incoming data - e.g. incomingFormData.to, incomingFormData.text, etc.
     const mailOptions = {
         from: '"Claires Photography Orders" <clairesphotosoak@gmail.com>', // sender address
         to: 'novelapproachesdevelopment@gmail.com', // list of receivers - currently testing with personal email
-        subject: 'Hello', // Subject line
-        text: 'Hello world', // plaintext body
-        html: '<b>Hello world</b>' // html body
+        subject: 'Photo Print Order', // Subject line
+        html: body// html body
     };
-
-    console.log(mailOptions);
 
     transporter.sendMail(mailOptions, function(error, info){
         if(error){
             console.log(error);
             return false;
         }
-        console.log('Message sent: ' + info.response);
+        action('Message sent: ' + info.response);
     });
   }
 };

@@ -22,11 +22,8 @@ Server.get('/images', (req, res) => {
 });
 
 Server.post('/order', (req, res) => {
-  console.log(req.body);
-  let emailed = Emailer.sendOrderEmail(req.body)
-  console.log('HERE');
-  console.log(emailed);
-  res.send(JSON.parse(emailed));
+  const send = (response) => res.send(response);
+  Emailer.sendOrderEmail(req.body, send)
 });
 
 Server.get('/*', (req, res) => {
