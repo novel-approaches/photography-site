@@ -23,7 +23,8 @@ class ItemQuantityForm extends Component {
       photoID: ID,
       quantity: {
         [size]: num
-      }
+      },
+      price: num * price
     });
   }
 
