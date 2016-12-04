@@ -165,6 +165,11 @@ form[name='grid-form'] {
     text-align: center;
   }
 
+  output,
+  label {
+    display: block;
+  }
+
   input {
     display: block;
     width: inherit;
@@ -207,11 +212,6 @@ fieldset {
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
-}
-
-output,
-label {
-  display: block;
 }
 
 
@@ -284,6 +284,7 @@ label {
 
 .ReactModal__Content h3 {
   height: 5vh;
+  text-align: center;
 }
 
 #orders-list {
@@ -294,10 +295,17 @@ label {
   overflow-x: hidden;
   overflow-y: scroll;
 
-  li {
-    padding: 0 2rem;
+  h3 {
+    text-align: left;
+  }
 
-    h5 { margin: 0; }
+  h4 {
+    margin: 0;
+    padding: 0 0 0.75rem 0;
+  }
+
+  > li {
+    padding: 1rem 0.5rem;
 
     &:nth-of-type(odd) {
       background-color: #E8E8E8;
@@ -396,6 +404,70 @@ header {
   transform: translate(-50%, -50%);
 }
 
+.product-item {
+  position: relative;
+
+  > div {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    > *:first-child { margin: 0 0 0 3rem; }
+    > *:last-child { margin: 0 3rem 0 0; }
+
+    img {
+      width: auto;
+      min-width: 75px;
+      max-width: 30%;
+      height: auto;
+      min-height: 50px;
+      max-height: 100px;
+    }
+  }
+
+  .trashcan-glyph {
+    position: absolute;
+    width: 2rem;
+    right: 1rem;
+    height: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.25s ease-in-out;
+    cursor: pointer;
+  }
+
+  &:hover .trashcan-glyph {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .size {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+
+    input {
+      width: 50px;
+      text-align: center;
+      font: bold 1rem/1 'inherit';
+      
+      &:disabled {
+        color: Gainsboro;
+      }
+    }
+
+    output {
+      position: absolute;
+      left: calc(100% + 7.5px);
+    }
+  }
+}
+
+sup {
+  text-decoration: underline solid #000;
+}
 
 
 
