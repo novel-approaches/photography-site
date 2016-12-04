@@ -4,7 +4,7 @@ import React from 'react';
 
 const TrashCanGlyph = () => (
   <svg
-    className="JUQOtc"
+    className="trashcan-glyph"
     width="24px"
     height="24px"
     viewBox="0 0 24 24">
