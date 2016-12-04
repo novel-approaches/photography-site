@@ -37,8 +37,8 @@ class GridControls extends Component {
             id="size-inpt"
             className="vrange"
             type="range"
-            min={ 50 }
-            max={ Math.floor(window.innerHeight / 3) }
+            min={ 100 }
+            max={ Math.floor(window.innerHeight / 2.5) }
             step={ 10 }
             defaultValue={ 300 }
             // onChange={ (evt) => this.onSlide(evt, ReactDOM.findDOMNode(this.refs.sizeOutput)) } />
@@ -60,7 +60,7 @@ class GridControls extends Component {
             id="margin-inpt"
             className="vrange"
             type="range"
-            min={ 0 }
+            min={ 2 }
             max={ 75 }
             step={ 1 }
             defaultValue={ 15 }
