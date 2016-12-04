@@ -7,7 +7,7 @@ const toggleSelectedState = (photo) => Object.assign(photo, { selected: !photo.s
 export default function photoSelect(state = {}, action) {
   switch (action.type) {
     case SELECT_PHOTO:
-      console.log(`Action <${action.type}> registered with payload <photo: `, action.photo, '>');
+      // console.log(`Action <${action.type}> registered with payload <photo: `, action.photo, '>');
       
       const statePhotoKey = action.photo['public_id'],
             toggledPhoto = toggleSelectedState(action.photo);
