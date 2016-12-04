@@ -11,7 +11,7 @@ export default class OrderTotal extends Component {
     return (
       <li
         className="product-item">
-        <h5>Order Total: </h5>
+        <h3>Order Total: </h3>
         <output>
 
         </output>
