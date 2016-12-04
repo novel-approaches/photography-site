@@ -16,10 +16,9 @@ class ItemQuantityForm extends Component {
   }
 
   changeQuantity(evt) {
-    let num = evt.target.value,
-        size = evt.target.dataset.size,
-        ID = this.props.photoID;
-      console.log(`Quantity:\t${num}\nSize:\t${size}`);
+    let [num, ID] = [evt.target.value, this.props.photoID],
+        { size, price } = evt.target.dataset;
+
     this.props.changeItemQuantity({
       photoID: ID,
       quantity: {
@@ -33,7 +32,9 @@ class ItemQuantityForm extends Component {
   }
 
   disableInput(evt) {
-    evt.target.setAttribute('disabled', true);
+    if (!(evt.target.value > 0)) {
+      evt.target.setAttribute('disabled', true);
+    }
   }
 
   renderSizes(sizesArr) {
@@ -49,8 +50,10 @@ class ItemQuantityForm extends Component {
           id={ `size-${obj.size}` }
           type="number"
           min={ 0 }
+          max={ Number.MAX_SAFE_INTEGER }
           defaultValue={ 0 }
           data-size={ obj.dimensions.replace(/\s/g, '') }
+          data-price={ obj.price }
           onChange={ this.changeQuantity }
           onMouseOver={ this.enableInput }
           onMouseLeave={ this.disableInput }
