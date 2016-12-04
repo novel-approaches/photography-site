@@ -58,7 +58,7 @@ class ThumbnailsMap extends Component {
           <div id='placesContainer'>
             {[
               <i 
-                className='fa fa-refresh fa-spin fa-5x fa-fw loadingSpinner' 
+                className='fa fa-refresh fa-spin fa-5x fa-fw spinner' 
                 key='RefreshAnimation'>
               </i>,
               `\tLoading...`
