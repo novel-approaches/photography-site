@@ -45,9 +45,9 @@ export const getPhotos = () => {
 
 // Action creator stages or unsets the AJAX loading spinner:
 //  @param {booean} loading
-export const setAjaxSpinner = (bool) => ({
+export const setAjaxSpinner = (loading) => ({
   type: SET_AJAX_SPINNER,
-  loading: bool
+  loading
 });
 
 export const submitOrder = (order) => {
