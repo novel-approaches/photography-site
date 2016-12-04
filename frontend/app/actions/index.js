@@ -11,6 +11,9 @@ export const SELECT_PHOTO = 'SELECT_PHOTO';
 export const TOGGLE_PHOTO_SELECTION_STATE = 'TOGGLE_PHOTO_SELECTION_STATE';
 export const GET_IMAGE_OBJECT = 'GET_IMAGE_OBJECT';
 export const SET_AJAX_SPINNER = 'SET_AJAX_SPINNER';
+export const SUBMIT_ORDER = 'SUBMIT_ORDER';
+export const CHANGE_ITEM_QUANTITY = 'CHANGE_ITEM_QUANTITY';
+
 
 // export const getPhotos = () => {
 //   const FetchImageURLs = (
@@ -45,6 +48,27 @@ export const getPhotos = () => {
 export const setAjaxSpinner = (bool) => ({
   type: SET_AJAX_SPINNER,
   loading: bool
+});
+
+export const submitOrder = (order) => {
+  const request = axios.post('/order', {
+      order
+    })
+    .then(function(response) {
+      console.log(response);
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+  return {
+    type: SUBMIT_ORDER,
+    payload: request
+  };
+};
+
+export const changeItemQuantity = (item) => ({
+  type: CHANGE_ITEM_QUANTITY,
+  payload: item
 });
 
 export const modifyGridMargins = (margins) => ({
