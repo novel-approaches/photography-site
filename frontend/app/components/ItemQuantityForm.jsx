@@ -11,6 +11,8 @@ class ItemQuantityForm extends Component {
     super(props);
     this.renderSizes = this.renderSizes.bind(this);
     this.changeQuantity = this.changeQuantity.bind(this);
+    this.enableInput = this.enableInput.bind(this);
+    this.disableInput = this.disableInput.bind(this);
   }
 
   changeQuantity(evt) {
@@ -26,6 +28,14 @@ class ItemQuantityForm extends Component {
     });
   }
 
+  enableInput(evt) {
+    evt.target.removeAttribute('disabled');
+  }
+
+  disableInput(evt) {
+    evt.target.setAttribute('disabled', true);
+  }
+
   renderSizes(sizesArr) {
     return sizesArr.map((obj, index, list) =>
       <li
@@ -38,9 +48,17 @@ class ItemQuantityForm extends Component {
         <input
           id={ `size-${obj.size}` }
           type="number"
+          min={ 0 }
           defaultValue={ 0 }
           data-size={ obj.dimensions.replace(/\s/g, '') }
-          onChange={ this.changeQuantity } />
+          onChange={ this.changeQuantity }
+          onMouseOver={ this.enableInput }
+          onMouseLeave={ this.disableInput }
+          disabled />
+        <output
+          htmlFor={ `size-${obj.size}` } >
+          { `$${(index * 5) + 10}` }
+        </output>
       </li>
     );
   }
@@ -49,13 +67,16 @@ class ItemQuantityForm extends Component {
     const SIZES = [
       {
         size: 'small',
-        dimensions: '4 x 6'
+        dimensions: '4 x 6',
+        price: 5
       }, {
         size: 'medium',
-        dimensions: '5 x 7'
+        dimensions: '5 x 7',
+        price: 10
       }, {
         size: 'large',
-        dimensions: '8 x 10'
+        dimensions: '8 x 10',
+        price: 15
       }
     ];
     return (
