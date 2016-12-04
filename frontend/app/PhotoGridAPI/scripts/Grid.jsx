@@ -1,8 +1,10 @@
 'use strict';
 import '../styles/main.scss'
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+import { setAjaxSpinner } from '../../actions/index';
 import GridItem from './GridItem';
 import ScrollHandler from './ScrollHandler';
 
@@ -10,7 +12,7 @@ import ScrollHandler from './ScrollHandler';
 // H = W / d
 // H = W / ( (w1/h1) + (w2/h2) + ... + (wn/hn) )
 
-export default class Grid extends Component {
+class Grid extends Component {
   constructor(props) {
     super(props);
     this.resizeTimeout = null;
@@ -33,13 +35,17 @@ export default class Grid extends Component {
   }
 
   componentWillMount() {
-    var self = this;
-    setTimeout(function() {
-      self.loadItems();
-    }, 3000);
+    // this.props.setAjaxSpinner(true);
+
+    // var self = this;
+    // setTimeout(function() {
+    //   self.props.setAjaxSpinner(false);
+    //   self.loadItems();
+    // }, 3000);
   }
 
   componentDidMount() {
+    this.loadItems();
     this.setContainerWidth();
 
     // window.addEventListener('resize', ::this.setContainerWidth, false);
@@ -265,6 +271,9 @@ export default class Grid extends Component {
             key={ `GridItem_(${i}.${j})` }
             path={ item.url }
             H={ row.H }
+            setToActive={ this.props.setToActive }
+            // selectFunc= { this.props.selectFunc }
+            selFote={ this.props.selFote }
             domain="cloudinary.com"
             margins={ margins }
             photo={ item }
@@ -286,7 +295,21 @@ export default class Grid extends Component {
     );
 
   }
-}
+};
+
+
+let mapStateToProps = (state) => ({
+  ajaxSpinner: state.ajaxSpinner,
+  imgObj: state.imageObject,
+  photoSelect: state.photoSelect
+});
+
+let mapDispatchToProps = (dispatch) => bindActionCreators({
+  setAjaxSpinner
+}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Grid);
+
 
 Grid.childContextTypes = {
   debug: React.PropTypes.bool

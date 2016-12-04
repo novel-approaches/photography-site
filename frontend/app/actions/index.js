@@ -10,6 +10,7 @@ export const ADD_TO_SHOPPING_CART = 'ADD_TO_SHOPPING_CART';
 export const SELECT_PHOTO = 'SELECT_PHOTO';
 export const TOGGLE_PHOTO_SELECTION_STATE = 'TOGGLE_PHOTO_SELECTION_STATE';
 export const GET_IMAGE_OBJECT = 'GET_IMAGE_OBJECT';
+export const SET_AJAX_SPINNER = 'SET_AJAX_SPINNER';
 
 // export const getPhotos = () => {
 //   const FetchImageURLs = (
@@ -31,25 +32,20 @@ export const GET_IMAGE_OBJECT = 'GET_IMAGE_OBJECT';
 //     payload: FetchImageURLs
 //   };
 // }
-
-// export const fetchJobs = (jobSearch, city) => {
-//   const request = axios.post('/api/v1/jobs', {
-//     jobTitle: jobSearch,
-//     city: city,
-//     _csrf: getCookie('_csrf')
-//   });
-//   return {
-//     type: 'FETCH_JOBS',
-//     payload: request
-//   };
-// };
 export const getPhotos = () => {
   const request = axios.get('/images');
   return {
     type: GET_IMAGE_OBJECT,
     payload: request
   };
-}
+};
+
+// Action creator stages or unsets the AJAX loading spinner:
+//  @param {booean} loading
+export const setAjaxSpinner = (bool) => ({
+  type: SET_AJAX_SPINNER,
+  loading: bool
+});
 
 export const modifyGridMargins = (margins) => ({
   type: MODIFY_GRID_MARGINS,

@@ -1,5 +1,5 @@
 'use strict';
-import React, { Component } from 'react';
+import React from 'react';
 
 
 const ProductOrderItem = ({ item }) => (

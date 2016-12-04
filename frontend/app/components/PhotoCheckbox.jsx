@@ -7,26 +7,27 @@ import { selectPhoto, toggleGalleryPhotoSelection } from '../actions/index';
 import CheckboxGlyph from '../constants/svg/CheckboxGlyph_SVG';
 
 
-class PhotoCheckbox extends Component {
+export default class PhotoCheckbox extends Component {
   constructor(props) {
     super(props);
-    this.selectPhoto = this.selectPhoto.bind(this);
+    // this.selectPhoto = this.selectPhoto.bind(this);
   }
 
-  selectPhoto(evt) {
-    evt.currentTarget.classList.toggle('checked');
-    let $parEl = $(evt.currentTarget);
-      // console.log('Parent Element:', $(this), '\n', 'EVT:', $(evt.currentTarget));
-    this.props.selectPhoto(this.props.photo);
-    this.props.toggleGalleryPhotoSelection(this.props.photo);
-  };
+  // selectPhoto(evt) {
+  //   evt.currentTarget.classList.toggle('checked');
+  //   let $parEl = $(evt.currentTarget);
+  //     // console.log('Parent Element:', $(this), '\n', 'EVT:', $(evt.currentTarget));
+  //   this.props.selectPhoto(this.props.photo);
+  //   this.props.toggleGalleryPhotoSelection(this.props.photo);
+  // };
 
   render() {
     return (
       <div
         className="checkbox"
         role="checkbox"
-        onClick={ this.selectPhoto }>
+        // onClick={ () => this.props.selectFunc(this.props.photo) }
+        onClick={ () => this.props.selFote(this.props.photo) }>
         <CheckboxGlyph />
       </div>
     );
@@ -34,9 +35,9 @@ class PhotoCheckbox extends Component {
 };
 
 
-let mapDispatchToProps = (dispatch) => bindActionCreators({
-  selectPhoto,
-  toggleGalleryPhotoSelection
-}, dispatch);
+// let mapDispatchToProps = (dispatch) => bindActionCreators({
+//   selectPhoto,
+//   toggleGalleryPhotoSelection
+// }, dispatch);
 
-export default connect(null, mapDispatchToProps)(PhotoCheckbox);
+// export default connect(null, mapDispatchToProps)(PhotoCheckbox);

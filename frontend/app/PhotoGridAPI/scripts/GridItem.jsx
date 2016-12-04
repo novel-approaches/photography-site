@@ -1,7 +1,9 @@
 'use strict';
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+import { selectPhoto } from '../../actions/index';
 import Thumbnail from '../../components/Thumbnail';
 import PhotoCheckbox from '../../components/PhotoCheckbox';
 
@@ -10,6 +12,8 @@ class GridItem extends Component {
   constructor(props) {
     super(props);
     // this.assignClass = this.assignClass.bind(this);
+    this.selPhoto = this.selPhoto.bind(this);
+    this.aa = this.aa.bind(this);
   }
 
   onClick(evt) {
@@ -40,19 +44,32 @@ class GridItem extends Component {
     return `perfect-grid__item ${selectState ? 'checked' : ''}`;
   }
 
+  selPhoto(photo) {
+    // evt.currentTarget.classList.toggle('checked');
+    // let $parEl = $(evt.currentTarget);
+      // console.log('Parent Element:', $(this), '\n', 'EVT:', $(evt.currentTarget));
+    this.props.selectPhoto(photo);
+    // this.props.toggleGalleryPhotoSelection(this.props.photo);
+  };
+
+  aa() {
+    if (this.props.photoSelect[this.props.photo.public_id]) {
+      return `perfect-grid__item checked`;
+    } else {
+      return `perfect-grid__item`;
+    }
+  }
+
   render() {
     let { H, margins, over, media, ratio, resource_type, type, element, link } = this.props;
-    let src = media ? media.src : null;
-
-    let height = H;
-    let width = H * ratio;
+    let src = media ? media.src : null,
+        [height, width] = [H, H * ratio];
 
     let style = {
       height: `${height}px`,
       width: `${width}px`,
       margin: `${margins / 2}px`
     };
-
 
     switch (resource_type) {
       case 'image':
@@ -75,17 +92,13 @@ class GridItem extends Component {
         break;
     }
 
-    // let onClick = link ? ::this.onClick : null;
-    let onClick = link ? this.onClick : null;
+    let onClick = link ? ::this.onClick : null;
 
     // over = over ? <div className="perfect-grid__over" >{ over }</div> : null
 
     return (
       <div
-        className={
-          'perfect-grid__item' + '  ' + this.props.photoGallerySelect[this.props.photo.public_id]
-        }
-        // data-pgs={ this.props.photoGallerySelect[this.props.photo.public_id].selected }
+        className={ this.aa() }
         onClick={ onClick }
         style={ style }>
         { over }
@@ -95,7 +108,9 @@ class GridItem extends Component {
           data-domain={ this.props.domain }>
           <PhotoCheckbox
             photo={ this.props.photo }
-            className="checkbox" />
+            className="checkbox"
+            // selectFunc={ this.props.selPhoto }
+            selFote={ this.props.selFote } />
           { media }
         </div>
       </div>
@@ -108,38 +123,15 @@ let mapStateToProps = (state) => ({
   photoGallerySelect: state.photoGallerySelect
 });
 
-export default connect(mapStateToProps)(GridItem);
+let mapDispatchToProps = (dispatch) => bindActionCreators({
+  selectPhoto
+}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(GridItem);
+// export default connect(mapStateToProps)(GridItem);
+
 
 // <Thumbnail
 //   path={ this.props.secure_url.replace(/^(.+)(v\d+.+)$/, "$2") }
 //   nativeDimensions={ `${this.props.width} x ${this.props.height} px` }
 //   domain="cloudinary.com" />
-
-// <div
-//   className={"perfect-grid__item" + (link ? ' perfect-grid__link' : '')}
-//   onClick={onClick}
-//   style={style}>
-//   { over }
-//   <div className="thumb perfect-grid__media">
-//     { media }
-//   </div>
-// </div>
-
-
-
-// const API_BASE = 'https://res.cloudinary.com/clairephotography/image/upload/';
-// const constructURL = (imgPath) => `${API_BASE}${imgPath}`;
-// const thumbResize = (imgPath) => `${API_BASE}h_200/${imgPath}`;
-//   // http://res.cloudinary.com/http-isenrich-io/image/upload/w_500/DPC_Splash_Page.png
-
-// const Thumbnail = ({ path, nativeDimensions, domain }) => (
-//   <div
-//     className="thumb"
-//     data-dims={ nativeDimensions }
-//     data-domain={ domain }>
-//     <img
-//       src={ thumbResize(path) }
-//         // src={ constructURL(path) }
-//       alt="Public ID" />
-//   </div>
-// );
