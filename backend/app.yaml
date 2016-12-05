@@ -1,4 +1,4 @@
-service: express
+service: default
 runtime: nodejs
 vm: true
 

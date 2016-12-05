@@ -8,7 +8,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "deploy": "gcloud app deploy",
+    "deploy": "gcloud app deploy app.yaml",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
