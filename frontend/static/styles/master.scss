@@ -209,11 +209,6 @@ fieldset {
     fill: #FFF;
     cursor: pointer;
     z-index: 2;
-
-    .checked .checkbox-glyph {
-      fill: #9651DF;
-      fill-opacity: 1;
-    }
   }
 
   .checkbox-glyph {
@@ -233,8 +228,8 @@ fieldset {
   }
 
   &.checked {
-    background-color: rgba(150, 81, 223, 0.17);
-    
+    background-color: #CCC;
+
     .perfect-grid__media {
       margin: auto;
       -webkit-transform: translateZ(0) scale3d(0.89, 0.85, 1);
@@ -242,6 +237,11 @@ fieldset {
       -ms-transform:     translateZ(0) scale3d(0.89, 0.85, 1);
       -o-transform:      translateZ(0) scale3d(0.89, 0.85, 1);
       transform:         translateZ(0) scale3d(0.89, 0.85, 1);
+    }
+
+    .checkbox-glyph {
+      fill: #9651DF;
+      fill-opacity: 1;
     }
   }
 
