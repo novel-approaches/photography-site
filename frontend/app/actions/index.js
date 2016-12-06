@@ -4,7 +4,6 @@ import axios from 'axios';
 
 export const MODIFY_GRID_MARGINS = 'MODIFY_GRID_MARGINS';
 export const MODIFY_GRID_SIZE = 'MODIFY_GRID_SIZE';
-export const ORDER_PHOTO = 'ORDER_PHOTO';
 export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 export const ADD_TO_SHOPPING_CART = 'ADD_TO_SHOPPING_CART';
 export const TOGGLE_PHOTO_SELECTION_STATE = 'TOGGLE_PHOTO_SELECTION_STATE';
@@ -78,11 +77,6 @@ export const modifyGridMargins = (margins) => ({
 export const modifyGridSize = (size) => ({
   type: MODIFY_GRID_SIZE,
   size
-});
-
-export const orderPhoto = (photo) => ({
-  type: ORDER_PHOTO,
-  photo
 });
 
 // Action used to handle display toggle of OrderFormModal React container:
