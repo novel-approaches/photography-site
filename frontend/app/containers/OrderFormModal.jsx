@@ -49,7 +49,7 @@ class OrderFormModal extends Component {
             order={ this.props.orderQuantities } />
         </ul>
       </Modal>
-    );
+    )
   }
 };
 

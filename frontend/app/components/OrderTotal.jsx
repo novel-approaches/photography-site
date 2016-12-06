@@ -10,14 +10,6 @@ export default class OrderTotal extends Component {
   render() {
     return (
       <div>
-        <form className="quantity-form">
-          <label>Enter Email</label>
-            <input type="text" />
-          <label>Enter Phone</label>
-            <input type="text" />
-
-        </form>
-
         <li
           className="product-item">
           <h5>Order Total: </h5>
