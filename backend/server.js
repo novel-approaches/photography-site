@@ -1,6 +1,6 @@
 'use strict';
-const Express = require('express'),
-      Server = Express();
+const Express = require('express');
+const Server = Express();
 const Request = require('request');
 const BodyParser = require('body-parser');
 const Path = require('path');
@@ -34,7 +34,7 @@ Server.get('/*', (req, res) => {
 
 let server;
 if (module === require.main) {
-  server = Server.listen(process.env.PORT || 8000, () => {
+  server = Server.listen(process.env.PORT || 8080, () => {
     const PORT = server.address().port;
       console.log('Node Server listening on port %s', PORT);
   });
