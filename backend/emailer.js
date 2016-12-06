@@ -4,7 +4,7 @@ const mail_auth = require('./auth');
 
 //Config options for the SMTP. See https://nodemailer.com/2-0-0-beta/setup-smtp/well-known-services/
 const smtpConfig = {
-  service: 'mailgun',
+  service: 'gmail',
   auth: mail_auth
 };
 
@@ -17,7 +17,7 @@ const makeHTML = (obj) => {
     '5x7': 15,
     '8x10': 20
   }
-  console.log(order);
+  // console.log(order);
   for (var name in order) {
     let photo = order[name];
     let photoHTML = `<p>${name}:<br/><br/>`
@@ -40,7 +40,7 @@ module.exports = {
     // setup e-mail data with unicode symbols. This needs to be adjusted for incoming data - e.g. incomingFormData.to, incomingFormData.text, etc.
     const mailOptions = {
         from: '"Claires Photography Orders" <clairesphotosoak@gmail.com>', // sender address
-        to: 'novelapproachesdevelopment@gmail.com', // list of receivers - currently testing with personal email
+        to: 'dacooperfish@gmail.com', // list of receivers - currently testing with personal email
         subject: 'Photo Print Order', // Subject line
         html: body// html body
     };
