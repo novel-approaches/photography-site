@@ -6,7 +6,10 @@ export default class SubmitOrder extends Component {
   constructor(props) {
     super(props);
     this.onSub = this.onSub.bind(this);
-    this.changeContactInfo = this.changeContactInfo.bind(this);
+    this.contactInfo = {
+      email: '',
+      phone: ''
+    };
   }
 
   onSub(evt) {
@@ -17,12 +20,18 @@ export default class SubmitOrder extends Component {
 
   //TODO make this work - need to grab below form data, stick it in the order object, etc.
   changeContactInfo(evt) {
-    console.log(evt);
-    let num = evt.target.value
-    this.state.contact = {
-      email: '',
-      phone: ''
-      }
+    switch (evt.target.id) {
+      case 'phone':
+        this.contactInfo.phone = evt.target.value;
+        break;
+      case 'email':
+        this.contactInfo.email = evt.target.value;
+        break;
+      default:
+      console.log('default');
+    }
+    console.log('###CONTACTINFO###')
+    console.log(this.contactInfo);
   }
 
   render() {
@@ -30,9 +39,9 @@ export default class SubmitOrder extends Component {
       <div>
         <form className="quantity-form">
           <label>Enter Email</label>
-            <input type="text" onChange={this.changeContactInfo}/>
+            <input type="text" id='email' onChange={this.changeContactInfo}/>
           <label onChange={this.changeContactInfo}>Enter Phone</label>
-            <input type="text" />
+            <input type="text" id='phone' onChange={this.changeContactInfo}/>
         </form>
 
         <button
