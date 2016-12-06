@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { selectPhoto } from '../../actions/index';
+import { addToShoppingCart } from '../../actions/index';
 import Thumbnail from '../../components/Thumbnail';
 import PhotoCheckbox from '../../components/PhotoCheckbox';
 
@@ -12,7 +12,7 @@ class GridItem extends Component {
   constructor(props) {
     super(props);
     // this.assignClass = this.assignClass.bind(this);
-    this.selPhoto = this.selPhoto.bind(this);
+    // this.selPhoto = this.selPhoto.bind(this);
     this.aa = this.aa.bind(this);
   }
 
@@ -44,16 +44,16 @@ class GridItem extends Component {
     return `perfect-grid__item ${selectState ? 'checked' : ''}`;
   }
 
-  selPhoto(photo) {
-    // evt.currentTarget.classList.toggle('checked');
-    // let $parEl = $(evt.currentTarget);
-      // console.log('Parent Element:', $(this), '\n', 'EVT:', $(evt.currentTarget));
-    this.props.selectPhoto(photo);
-    // this.props.toggleGalleryPhotoSelection(this.props.photo);
-  };
+  // selPhoto(photo) {
+  //   // evt.currentTarget.classList.toggle('checked');
+  //   // let $parEl = $(evt.currentTarget);
+  //     // console.log('Parent Element:', $(this), '\n', 'EVT:', $(evt.currentTarget));
+  //   this.props.addToShoppingCart(photo);
+  //   // this.props.toggleGalleryPhotoSelection(this.props.photo);
+  // };
 
   aa() {
-    if (this.props.photoSelect[this.props.photo.public_id]) {
+    if (this.props.shoppingCart[this.props.photo.public_id]) {
       return `perfect-grid__item checked`;
     } else {
       return `perfect-grid__item`;
@@ -119,12 +119,11 @@ class GridItem extends Component {
 };
 
 let mapStateToProps = (state) => ({
-  photoSelect: state.photoSelect,
-  photoGallerySelect: state.photoGallerySelect
+  shoppingCart: state.shoppingCart
 });
 
 let mapDispatchToProps = (dispatch) => bindActionCreators({
-  selectPhoto
+  // selectPhoto
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(GridItem);
