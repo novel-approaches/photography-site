@@ -16,4 +16,4 @@ npm-debug.log
 api.js
 
 #Ignore Mail Auth
-/backend/auth.js
+auth.js
