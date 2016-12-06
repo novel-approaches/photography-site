@@ -30,7 +30,7 @@ export default class SubmitOrder extends Component {
       default:
       console.log('default');
     }
-    console.log('###CONTACTINFO###')
+    console.log('###CONTACTINFO####')
     console.log(this.contactInfo);
   }
 
