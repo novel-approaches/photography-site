@@ -6,7 +6,6 @@ import gridSize from './gridSize_Reducer';
 import photoOrder from './photoOrder';
 import orderFormModal from './orderFormModal_Reducer';
 import shoppingCart from './shoppingCart_Reducer';
-import photoSelect from './photoSelect_Reducer';
 import photoGallery from './photoGallery_Reducer';
 import photoGallerySelect from './photoGallerySelect_Reducer';
 import imageObject from './image_object_reducer';
@@ -21,7 +20,6 @@ const rootReducer = combineReducers({
   photoOrder,
   orderFormModal,
   shoppingCart,
-  photoSelect,
   photoGallery,
   photoGallerySelect,
   imageObject,
