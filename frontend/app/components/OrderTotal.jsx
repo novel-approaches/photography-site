@@ -9,13 +9,24 @@ export default class OrderTotal extends Component {
 
   render() {
     return (
-      <li
-        className="product-item">
-        <h5>Order Total: </h5>
-        <output>
+      <div>
+        <form className="quantity-form">
+          <label>Enter Email</label>
+            <input type="text" />
+          <label>Enter Phone</label>
+            <input type="text" />
 
-        </output>
-      </li>
+        </form>
+
+        <li
+          className="product-item">
+          <h5>Order Total: </h5>
+          <output>
+
+          </output>
+        </li>
+
+      </div>
     );
   }
 };

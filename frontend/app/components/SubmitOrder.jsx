@@ -10,7 +10,7 @@ export default class SubmitOrder extends Component {
 
   onSub(evt) {
     // evt.preventDefault();
-      console.log('\nORDER:', this.props.order);
+    // console.log('\nORDER:', this.props.order);
     this.props.sub(this.props.order);
   }
 
