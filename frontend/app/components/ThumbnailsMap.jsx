@@ -57,8 +57,8 @@ class ThumbnailsMap extends Component {
         : (this.init++, PhotoGrid =
           <div id='placesContainer'>
             {[
-              <i 
-                className='fa fa-refresh fa-spin fa-5x fa-fw spinner' 
+              <i
+                className='fa fa-refresh fa-spin fa-5x fa-fw spinner'
                 key='RefreshAnimation'>
               </i>,
               `\tLoading...`
@@ -76,7 +76,7 @@ class ThumbnailsMap extends Component {
     return Object.keys(this.props.photoSelect).length
       ? 'active'
       : 'inactive';
-  } 
+  }
 
   applyButtonStyle() {
     return Object.keys(this.props.photoSelect).length
@@ -92,13 +92,13 @@ class ThumbnailsMap extends Component {
     // evt.currentTarget.classList.toggle('checked');
     // let $parEl = $(evt.currentTarget);
       // console.log('Parent Element:', $(this), '\n', 'EVT:', $(evt.currentTarget));
-      console.log('PHOTOS SELECTED:\n', this.props.photoSelect);
+    // console.log('PHOTOS SELECTED:\n', this.props.photoSelect);
     this.props.selectPhoto(photo);
     // this.props.toggleGalleryPhotoSelection(this.props.photo);
   };
 
   setToActive(photo) {
-    console.log('LOOOG:\n', photo.public_id, photo.public_id in this.props.photoSelect, this.props.photoSelect);
+    // console.log('LOOOG:\n', photo.public_id, photo.public_id in this.props.photoSelect, this.props.photoSelect);
     return 'perfect-grid__item ' + (photo['public_id'] in (this.props.photoSelect)
       ? 'activateMe'
       : 'nah');

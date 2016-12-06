@@ -5,12 +5,12 @@ import { CHANGE_ITEM_QUANTITY } from '../actions/index';
 export default function orderQuantity(state = {}, action) {
   switch (action.type) {
     case CHANGE_ITEM_QUANTITY:
-      console.log(`Action <${action.type}> registered with payload <payload: `, action.payload, '>');
-      
+      // console.log(`Action <${action.type}> registered with payload <payload: `, action.payload, '>');
+
       // let photoID = action.payload.photoID,
       //     quantity = action
       let { photoID, quantity } = action.payload;
-        console.log('PAYLOAD:', photoID, quantity);
+        // console.log('PAYLOAD:', photoID, quantity);
 
       // !state.hasOwnProperty(photoID)
       //   ? Object.assign(state, { [photoID]:  })
@@ -24,9 +24,9 @@ export default function orderQuantity(state = {}, action) {
           }
         });
       } else {
-        
+
         let stateQuantity = state[photoID].quantity;
-          console.log('\nSTATE QUANTITY:\t', stateQuantity);
+          // console.log('\nSTATE QUANTITY:\t', stateQuantity);
         let payloadQuantity = action.payload.quantity;
           console.log('\nPAYLOAD QUANTITY:\t', payloadQuantity);
         let newQuantityObj = {};
@@ -40,7 +40,7 @@ export default function orderQuantity(state = {}, action) {
         // }
 
         let newQ = Object.assign(state[photoID].quantity, action.payload.quantity);
-          console.log('\nNEWQ:', newQ);
+          // console.log('\nNEWQ:', newQ);
 
         // stateCopy = Object.assign(state, {
         //   [photoID]: {
@@ -54,8 +54,8 @@ export default function orderQuantity(state = {}, action) {
           }
         });
       }
-        console.log('STATECOPY:', stateCopy);
-        console.log('\n\nJSON', JSON.stringify(stateCopy));
+        // console.log('STATECOPY:', stateCopy);
+        // console.log('\n\nJSON', JSON.stringify(stateCopy));
       return stateCopy;
     default:
       return state;

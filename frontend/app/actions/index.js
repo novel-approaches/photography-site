@@ -55,14 +55,14 @@ export const submitOrder = (order) => {
       order
     })
     .then(function(response) {
-      console.log(response);
+      console.log('response received');
     })
     .catch(function(error) {
       console.log(error);
     });
   return {
     type: SUBMIT_ORDER,
-    payload: request
+    payload: order
   };
 };
 
