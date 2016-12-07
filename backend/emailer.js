@@ -11,7 +11,10 @@ const smtpConfig = {
 const makeHTML = (obj) => {
   let html = ''
   let order = obj.order;
+  let phone = obj.phone;
+  let email = obj.email;
   let total = 0;
+  //PRICES ZEROED OUT BECAUSE THEY ARE NOT APPROVED BY CLIENT. DO NOT CHANGE.
   let prices = {
     '4x6': 0,
     '5x7': 0,
@@ -28,7 +31,9 @@ const makeHTML = (obj) => {
     photoHTML += '</p>'
     html += photoHTML
   }
-  html += `<p>Total: $${total}.00</p>`
+  //TODO Put this back in once order totals are approved.
+  // html += `<p>Total: $${total}.00</p>`
+  html += `<p> Contact Email: ${phone}, Contact Phone: ${email} </p>`;
   return html
 }
 

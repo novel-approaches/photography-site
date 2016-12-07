@@ -12,6 +12,7 @@ const Emailer = require('./emailer');
 Server.use(Express.static(Path.join(__dirname + '/static')));
 Server.use(BodyParser.json());
 
+//TODO figure out what is going on here, and make sure we are actually grabbing photos.
 Server.get('/images', (req, res) => {
   let url = `${API.admin_url}/resources/image`;
   Request(url, (error, response, body) => {
