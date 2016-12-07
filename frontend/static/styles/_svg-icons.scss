@@ -1,44 +1,61 @@
 
+// Sass placeholder declarations:
+@mixin svgBase($strokeWidth: 4, $stroke: #000, $strokeOpacity: 1, $fill: #000, $fillOpacity: 1) {
+  opacity: 1;
+  fill: $fill;
+  fill-opacity: $fillOpacity;
+  fill-rule: nonzero;
+  stroke: $stroke;
+  stroke-opacity: $strokeOpacity;
+  stroke-width: $strokeWidth;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 4;  
+  stroke-dasharray: none;
+  stroke-dashoffset: 0;
+}
+
+%fade {
+  -webkit-transition: all 0.135s cubic-bezier(0.0, 0.0, 0.2, 1);
+  -moz-transition:    all 0.135s cubic-bezier(0.0, 0.0, 0.2, 1);
+  -ms-transition:     all 0.135s cubic-bezier(0.0, 0.0, 0.2, 1);
+  -o-transition:      all 0.135s cubic-bezier(0.0, 0.0, 0.2, 1);
+  transition:         all 0.135s cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+
 // Trash Bin Glyph Icon:
 .trashcan-glyph {
+  @extend %fade;
+  @extend %hidden;
   position: absolute;
   width: 2rem;
   right: 1rem;
   height: auto;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.25s ease-in-out;
   cursor: pointer;
 }
 
 &:hover .trashcan-glyph {
-  opacity: 1;
-  visibility: visible;
+  @extend %visible;
 }
 
 // Check Mark Glyph Icon
 .grid-item {
   .checkbox {
+    @extend %br-circle;
     position: absolute;
     width: 2.25rem;
     height: 2.25rem;
     margin: 0.5rem;
-    border-radius: 50%;
     cursor: pointer;
     z-index: 2;
   }
 
   .checkbox-glyph {
+    @include svgBase(none, 1, 1, #FFF, 0);
+    @extend %fade;
     width: auto;
     height: inherit;
-    fill: #FFF;
-    opacity: 1;
-    fill-opacity: 0;
-    -webkit-transition: all 0.135s cubic-bezier(0.0, 0.0, 0.2, 1);
-    -moz-transition:    all 0.135s cubic-bezier(0.0, 0.0, 0.2, 1);
-    -ms-transition:     all 0.135s cubic-bezier(0.0, 0.0, 0.2, 1);
-    -o-transition:      all 0.135s cubic-bezier(0.0, 0.0, 0.2, 1);
-    transition:         all 0.135s cubic-bezier(0.0, 0.0, 0.2, 1);
 
     &:hover { fill-opacity: 1 !important; }
   }
@@ -47,6 +64,7 @@
     background-color: #CCC;
 
     .checkbox { background-color: #FFF; }
+
     .grid-media {
       margin: auto;
       -webkit-transform: translateZ(0) scale3d(0.89, 0.85, 1);
@@ -56,8 +74,9 @@
       transform:         translateZ(0) scale3d(0.89, 0.85, 1);
     }
     &:hover .checkbox-glyph { fill-opacity: 1; }
+
     .checkbox-glyph {
-      fill: #9651DF;
+      fill: $theme-primary;
       fill-opacity: 1;
     }
   }
@@ -76,83 +95,46 @@
   color: #FFF;
   
   svg {
-    position: relative;
+    @include align(vertical);
     width: auto;
     height: 80%;
-    top: 50%;
-    transform: translateY(-50%);
   }
 
   i {
+    @extend %br-circle;
     position: absolute;
     top: 0;
     right: 0;
     width: 2rem;
     height: 2rem;
-    border-radius: 50%;
     color: inherit;
     font: bolder 1.25rem/1.5 Arial, sans-serif;
-    background-color: #9651DF;
+    background-color: $theme-primary;
     text-align: center;
   }
 }
 
-[data-section='cart-contents'] path {  
-  opacity: 1;
-  fill: #000;
-  fill-opacity: 1;
-  fill-rule: nonzero;
-  stroke: #000;
-  stroke-width: 3;
+[data-section='cart-contents'] path {
+  @include svgBase(3);
   stroke-linecap: square;
   stroke-linejoin: miter;
-  stroke-miterlimit: 4;
-  stroke-dasharray: none;
-  stroke-dashoffset: 0;
-  stroke-opacity: 1;
 
   &:first-child { stroke-width: 2.4000001; }
 }
 
 [data-section='underrack'] path {
-  fill: none;
+  @include svgBase(7.5, #000, 7.5, none);
   fill-rule: evenodd;
-  stroke: #000;
-  stroke-width: 7.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-miterlimit: 4;
-  stroke-dasharray: none;
-  stroke-opacity: 1;
 }
 
 .shopping-cart-glyph ellipse {
-  opacity: 1;
-  fill: #000;
-  fill-opacity: 1;
-  fill-rule: nonzero;
-  stroke: #DE2626;
-  stroke-width: 0;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-miterlimit: 4;
-  stroke-dasharray: none;
-  stroke-dashoffset: 0;
-  stroke-opacity: 0.80861248;
+  @include svgBase(0, #000, 0.80861248)
 }
 
 // Image placeholder glyph:
 .image-placeholder-glyph {
-  opacity: 1;
-  fill: none;
-  fill-opacity: 1;
-  fill-rule: nonzero;
-  stroke: #D0D0D0;
-  stroke-width: 10;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-miterlimit: 4;
-  stroke-dasharray: none;
-  stroke-dashoffset: 0;
-  stroke-opacity: 1;
+  @include align(vertical);
+  @include svgBase(10, #D0D0D0, 1, none);
+  display: block;
+  margin: auto;
 }

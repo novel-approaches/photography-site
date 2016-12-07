@@ -1,7 +1,5 @@
 
 // Sass Variables:
-$bckgColor: #9651DF;
-$thumbColor: Gold;
 $borderColor: #010101;
 $shadowColor: #0D0D0D;
 
@@ -34,7 +32,7 @@ $shadowColor: #0D0D0D;
   @extend %boxShadow;
   width: 100%;
   height: 8px;
-  background-color: $bckgColor;
+  background-color: $theme-primary;
   border: 0.2px solid $borderColor;
   cursor: pointer;
 }
@@ -78,7 +76,7 @@ form[name='grid-form'] {
 
 // Style <input> elements of type `range`:
 input[type='range'] {
-  background-color: $bckgColor;
+  background-color: $theme-primary;
   -webkit-appearance: none;
   -webkit-transform: rotate(-270deg);
   -moz-transform:    rotate(-270deg);
@@ -103,8 +101,8 @@ input[type='range']::-webkit-slider-thumb {
   border: 1px solid #000;
   height: 36px;
   width: 16px;
-  margin-top: -14px;  // You need to specify a margin in Chrome, but in Firefox & IE it is automatic
-  background-color: $thumbColor;
+  margin-top: -14px;  // Necessary margin specification for Chrome; automatic in Firefox & IE
+  background-color: $theme-secondary;
   cursor: pointer;
 }
 // All the same stuff for Firefox
@@ -123,7 +121,7 @@ input[type='range']::-webkit-slider-runnable-track {
   @extend %sliderTrack;
 }
 input[type='range']:focus::-webkit-slider-runnable-track {
-  background-color: $bckgColor;
+  background-color: $theme-primary;
   outline: none;
 }
 input[type='range']::-moz-range-track {
@@ -142,21 +140,21 @@ input[type='range']::-ms-track {
 input[type='range']::-ms-fill-lower {
   @include crossBrowserBorders(2.6px);
   @extend %boxShadow;
-  background-color: $bckgColor;
+  background-color: $theme-primary;
   border: 0.2px solid $borderColor;
 }
 input[type='range']:focus::-ms-fill-lower {
-  background-color: $bckgColor;
+  background-color: $theme-primary;
   outline: none;
 }
 input[type='range']::-ms-fill-upper {
   @include crossBrowserBorders(2.6px);
   @extend %boxShadow;
-  background-color: $bckgColor;
+  background-color: $theme-primary;
   border: 0.2px solid $borderColor;
 }
 input[type='range']:focus::-ms-fill-upper {
-  background-color: $bckgColor;
+  background-color: $theme-primary;
   outline: none;
   border: none;
 }

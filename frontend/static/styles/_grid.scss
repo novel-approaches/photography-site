@@ -76,19 +76,18 @@
 
     &:after {
       @include alignPseudo(bottom);
+      @extend %hidden;
       content: 'Res. ' attr(data-dims) ' - ' attr(data-domain);
       height: 0;
       background-color: rgba(102, 102, 102, 0.73);
       color: #FFF;
       font: 200 0.85rem 'Helvetica Neue', sans-serif;
       text-indent: 0.75rem;
-      visibility: hidden;
     }
 
     &:hover:after {
+      @extend %visible;
       height: 20px;
-      opacity: 1;
-      visibility: visible;
       z-index: 1;
     }
 
