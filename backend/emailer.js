@@ -1,6 +1,6 @@
 'use strict';
 const nodemailer = require('nodemailer');
-// const mail_auth = require('./auth');
+const mail_auth = require('./auth');
 
 //Config options for the SMTP. See https://nodemailer.com/2-0-0-beta/setup-smtp/well-known-services/
 const smtpConfig = {
@@ -45,7 +45,7 @@ module.exports = {
     // setup e-mail data with unicode symbols. This needs to be adjusted for incoming data - e.g. incomingFormData.to, incomingFormData.text, etc.
     const mailOptions = {
         from: '"Claires Photography Orders" <clairesphotosoak@gmail.com>', // sender address
-        to: 'dacooperfish@gmail.com', // list of receivers - currently testing with personal email
+        to: 'clairesphotosoak@gmail.com', // list of receivers - currently set to clients newly created inbox
         subject: 'Photo Print Order', // Subject line
         html: body// html body
     };
