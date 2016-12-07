@@ -22,6 +22,7 @@ Server.get('/images', (req, res) => {
 });
 
 Server.post('/order', (req, res) => {
+  // console.log(req.body);
   const send = (response) => res.send(response);
   Emailer.sendOrderEmail(req.body, send)
 });

@@ -13,9 +13,9 @@ const makeHTML = (obj) => {
   let order = obj.order;
   let total = 0;
   let prices = {
-    '4x6': 10,
-    '5x7': 15,
-    '8x10': 20
+    '4x6': 0,
+    '5x7': 0,
+    '8x10': 0
   }
   // console.log(order);
   for (var name in order) {

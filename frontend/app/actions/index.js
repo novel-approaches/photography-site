@@ -51,9 +51,10 @@ export const setAjaxSpinner = (bool) => ({
   loading: bool
 });
 
-export const submitOrder = (order) => {
+export const submitOrder = (order, phone, email) => {
+  console.log('@@ACTION@@')
   const request = axios.post('/order', {
-      order
+      order, phone, email
     })
     .then(function(response) {
       console.log('response received');
@@ -67,9 +68,9 @@ export const submitOrder = (order) => {
   };
 };
 
-export const setContactInfo = (info) => ({
+export const setContactInfo = (contactInfo) => ({
   type: SET_CONTACT_INFO,
-  payload: info
+  payload: contactInfo
 });
 
 export const changeItemQuantity = (item) => ({

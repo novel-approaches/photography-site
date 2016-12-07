@@ -7,8 +7,9 @@ export default function contactInfo(state = {}, action) {
     case SET_CONTACT_INFO:
       console.log(`Action <${action.type}> registered with payload <margins: ${action.margins}>`);
       console.log(action);
-      return action.setContactInfo;
+      return action.contactInfo;
     default:
+      // console.log('DEFAULT STATE CONTACTINFO ACTION')
       return state;
   }
 };

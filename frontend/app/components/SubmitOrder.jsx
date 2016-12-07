@@ -11,22 +11,15 @@ class SubmitOrder extends Component {
     this.onSub = this.onSub.bind(this);
     this.changeContactInfo = this.changeContactInfo.bind(this);
     this.state = {
-      email: '',
-      phone: '',
-      info: {}
+        email: '',
+        phone: ''
     }
   }
 
   onSub(evt) {
     // evt.preventDefault();
-    // console.log('\nORDER:', this.props.order);
-    this.setState({
-      info: {
-        email: this.state.email,
-        phone: this.state.phone
-      }
-    });
-    this.props.sub(this.props.order);
+    console.log('\n STATE FROM SUB:', this.state);
+    this.props.sub(this.props.order, this.state.email, this.state.phone);
   }
 
   changeContactInfo(evt) {
@@ -42,8 +35,8 @@ class SubmitOrder extends Component {
   }
 
   render() {
-    console.log('##RENDER PROPS###')
-    console.log(this.props);
+    console.log('##RENDER STATE###')
+    console.log(this.state);
     return (
       <div>
         <form className="quantity-form">
