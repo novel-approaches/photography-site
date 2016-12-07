@@ -2,21 +2,29 @@
 import React, { Component } from 'react';
 
 
-export default class SubmitOrder extends Component {
+class SubmitOrder extends Component {
   constructor(props) {
     super(props);
     this.onSub = this.onSub.bind(this);
     this.changeContactInfo = this.changeContactInfo.bind(this);
     this.state = {
       email: '',
-      phone: ''
+      phone: '',
+      info: {}
     }
   }
 
   onSub(evt) {
     // evt.preventDefault();
     // console.log('\nORDER:', this.props.order);
+    this.setState({
+      info: {
+        email: this.state.email,
+        phone: this.state.phone
+      }
+    });
     this.props.sub(this.props.order);
+    console.log(this.state.info) //TODO TEST THIS YO!
   }
 
   //TODO make this work - need to grab below form data, stick it in the order object, etc.
@@ -59,3 +67,13 @@ export default class SubmitOrder extends Component {
     );
   }
 };
+
+let mapStateToProps = (state) => ({
+  info: state.info
+});
+
+let mapDispatchToProps = (dispatch) => bindActionCreators({
+  setContactInfo
+}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(SubmitOrder);

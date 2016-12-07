@@ -13,6 +13,7 @@ export const GET_IMAGE_OBJECT = 'GET_IMAGE_OBJECT';
 export const SET_AJAX_SPINNER = 'SET_AJAX_SPINNER';
 export const SUBMIT_ORDER = 'SUBMIT_ORDER';
 export const CHANGE_ITEM_QUANTITY = 'CHANGE_ITEM_QUANTITY';
+export const SET_CONTACT_INFO = 'SET_CONTACT_INFO';
 
 
 // export const getPhotos = () => {
@@ -65,6 +66,11 @@ export const submitOrder = (order) => {
     payload: order
   };
 };
+
+export const setContactInfo = (info) => ({
+  type: SET_CONTACT_INFO,
+  payload: info
+});
 
 export const changeItemQuantity = (item) => ({
   type: CHANGE_ITEM_QUANTITY,
