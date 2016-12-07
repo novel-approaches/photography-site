@@ -1,0 +1,20 @@
+{
+  "name": "photography-site",
+  "version": "1.0.0",
+  "description": "Main app",
+  "main": "./frontend/app/App.jsx",
+  "scripts": {
+    "start": "node ./backend/server.js",
+    "prod": "NODE_ENV=production node ./backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/novel-approaches/photography-site.git"
+  },
+  "author": "Daniel Cuperman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/novel-approaches/photography-site/issues"
+  },
+  "homepage": "https://github.com/novel-approaches/photography-site#readme"
+}
