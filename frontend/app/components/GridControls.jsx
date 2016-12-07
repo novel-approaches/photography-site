@@ -10,18 +10,15 @@ import { modifyGridMargins, modifyGridSize } from '../actions/index';
 class GridControls extends Component {
   constructor(props) {
     super(props);
-    // this.onSlide = this.onSlide.bind(this);
     this.onSlideMarginsRange = this.onSlideMarginsRange.bind(this);
     this.onSlideSizeRange = this.onSlideSizeRange.bind(this);
   }
 
   onSlideMarginsRange(evt, outputTarg) {
-    // outputTarg.value = evt.target.value;
     this.props.modifyGridMargins(evt.target.value);
   }
 
   onSlideSizeRange(evt, outputTarg) {
-    // outputTarg.value = evt.target.value
     this.props.modifyGridSize(evt.target.value);
   }
 
@@ -39,9 +36,8 @@ class GridControls extends Component {
             type="range"
             min={ 100 }
             max={ Math.floor(window.innerHeight / 2.5) }
-            step={ 10 }
+            step={ 5 }
             defaultValue={ 300 }
-            // onChange={ (evt) => this.onSlide(evt, ReactDOM.findDOMNode(this.refs.sizeOutput)) } />
             onChange={ this.onSlideSizeRange } />
           <output
             htmlFor="size-inpt"
@@ -63,8 +59,7 @@ class GridControls extends Component {
             min={ 2 }
             max={ 75 }
             step={ 1 }
-            defaultValue={ 15 }
-            // onChange={ (evt) => this.onSlide(evt, ReactDOM.findDOMNode(this.refs.marginOutput)) } />
+            defaultValue={ 10 }
             onChange={ this.onSlideMarginsRange } />
           <output
             htmlFor="margin-inpt"
