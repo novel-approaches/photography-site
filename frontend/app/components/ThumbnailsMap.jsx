@@ -11,13 +11,9 @@ import Grid from '../PhotoGridAPI/scripts/Grid';
 class ThumbnailsMap extends Component {
   constructor(props) {
     super(props);
-    // this.addToShoppingCart = this.addToShoppingCart.bind(this);
-    this.applyButtonStyle = this.applyButtonStyle.bind(this);
-    this.setActive = this.setActive.bind(this);
-    this.setToActive = this.setToActive.bind(this);
-    this.aa = this.aa.bind(this);
-    this.init = 0;
     props.getPhotos();
+    this.setClassName = this.setClassName.bind(this);
+    this.init = 0;
   }
 
   renderGrid() {
@@ -27,10 +23,8 @@ class ThumbnailsMap extends Component {
       PhotoGrid =(
         <Grid
           items={ this.props.imgObj }
-          setToActive={ this.setToActive }
-          // selectFunc={ this.selectPhoto }
           selectPhoto={ this.props.selectPhoto }
-          aa={ this.aa }
+          setClassName={ this.setClassName }
           maxHeight={ this.props.gridSize }
           margins={ this.props.gridMargins }
           order={ true } />
@@ -56,34 +50,12 @@ class ThumbnailsMap extends Component {
     return PhotoGrid;
   }
 
-  // Handles delegation of the appropriate `className` values of jobs such that the currently
-  //  active job (`activeJob`) has an additional class of `.active`:
-  setActive() {
-    // return job === this.props.activeJob ? 'active jobLI' : 'jobLI';
-    return Object.keys(this.props.shoppingCart).length
-      ? 'active'
-      : 'inactive';
-  } 
-
-  applyButtonStyle() {
-    return Object.keys(this.props.shoppingCart).length
-      ? 'active'
-      : '';
-  }
-
-  setToActive(photo) {
-    // console.log('LOOOG:\n', photo.public_id, photo.public_id in this.props.photoSelect, this.props.photoSelect);
-    return 'perfect-grid__item ' + (photo['public_id'] in (this.props.shoppingCart)
-      ? 'activateMe'
-      : 'nah');
-  }
-
-  aa(photo) {
-    if (this.props.shoppingCart[photo.public_id]) {
-      return `perfect-grid__item checked`;
-    } else {
-      return `perfect-grid__item`;
-    }
+  // Handles delegation of the appropriate `className` values of grid photo such that
+  //  the currently active job (`activeJob`) has an additional class of `.active`:
+  setClassName(photo) {
+    return (photo.public_id in this.props.shoppingCart
+      ? 'checked'
+      : '') + ' perfect-grid__item';
   }
 
   render() {
