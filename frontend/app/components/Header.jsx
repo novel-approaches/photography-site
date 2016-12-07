@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import OrderFormModal from '../containers/OrderFormModal';
 import { toggleModal } from '../actions/index';
 import Logo from '../../static/images/logo_lv7v7x.png';
+import ShoppingCartGlyph from '../constants/svg/ShoppingCartGlyph_SVG';
 
 
 class Header extends Component {
@@ -30,12 +31,10 @@ class Header extends Component {
           src={ Logo }
           alt="Site logo home, Galleria Scola"
           role="logo" />
-        <div className="shopping-cart">
-          <img
-            src="https://cdn4.iconfinder.com/data/icons/greicons-2/1052/CARRITO-512.png"
-            alt="Shopping cart glyph icon (Gray)."
-            id="shopping-cart-icon"
-            onClick={ this.renderModal } />
+        <div
+          className="shopping-cart"
+          onClick={ this.renderModal }>
+          <ShoppingCartGlyph />
           <i>{ this.displayCartCount() }</i>
         </div>
         <OrderFormModal />
@@ -54,10 +53,3 @@ let mapDispatchToProps = (dispatch) => bindActionCreators({
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
-
-
-// <img
-//   src="https://cdn4.iconfinder.com/data/icons/greicons-2/1052/CARRITO-512.png"
-//   alt="Shopping cart glyph icon (Gray)."
-//   height="35px"
-//   onClick={ this.addToShoppingCart } />
