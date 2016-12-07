@@ -5,10 +5,12 @@ import ItemQuantityForm from './ItemQuantityForm';
 import TrashCanGlyph from '../constants/svg/TrashCanGlyph_SVG';
 
 
-const ProductOrderItem = ({ itemNum, photo }) => (
+const ProductOrderItem = ({ itemNum, photo, trashItem }) => (
   <li
     className="product-item">
-    <TrashCanGlyph />
+    <TrashCanGlyph
+      photo={ photo }
+      trashItem={ trashItem } />
     <h4>
       {[
         'Item N',
