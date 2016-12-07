@@ -27,10 +27,14 @@ class Header extends Component {
   render() {
     return(
       <header>
-        <img
-          src={ Logo }
-          alt="Site logo home, Galleria Scola"
-          role="logo" />
+        <a
+          href="./"
+          target="_self">
+          <img
+            src={ Logo }
+            alt="Site logo home, Galleria Scola"
+            role="logo" />
+        </a>
         <div
           className="shopping-cart"
           onClick={ this.renderModal }>
