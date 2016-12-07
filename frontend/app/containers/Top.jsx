@@ -12,10 +12,10 @@ import { toggleModal, addToShoppingCart } from '../actions/index';
 class Top extends Component {
   constructor(props) {
     super(props);
-    this.selFote = this.selFote.bind(this);
+    this.selectPhoto = this.selectPhoto.bind(this);
   }
 
-  selFote(photo) {
+  selectPhoto(photo) {
       console.log('PHOTOS SELECTED:\n', this.props);
     this.props.addToShoppingCart(photo);
   }
@@ -28,7 +28,7 @@ class Top extends Component {
         <div className="midsection">
           <GridControls />
           <ThumbnailsMap
-            selFote={ this.selFote } />
+            selectPhoto={ this.selectPhoto } />
         </div>
       </div>
     );
