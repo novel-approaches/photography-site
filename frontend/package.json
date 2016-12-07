@@ -12,6 +12,7 @@
     "error-log": "webpack --display-error-details",
     "test": "mocha -w app/test/helpers/browser.js app/test/*_test.js",
     "setup": "webpack --config webpack.config.js",
+    "stats": "webpack --json > stats.json",
     "deploy": "webpack --config webpack_deploy.config.js --progress -p",
     "dev": "webpack-dev-server --progress --profile --colors"
   },
