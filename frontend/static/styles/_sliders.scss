@@ -1,0 +1,162 @@
+
+// Sass Variables:
+$bckgColor: #9651DF;
+$thumbColor: Gold;
+$borderColor: #010101;
+$shadowColor: #0D0D0D;
+
+// Sass Mixins:
+@mixin crossBrowserBorders($radius: 0) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius:    $radius;
+  border-radius:         $radius;
+}
+
+// Sass Placeholders:
+%boxShadow {
+  -webkit-box-shadow: 1px 1px 1px #000,
+                      0 0 1px $shadowColor;  // Add cool effects to your sliders!
+  -moz-box-shadow:    1px 1px 1px #000,
+                      0 0 1px $shadowColor;
+  box-shadow:         1px 1px 1px #000,
+                      0 0 1px $shadowColor;
+}
+%sliderThumb {
+  @include crossBrowserBorders(3px);
+  @extend %boxShadow;
+  width: 16px;
+  height: 36px;
+  border: 1px solid #000;
+  background-color: #FFF;
+}
+%sliderTrack {
+  @include crossBrowserBorders(2px);
+  @extend %boxShadow;
+  width: 100%;
+  height: 8px;
+  background-color: $bckgColor;
+  border: 0.2px solid $borderColor;
+  cursor: pointer;
+}
+
+
+// Containing form element styles:
+form[name='grid-form'] {
+  position: fixed;
+  display: -ms-flexbox;
+  display: flex;
+  width: 10vw;
+  height: 87.5vh;
+  -ms-flex-flow: column nowrap;
+  flex-flow:     column nowrap;
+  -ms-flex-pack:   distribute;
+  justify-content: space-around;
+
+  fieldset {
+    width: 5vw;
+    height: 25vh;
+    min-height: 250px;
+    padding: 0;
+    margin: auto;
+    border: none;
+    text-align: center;
+  }
+
+  output,
+  label { display: block; }
+
+  .output-wrapper {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    width: 75%;
+    margin: auto;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+}
+
+// Style <input> elements of type `range`:
+input[type='range'] {
+  background-color: $bckgColor;
+  -webkit-appearance: none;
+  -webkit-transform: rotate(-270deg);
+  -moz-transform:    rotate(-270deg);
+  -ms-transform:     rotate(-270deg);
+  -o-transform:      rotate(-270deg);
+  transform:         rotate(-270deg);
+}
+input[type='range']:focus { outline: none; }
+
+// Special styling for WebKit/Blink
+input[type='range']::-webkit-slider-thumb {
+  // %sliderThumb {
+  //   @include crossBrowserBorders(3px);
+  //   @extend %boxShadow;
+  //   width: 16px;
+  //   height: 36px;
+  //   border: 1px solid #000;
+  //   background-color: #FFF;
+  // }
+  @include crossBrowserBorders(3px);
+  -webkit-appearance: none;
+  border: 1px solid #000;
+  height: 36px;
+  width: 16px;
+  margin-top: -14px;  // You need to specify a margin in Chrome, but in Firefox & IE it is automatic
+  background-color: $thumbColor;
+  cursor: pointer;
+}
+// All the same stuff for Firefox
+input[type='range']::-moz-range-thumb {
+  @extend %sliderThumb;
+  cursor: grab;
+}
+// All the same stuff for IE
+input[type='range']::-ms-thumb {
+  @extend %sliderThumb;
+  cursor: pointer;
+}
+
+// Styling the slider track:
+input[type='range']::-webkit-slider-runnable-track {
+  @extend %sliderTrack;
+}
+input[type='range']:focus::-webkit-slider-runnable-track {
+  background-color: $bckgColor;
+  outline: none;
+}
+input[type='range']::-moz-range-track {
+  @extend %sliderTrack;
+}
+input[type='range']::-ms-track {
+  width: 100%;
+  height: 8px;
+  background-color: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+  cursor: pointer;
+}
+
+input[type='range']::-ms-fill-lower {
+  @include crossBrowserBorders(2.6px);
+  @extend %boxShadow;
+  background-color: $bckgColor;
+  border: 0.2px solid $borderColor;
+}
+input[type='range']:focus::-ms-fill-lower {
+  background-color: $bckgColor;
+  outline: none;
+}
+input[type='range']::-ms-fill-upper {
+  @include crossBrowserBorders(2.6px);
+  @extend %boxShadow;
+  background-color: $bckgColor;
+  border: 0.2px solid $borderColor;
+}
+input[type='range']:focus::-ms-fill-upper {
+  background-color: $bckgColor;
+  outline: none;
+  border: none;
+}
