@@ -25,7 +25,7 @@ export default function photoGallerySelect(state = SELECTION_STATES, action) {
       // console.log(`Action <${action.type}> registered with payload <photo: `, action.photo, '>');
       // let [photoID, photoObjEntry] = [action.photo.public_id, togglePhotoSelectionState(state, action.photo)];
       let photoID = action.photo.public_id;
-      return Object.assign(state, { [photoID]: !state[photoID] });
+      return Object.assign({}, state, { [photoID]: !state[photoID] });
     default:
       return state;
   }
