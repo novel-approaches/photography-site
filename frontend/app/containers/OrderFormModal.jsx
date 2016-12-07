@@ -9,6 +9,7 @@ import ProductOrderItem from '../components/ProductOrderItem';
 import OrderTotal from '../components/OrderTotal';
 import SubmitOrder from '../components/SubmitOrder';
 import OrderFormModalStyles from '../constants/json/OrderFormModalStyles.json';
+import ImagePlaceholderGlyph from '../constants/svg/ImagePlaceholderGlyph_SVG';
 
 
 class OrderFormModal extends Component {
@@ -17,6 +18,8 @@ class OrderFormModal extends Component {
     this.closeOrderFormModal = this.closeOrderFormModal.bind(this);
     this.removePhotoFromOrder = this.removePhotoFromOrder.bind(this);
     this.renderProducts = this.renderProducts.bind(this);
+    this.orderFormContents = this.orderFormContents.bind(this);
+    this.displayContents = this.displayContents.bind(this);
   }
 
   closeOrderFormModal(evt) {
@@ -28,13 +31,40 @@ class OrderFormModal extends Component {
   }
 
   renderProducts(cart) {
-    return Object.values(cart).map((photo, index, list) =>
-      <ProductOrderItem
-        key={ `ProductOrder_${index}` }
-        photo={ photo }
-        itemNum={ index + 1 }
-        trashItem={ this.removePhotoFromOrder } />
+    return Object.keys(cart).length
+      ? Object.values(cart).map((photo, index, list) =>
+        <ProductOrderItem
+          key={ `ProductOrder_${index}` }
+          photo={ photo }
+          itemNum={ index + 1 }
+          trashItem={ this.removePhotoFromOrder } />
+      ) : (
+        <div className="empty-order">
+          <ImagePlaceholderGlyph />
+        </div>
+      );
+  }
+
+  orderFormContents(cart) {
+    return (
+      <ul id="orders-list">
+        { this.renderProducts(cart) }
+        <OrderTotal />
+        <SubmitOrder
+          sub={ this.props.submitOrder }
+          order={ this.props.orderQuantities } />
+      </ul>
     );
+  }
+
+  displayContents(cart) {
+    return Object.keys(cart).length
+      ? this.orderFormContents(cart)
+      : (
+        <div className="empty-order">
+          <ImagePlaceholderGlyph />
+        </div>
+      );
   }
 
   render() {
@@ -48,13 +78,7 @@ class OrderFormModal extends Component {
           onClick={ this.closeOrderFormModal }>
           &times;
         </i>
-        <ul id="orders-list">
-          { this.renderProducts(this.props.shoppingCart) }
-          <OrderTotal />
-          <SubmitOrder
-            sub={ this.props.submitOrder }
-            order={ this.props.orderQuantities } />
-        </ul>
+        { this.displayContents(this.props.shoppingCart) }
       </Modal>
     );
   }

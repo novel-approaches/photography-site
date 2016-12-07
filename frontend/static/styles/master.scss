@@ -1,3 +1,70 @@
+
+// Sass Variables:
+$theme-primary: #9651DF;
+$theme-secondary: Gold;
+$thumbColor: Gold;
+$borderColor: #010101;
+$shadowColor: #0D0D0D;
+
+// Sass placeholders declarations:
+%vAlign {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform:    translateY(-50%);
+  -ms-transform:     translateY(-50%);
+  -o-transform:      translateY(-50%);
+  transform:         translateY(-50%);
+}
+%hAlign {
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform:    translateX(-50%);
+  -ms-transform:     translateX(-50%);
+  -o-transform:      translateX(-50%);
+  transform:         translateX(-50%);
+}
+%alignAll {
+  position: relative;
+}
+%br-circle {
+  -webkit-border-radius: 50%;
+  -moz-border-radius:    50%;
+  border-radius:         50%;
+}
+%visible {
+  visibility: visible;
+  opacity: 1;
+}
+%hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+// Sass mixin declarations:
+@mixin align($dir: vertical) {
+  $side: '';
+  $translation: '';
+
+  @if $dir == vertical {
+    $side: top;
+    $translation: translateY(-50%);
+  } @else if $dir == horizontal {
+    $side: left;
+    $translation: translateX(-50%);
+  }
+
+  position: relative;
+  #{$side}: 50%;
+  -webkit-transform: $translation;
+  -moz-transform:    $translation;
+  -ms-transform:     $translation;
+  -o-transform:      $translation;
+  transform:         $translation;
+}
+
+
 @import 'sliders';    // Styles for range input sliders
 @import 'svg-icons';  // Styles for inline SVG icons
 @import 'grid';       // Styles for photo grid
