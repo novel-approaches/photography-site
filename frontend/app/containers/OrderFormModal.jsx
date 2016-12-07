@@ -4,7 +4,7 @@ import Modal from 'react-modal';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { orderPhoto, toggleModal, submitOrder } from '../actions/index';
+import { toggleModal, submitOrder } from '../actions/index';
 import ProductOrderItem from '../components/ProductOrderItem';
 import OrderTotal from '../components/OrderTotal';
 import SubmitOrder from '../components/SubmitOrder';
@@ -55,21 +55,14 @@ class OrderFormModal extends Component {
 };
 
 let mapStateToProps = (state) => ({
-  photoOrder: state.photoOrder,
   orderFormModal: state.orderFormModal,
   shoppingCart: state.shoppingCart,
   orderQuantities: state.orderQuantity
 });
 
 let mapDispatchToProps = (dispatch) => bindActionCreators({
-  orderPhoto,
   toggleModal,
   submitOrder
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(OrderFormModal);
-
-
-// <div id="order-form"></div>
-
-// style={ customStyles }
