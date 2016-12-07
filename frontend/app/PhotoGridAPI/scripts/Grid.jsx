@@ -274,9 +274,8 @@ export default class Grid extends Component {
             key={ `GridItem_(${i}.${j})` }
             path={ item.url }
             H={ row.H }
-            setToActive={ this.props.setToActive }
             selectPhoto={ this.props.selectPhoto }
-            aa={ this.props.aa }
+            setClassName={ this.props.setClassName }
             domain="cloudinary.com"
             margins={ margins }
             photo={ item }
