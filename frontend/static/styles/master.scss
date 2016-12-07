@@ -43,20 +43,26 @@ $shadowColor: #0D0D0D;
 }
 
 // Sass mixin declarations:
-@mixin align($dir: vertical) {
-  $side: '';
-  $translation: '';
+@mixin align($dir: vertical, $pos: relative) {
+  $sides: top;
+  $translation: translateY(-50%);
 
   @if $dir == vertical {
-    $side: top;
+    $sides: top;
     $translation: translateY(-50%);
   } @else if $dir == horizontal {
-    $side: left;
+    $sides: left;
     $translation: translateX(-50%);
+  } @else if $dir == all {
+    $sides: top left;
+    $translation: translate(-50%, -50%);
   }
 
-  position: relative;
-  #{$side}: 50%;
+  @each $side in $sides {
+    #{$side}: 50%;
+  }
+
+  position: $pos;
   -webkit-transform: $translation;
   -moz-transform:    $translation;
   -ms-transform:     $translation;
@@ -64,21 +70,31 @@ $shadowColor: #0D0D0D;
   transform:         $translation;
 }
 
+@mixin fade($duration: 0.135s, $properties: all) {
+  $shorthand: '';
+  $timing-func: '#{$duration} cubic-bezier(0.0, 0.0, 0.2, 1)';
 
+  @each $property in $properties {
+    $shorthand: $shorthand + ', #{$property} ' + $timing-func;
+  }
+
+  -webkit-transition: unquote($shorthand);
+  -moz-transition:    unquote($shorthand);
+  -ms-transition:     unquote($shorthand);
+  -o-transition:      unquote($shorthand);
+  transition:         unquote($shorthand);
+}
+
+
+// Import Sass partials:
 @import 'sliders';    // Styles for range input sliders
 @import 'svg-icons';  // Styles for inline SVG icons
 @import 'grid';       // Styles for photo grid
 @import 'modal';      // Styles for OrderFormModal component
+@import 'scrollbar';  // Styles for scrollbar
 
 // Global Styles:
 * { -webkit-tap-highlight-color: transparent; }
-
-// Scrollbar Styles:
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { }
-::-webkit-scrollbar-button,
-::-webkit-resizer { display: none; }
-::-webkit-scrollbar-thumb { background-color: rgba(0, 0, 0, 0.15); }
 
 body {
   display: flex;
