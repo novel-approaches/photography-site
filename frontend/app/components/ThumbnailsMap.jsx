@@ -15,6 +15,7 @@ class ThumbnailsMap extends Component {
     this.applyButtonStyle = this.applyButtonStyle.bind(this);
     this.setActive = this.setActive.bind(this);
     this.setToActive = this.setToActive.bind(this);
+    this.aa = this.aa.bind(this);
     this.init = 0;
     props.getPhotos();
   }
@@ -28,7 +29,8 @@ class ThumbnailsMap extends Component {
           items={ this.props.imgObj }
           setToActive={ this.setToActive }
           // selectFunc={ this.selectPhoto }
-          selFote={ this.props.selFote }
+          selectPhoto={ this.props.selectPhoto }
+          aa={ this.aa }
           maxHeight={ this.props.gridSize }
           margins={ this.props.gridMargins }
           order={ true } />
@@ -74,6 +76,14 @@ class ThumbnailsMap extends Component {
     return 'perfect-grid__item ' + (photo['public_id'] in (this.props.shoppingCart)
       ? 'activateMe'
       : 'nah');
+  }
+
+  aa(photo) {
+    if (this.props.shoppingCart[photo.public_id]) {
+      return `perfect-grid__item checked`;
+    } else {
+      return `perfect-grid__item`;
+    }
   }
 
   render() {
