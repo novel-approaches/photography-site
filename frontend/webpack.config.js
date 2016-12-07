@@ -34,6 +34,16 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new webpack.DefinePlugin({  // <-- Key to reducing React's size
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.DedupePlugin(),            // Dedupe similar code 
+    new webpack.optimize.UglifyJsPlugin(),          // Minify everything
+    new webpack.optimize.AggressiveMergingPlugin()  // Merge chunks 
+  ],
   stats: {
     colors: true,
     modules: true,
