@@ -45,7 +45,7 @@ class GridItem extends Component {
       case 'element':
         return (
           <div
-            className="perfect-grid__item"
+            className="grid-item"
             style={ style }
             onClick={ onClick }>
             { element }
@@ -57,7 +57,7 @@ class GridItem extends Component {
     }
 
     let onClick = link ? ::this.onClick : null;
-    // over = over ? <div className="perfect-grid__over" >{ over }</div> : null
+    // over = over ? <div className="grid-over" >{ over }</div> : null
 
     return (
       <div
@@ -66,7 +66,7 @@ class GridItem extends Component {
         style={ style }>
         { over }
         <div
-          className="perfect-grid__media"
+          className="grid-media"
           data-dims={ this.props.nativeDimensions }
           data-domain={ this.props.domain }>
           <PhotoCheckbox

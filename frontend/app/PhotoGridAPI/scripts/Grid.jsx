@@ -1,5 +1,4 @@
 'use strict';
-import '../styles/main.scss'
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -290,23 +289,22 @@ export default class Grid extends Component {
     };
 
     return (
-      <div className="perfect-grid" ref="perfectGrid" style={style}>
+      <div className="perfect-grid" ref="perfectGrid" style={ style }>
         <ScrollHandler onResize={::this.setContainerWidth} />
         { perfectGrid }
       </div>
     );
-
   }
 };
 
 
 Grid.childContextTypes = {
   debug: React.PropTypes.bool
-}
+};
 
 Grid.defaultProps = {
   margins: 0,
   order: true,
   maxHeight: 300,
   debug: false
-}
+};
