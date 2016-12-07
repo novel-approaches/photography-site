@@ -1,6 +1,9 @@
 'use strict';
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
+import { setContactInfo } from '../actions/index';
 
 class SubmitOrder extends Component {
   constructor(props) {
@@ -24,10 +27,8 @@ class SubmitOrder extends Component {
       }
     });
     this.props.sub(this.props.order);
-    console.log(this.state.info) //TODO TEST THIS YO!
   }
 
-  //TODO make this work - need to grab below form data, stick it in the order object, etc.
   changeContactInfo(evt) {
     switch (evt.target.id) {
       case 'phone':
@@ -37,12 +38,12 @@ class SubmitOrder extends Component {
         this.setState({email: evt.target.value});
         break;
       default:
-      console.log('default');
     }
   }
 
   render() {
-    console.log(this.state);
+    console.log('##RENDER PROPS###')
+    console.log(this.props);
     return (
       <div>
         <form className="quantity-form">

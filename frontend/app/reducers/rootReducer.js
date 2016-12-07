@@ -13,6 +13,7 @@ import imageObject from './image_object_reducer';
 import ajaxSpinner from './ajaxSpinner_Reducer';
 import orderSubmission from './orderSubmission_Reducer';
 import orderQuantity from './orderQuantity_Reducer';
+import contactInfo from './contact_Reducer';
 
 
 const rootReducer = combineReducers({
@@ -27,7 +28,8 @@ const rootReducer = combineReducers({
   imageObject,
   ajaxSpinner,
   orderSubmission,
-  orderQuantity
+  orderQuantity,
+  contactInfo
 });
 
 export default rootReducer;
