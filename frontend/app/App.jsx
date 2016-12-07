@@ -33,6 +33,3 @@ export default App;
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(<App />, document.getElementById('root'));
 });
-
-
-// { this.props }
