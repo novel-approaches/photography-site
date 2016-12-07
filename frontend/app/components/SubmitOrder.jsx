@@ -6,10 +6,11 @@ export default class SubmitOrder extends Component {
   constructor(props) {
     super(props);
     this.onSub = this.onSub.bind(this);
-    this.contactInfo = {
+    this.changeContactInfo = this.changeContactInfo.bind(this);
+    this.state = {
       email: '',
       phone: ''
-    };
+    }
   }
 
   onSub(evt) {
@@ -22,26 +23,31 @@ export default class SubmitOrder extends Component {
   changeContactInfo(evt) {
     switch (evt.target.id) {
       case 'phone':
-        this.contactInfo.phone = evt.target.value;
+        this.setState({phone: evt.target.value});
         break;
       case 'email':
-        this.contactInfo.email = evt.target.value;
+        this.setState({email: evt.target.value});
         break;
       default:
       console.log('default');
     }
-    console.log('###CONTACTINFO####')
-    console.log(this.contactInfo);
   }
 
   render() {
+    console.log(this.state);
     return (
       <div>
         <form className="quantity-form">
           <label>Enter Email</label>
-            <input type="text" id='email' onChange={this.changeContactInfo}/>
+            <input type="text"
+                   id='email'
+                   onChange={this.changeContactInfo}
+                   value={this.state.email}/>
           <label onChange={this.changeContactInfo}>Enter Phone</label>
-            <input type="text" id='phone' onChange={this.changeContactInfo}/>
+            <input type="text"
+                   id='phone'
+                   onChange={this.changeContactInfo}
+                   value={this.state.phone}/>
         </form>
 
         <button
