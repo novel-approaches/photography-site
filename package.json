@@ -13,6 +13,13 @@
   },
   "author": "Daniel Cuperman",
   "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "nodemailer": "^2.6.4",
+    "request": "^2.79.0",
+    "util": "^0.10.3"
+  },
   "bugs": {
     "url": "https://github.com/novel-approaches/photography-site/issues"
   },
