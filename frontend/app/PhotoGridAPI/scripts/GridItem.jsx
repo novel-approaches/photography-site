@@ -13,7 +13,7 @@ class GridItem extends Component {
     super(props);
     // this.assignClass = this.assignClass.bind(this);
     // this.selPhoto = this.selPhoto.bind(this);
-    this.aa = this.aa.bind(this);
+    // this.aa = this.aa.bind(this);
   }
 
   onClick(evt) {
@@ -52,13 +52,13 @@ class GridItem extends Component {
   //   // this.props.toggleGalleryPhotoSelection(this.props.photo);
   // };
 
-  aa() {
-    if (this.props.shoppingCart[this.props.photo.public_id]) {
-      return `perfect-grid__item checked`;
-    } else {
-      return `perfect-grid__item`;
-    }
-  }
+  // aa() {
+  //   if (this.props.shoppingCart[this.props.photo.public_id]) {
+  //     return `perfect-grid__item checked`;
+  //   } else {
+  //     return `perfect-grid__item`;
+  //   }
+  // }
 
   render() {
     let { H, margins, over, media, ratio, resource_type, type, element, link } = this.props;
@@ -98,7 +98,7 @@ class GridItem extends Component {
 
     return (
       <div
-        className={ this.aa() }
+        className={ this.props.aa(this.props.photo) }
         onClick={ onClick }
         style={ style }>
         { over }
@@ -108,9 +108,7 @@ class GridItem extends Component {
           data-domain={ this.props.domain }>
           <PhotoCheckbox
             photo={ this.props.photo }
-            className="checkbox"
-            // selectFunc={ this.props.selPhoto }
-            selFote={ this.props.selFote } />
+            selectPhoto={ this.props.selectPhoto } />
           { media }
         </div>
       </div>

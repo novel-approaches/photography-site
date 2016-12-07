@@ -12,7 +12,7 @@ import ScrollHandler from './ScrollHandler';
 // H = W / d
 // H = W / ( (w1/h1) + (w2/h2) + ... + (wn/hn) )
 
-class Grid extends Component {
+export default class Grid extends Component {
   constructor(props) {
     super(props);
     this.resizeTimeout = null;
@@ -119,8 +119,8 @@ class Grid extends Component {
     if (this.refs.perfectGrid) {
       let W = this.refs.perfectGrid.offsetWidth;
       if (W !== this.state.W) {
-        if (this.props.debug) console.debug('Setting container width: ' + W)
-        this.setState({ W })
+        if (this.props.debug) console.debug('Setting container width: ' + W);
+        this.setState({ W });
       }
     }
   }
@@ -194,15 +194,15 @@ class Grid extends Component {
     item.ratio = item.width/item.height
 
     if (this.props.order) {
-      items[i] = item
+      items[i] = item;
     } else {
-      items.push(item)
+      items.push(item);
     }
 
     this.setState({
       items
-    })
-    return item
+    });
+    return item;
   }
 
   calculateH(items) {
@@ -224,14 +224,14 @@ class Grid extends Component {
 
     H = W/d
 
-    return H
+    return H;
   }
 
   render() {
     let { items, W } = this.state;
     let { maxHeight, margins, loadingComponent } = this.props;
 
-    items = items.filter((item) => { return item !== null }) // retirer les null qui sont remplis de base
+    items = items.filter((item) => { return item !== null });
 
     if (!items.length || !this.state.W) {
       return (
@@ -260,8 +260,11 @@ class Grid extends Component {
           continue w;
         }
       }
-      rows.push({H: Math.min(maxHeight, H), slice})
-      break
+      rows.push({
+        H: Math.min(maxHeight, H),
+        slice}
+      );
+      break;
     }
 
     rows.forEach((row, i) => {
@@ -272,19 +275,19 @@ class Grid extends Component {
             path={ item.url }
             H={ row.H }
             setToActive={ this.props.setToActive }
-            // selectFunc= { this.props.selectFunc }
-            selFote={ this.props.selFote }
+            selectPhoto={ this.props.selectPhoto }
+            aa={ this.props.aa }
             domain="cloudinary.com"
             margins={ margins }
             photo={ item }
             nativeDimensions={ `${item.width} x ${item.height} px` }
             {...item} />
-        )
+        );
       })
     })
 
     let style = {
-      padding: margins / 2 + 'px'
+      padding: `${margins / 2}px`
     };
 
     return (
@@ -298,19 +301,6 @@ class Grid extends Component {
 };
 
 
-let mapStateToProps = (state) => ({
-  ajaxSpinner: state.ajaxSpinner,
-  imgObj: state.imageObject,
-  photoSelect: state.photoSelect
-});
-
-let mapDispatchToProps = (dispatch) => bindActionCreators({
-  setAjaxSpinner
-}, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(Grid);
-
-
 Grid.childContextTypes = {
   debug: React.PropTypes.bool
 }
@@ -321,11 +311,3 @@ Grid.defaultProps = {
   maxHeight: 300,
   debug: false
 }
-
-
-// let mapStateToProps = (state) => ({
-//   items: state.imageObject
-//   // imgObj: state.imageObject
-// });
-
-// export default connect(mapStateToProps)(Grid);
