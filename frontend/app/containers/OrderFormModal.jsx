@@ -56,8 +56,8 @@ class OrderFormModal extends Component {
 
 let mapStateToProps = (state) => ({
   orderFormModal: state.orderFormModal,
-  shoppingCart: state.shoppingCart,
-  orderQuantities: state.orderQuantity
+  orderQuantities: state.orderQuantity,
+  shoppingCart: state.shoppingCart
 });
 
 let mapDispatchToProps = (dispatch) => bindActionCreators({
