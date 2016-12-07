@@ -54,14 +54,14 @@ class ThumbnailsMap extends Component {
   //  the currently active job (`activeJob`) has an additional class of `.active`:
   setClassName(photo) {
     return (photo.public_id in this.props.shoppingCart
-      ? 'checked'
-      : '') + ' perfect-grid__item';
+      ? 'checked '
+      : '') + 'grid-item';
   }
 
   render() {
     return (
       <main id="photo-gallery">
-        <div className="grid-wrap">
+        <div className="grid-wrapper">
           { this.renderGrid() }
         </div>
       </main>
