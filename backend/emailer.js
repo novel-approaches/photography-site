@@ -1,6 +1,6 @@
 'use strict';
 const nodemailer = require('nodemailer');
-const mail_auth = require('./auth');
+// const mail_auth = require('./auth');
 
 //Config options for the SMTP. See https://nodemailer.com/2-0-0-beta/setup-smtp/well-known-services/
 const smtpConfig = {
