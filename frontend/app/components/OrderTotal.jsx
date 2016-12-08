@@ -2,20 +2,14 @@
 import React, { Component } from 'react';
 
 
-export default class OrderTotal extends Component {
-  constructor(props) {
-    super(props);
-  }
+const OrderTotal = () => (
+  <li
+    className="product-item">
+    <h3>Order Total: </h3>
+    <output>
 
-  render() {
-    return (
-      <li
-        className="product-item">
-        <h3>Order Total: </h3>
-        <output>
+    </output>
+  </li>
+);
 
-        </output>
-      </li>
-    );
-  }
-};
+export default OrderTotal;
