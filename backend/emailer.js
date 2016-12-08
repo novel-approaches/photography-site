@@ -20,7 +20,7 @@ const makeHTML = (obj) => {
     '5x7': 0,
     '8x10': 0
   }
-  // console.log(order);
+
   for (var name in order) {
     let photo = order[name];
     let photoHTML = `<p>${name}:<br/><br/>`

@@ -8,6 +8,8 @@ const Path = require('path');
 const API = require('./api_be');
 const Emailer = require('./emailer');
 
+const Mailgun = require('mailgun').Mailgun;
+const mg = new Mailgun(API.mailgun)
 
 Server.use(Express.static(Path.join(__dirname + '/static')));
 Server.use(BodyParser.json());
@@ -26,6 +28,35 @@ Server.post('/order', (req, res) => {
   // console.log(req.body);
   const send = (response) => res.send(response);
   Emailer.sendOrderEmail(req.body, send)
+
+  // const send = (response) => console.log(response);
+  // Emailer.sendOrderEmail(req.body, send)
+});
+
+Server.post('/hello', (req, res, next) => {
+  const servername = '';
+  const options = {};
+  console.log('HERE');
+  mg.sendText(
+    // From
+    '"Claires Photography Orders" <clairesphotosoak@gmail.com>',
+    // To
+    'novelapproachesdevelopment@gmail.com',
+    // Subject
+    'Hello World!',
+    // Body
+    'Mailgun on Google App Engine with Node.js',
+    // 'https://api.mailgun.net/v3/sandbox44ddf02b5433449d8f1e314174949ced.mailgun.org',
+    'https://api.mailgun.net/v3/mg.clairesphotoemail.com',
+    // 'https://api.mailgun.net/v3',
+    options,
+    (err) => {
+      if (err) {
+        console.log(err);
+      }
+      // Render the index route on success
+    }
+  );
 });
 
 Server.get('/*', (req, res) => {
