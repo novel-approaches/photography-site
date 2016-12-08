@@ -11,13 +11,10 @@
 
 
 .grid {
-  position: relative;
-  display: flex;
+  @include flex(flex, row, space-between, flex-start, wrap);
   width: 100%;
   height: 100%;
   flex: 1;
-  flex-wrap: wrap;
-  align-content: flex-start;
   box-sizing: border-box;
 
   *,

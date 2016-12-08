@@ -2,6 +2,8 @@
 // Sass Variables:
 $theme-primary: #9651DF;
 $theme-secondary: Gold;
+$theme-disabled: Gainsboro;
+$body-bckg: #DFE7EE;
 $thumbColor: Gold;
 $borderColor: #010101;
 $shadowColor: #0D0D0D;
@@ -17,6 +19,7 @@ $shadowColor: #0D0D0D;
   -o-transform:      translateY(-50%);
   transform:         translateY(-50%);
 }
+
 %hAlign {
   position: relative;
   left: 50%;
@@ -26,18 +29,29 @@ $shadowColor: #0D0D0D;
   -o-transform:      translateX(-50%);
   transform:         translateX(-50%);
 }
+
 %alignAll {
   position: relative;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform:    translate(-50%, -50%);
+  -ms-transform:     translate(-50%, -50%);
+  -o-transform:      translate(-50%, -50%);
+  transform:         translate(-50%, -50%);
 }
+
 %br-circle {
   -webkit-border-radius: 50%;
   -moz-border-radius:    50%;
   border-radius:         50%;
 }
+
 %visible {
   visibility: visible;
   opacity: 1;
 }
+
 %hidden {
   visibility: hidden;
   opacity: 0;
@@ -89,6 +103,17 @@ $shadowColor: #0D0D0D;
   -ms-transition:     unquote($shorthand);
   -o-transition:      unquote($shorthand);
   transition:         unquote($shorthand);
+}
+
+@mixin flex($display: flex, $dir: row, $justify: space-around, $items: initial, $wrap: nowrap) {
+  position: relative;
+  // display: -ms-flexbox;
+  display: $display;
+  // -ms-flex-flow: $dir $wrap;
+  flex-flow:     $dir $wrap;
+  // -ms-flex-pack:   distribute;
+  justify-content: $justify;
+  align-items: $items;
 }
 
 

@@ -1,14 +1,14 @@
 // Global Styles:
-* { -webkit-tap-highlight-color: transparent; }
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+}
 
 body {
-  display: flex;
   height: 100%;
   margin: 0;
-  align-items: flex-end;
-  line-height: 1.5;
-  font-size: 125%;
-  background-color: rgb(223, 231, 238);
+  font: normal 125%/1.5 'Helvetica Neue', sans-serif;
+  background-color: $body-bckg;
   overflow-x: hidden;
 }
 
@@ -20,19 +20,8 @@ main {
   margin: 0 0 0 10vw;
 }
 
-.midsection {
-  position: relative;
-  display: flex;
-  width: 100vw;
-  height: 87.5vh;
-  flex-flow: row nowrap;
-}
-
 fieldset {
-  position: relative;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-between;
+  @include flex(flex, column, space-between, center);
 }
 
 header {
@@ -46,6 +35,14 @@ header {
   }
 }
 
+sup { text-decoration: underline solid #000; }
+
+.midsection {
+  @include flex(flex, row, space-between, center);
+  width: 100vw;
+  height: 87.5vh;
+}
+
 .txt-of {
   white-space: nowrap;
   overflow: hidden;
@@ -53,10 +50,5 @@ header {
 }
 
 .spinner {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  @include align(all, absolute);
 }
-
-sup { text-decoration: underline solid #000; }
