@@ -1,0 +1,15 @@
+[
+  {
+    "size": "small",
+    "dimensions": "4 x 6",
+    "price": 5
+  }, {
+    "size": "medium",
+    "dimensions": "5 x 7",
+    "price": 10
+  }, {
+    "size": "large",
+    "dimensions": "8 x 10",
+    "price": 15
+  }
+]
