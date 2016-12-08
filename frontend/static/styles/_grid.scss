@@ -47,7 +47,7 @@
   }
   
   &-media {
-    @include fade(0.135s, transform);
+    @include fade(0.135s, transform -webkit-transform);
     position: relative;
     height: 100%;
     width: 100%;
