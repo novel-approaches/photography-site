@@ -19,6 +19,7 @@ $shadowColor: #0D0D0D;
   box-shadow:         1px 1px 1px #000,
                       0 0 1px $shadowColor;
 }
+
 %sliderThumb {
   @include crossBrowserBorders(3px);
   @extend %boxShadow;
@@ -27,12 +28,14 @@ $shadowColor: #0D0D0D;
   border: 1px solid #000;
   background-color: #FFF;
 }
+
 %sliderTrack {
-  @include crossBrowserBorders(2px);
+  @include crossBrowserBorders(10px);
   @extend %boxShadow;
-  width: 100%;
-  height: 8px;
+  // width: 100%;
+  height: 10px;
   background-color: $theme-primary;
+  // background-color: #3071A9;
   border: 0.2px solid $borderColor;
   cursor: pointer;
 }
@@ -40,15 +43,10 @@ $shadowColor: #0D0D0D;
 
 // Containing form element styles:
 form[name='grid-form'] {
+  @include flex(flex, column, space-around);
   position: fixed;
-  display: -ms-flexbox;
-  display: flex;
   width: 10vw;
   height: 87.5vh;
-  -ms-flex-flow: column nowrap;
-  flex-flow:     column nowrap;
-  -ms-flex-pack:   distribute;
-  justify-content: space-around;
 
   fieldset {
     width: 5vw;
@@ -64,19 +62,19 @@ form[name='grid-form'] {
   label { display: block; }
 
   .output-wrapper {
-    position: relative;
-    display: -ms-flexbox;
-    display: flex;
+    @include flex(flex, row, space-between);
     width: 75%;
     margin: auto;
-    flex-flow: row nowrap;
-    justify-content: space-between;
   }
 }
 
 // Style <input> elements of type `range`:
 input[type='range'] {
-  background-color: $theme-primary;
+  @include crossBrowserBorders(10px);
+  // width: 100%;
+  height: 10px;
+  // background-color: $theme-primary;
+  background-color: transparent;
   -webkit-appearance: none;
   -webkit-transform: rotate(-270deg);
   -moz-transform:    rotate(-270deg);
@@ -88,48 +86,42 @@ input[type='range']:focus { outline: none; }
 
 // Special styling for WebKit/Blink
 input[type='range']::-webkit-slider-thumb {
-  // %sliderThumb {
-  //   @include crossBrowserBorders(3px);
-  //   @extend %boxShadow;
-  //   width: 16px;
-  //   height: 36px;
-  //   border: 1px solid #000;
-  //   background-color: #FFF;
-  // }
   @include crossBrowserBorders(3px);
   -webkit-appearance: none;
-  border: 1px solid #000;
   height: 36px;
   width: 16px;
   margin-top: -14px;  // Necessary margin specification for Chrome; automatic in Firefox & IE
+  border: 1px solid #000;
   background-color: $theme-secondary;
-  cursor: pointer;
+  cursor: ns-resize, pointer;
 }
 // All the same stuff for Firefox
 input[type='range']::-moz-range-thumb {
   @extend %sliderThumb;
-  cursor: grab;
+  cursor: ns-resize, pointer;
 }
 // All the same stuff for IE
 input[type='range']::-ms-thumb {
   @extend %sliderThumb;
-  cursor: pointer;
+  cursor: ns-resize, pointer;
 }
 
 // Styling the slider track:
 input[type='range']::-webkit-slider-runnable-track {
   @extend %sliderTrack;
+  height: 10px;
+  background: $theme-primary;
 }
 input[type='range']:focus::-webkit-slider-runnable-track {
-  background-color: $theme-primary;
-  outline: none;
+  // background-color: $theme-primary;
+  // background-color: $theme-primary;
 }
 input[type='range']::-moz-range-track {
   @extend %sliderTrack;
 }
 input[type='range']::-ms-track {
   width: 100%;
-  height: 8px;
+  height: 10px;
   background-color: transparent;
   border-color: transparent;
   border-width: 16px 0;
@@ -144,6 +136,7 @@ input[type='range']::-ms-fill-lower {
   border: 0.2px solid $borderColor;
 }
 input[type='range']:focus::-ms-fill-lower {
+  // background-color: $theme-primary;
   background-color: $theme-primary;
   outline: none;
 }
@@ -154,6 +147,7 @@ input[type='range']::-ms-fill-upper {
   border: 0.2px solid $borderColor;
 }
 input[type='range']:focus::-ms-fill-upper {
+  // background-color: $theme-primary;
   background-color: $theme-primary;
   outline: none;
   border: none;
