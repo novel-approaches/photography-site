@@ -15,18 +15,10 @@
   stroke-dashoffset: 0;
 }
 
-%fade {
-  -webkit-transition: all 0.135s cubic-bezier(0.0, 0.0, 0.2, 1);
-  -moz-transition:    all 0.135s cubic-bezier(0.0, 0.0, 0.2, 1);
-  -ms-transition:     all 0.135s cubic-bezier(0.0, 0.0, 0.2, 1);
-  -o-transition:      all 0.135s cubic-bezier(0.0, 0.0, 0.2, 1);
-  transition:         all 0.135s cubic-bezier(0.0, 0.0, 0.2, 1);
-}
-
 
 // Trash Bin Glyph Icon:
 .trashcan-glyph {
-  @extend %fade;
+  @include fade();
   @extend %hidden;
   position: absolute;
   width: 2rem;
@@ -53,7 +45,7 @@
 
   .checkbox-glyph {
     @include svgBase(none, 1, 1, #FFF, 0);
-    @extend %fade;
+    @include fade();
     width: auto;
     height: inherit;
 
@@ -133,7 +125,7 @@
 
 // Image placeholder glyph:
 .image-placeholder-glyph {
-  @include align(vertical);
+  @include align(all, absolute);
   @include svgBase(10, #D0D0D0, 1, none);
   display: block;
   margin: auto;
