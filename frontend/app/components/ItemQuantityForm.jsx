@@ -11,19 +11,31 @@ class ItemQuantityForm extends Component {
     super(props);
     this.renderSizes = this.renderSizes.bind(this);
     this.changeQuantity = this.changeQuantity.bind(this);
+    this.enableInput = this.enableInput.bind(this);
+    this.disableInput = this.disableInput.bind(this);
   }
 
   changeQuantity(evt) {
-    let num = evt.target.value,
-        size = evt.target.dataset.size,
-        ID = this.props.photoID;
-      console.log(`Quantity:\t${num}\nSize:\t${size}`);
+    let [num, ID] = [evt.target.value, this.props.photoID],
+        { size, price } = evt.target.dataset;
+
     this.props.changeItemQuantity({
       photoID: ID,
       quantity: {
         [size]: num
-      }
+      },
+      price: num * price
     });
+  }
+
+  enableInput(evt) {
+    evt.target.removeAttribute('disabled');
+  }
+
+  disableInput(evt) {
+    if (!(evt.target.value > 0)) {
+      evt.target.setAttribute('disabled', true);
+    }
   }
 
   renderSizes(sizesArr) {
@@ -38,9 +50,19 @@ class ItemQuantityForm extends Component {
         <input
           id={ `size-${obj.size}` }
           type="number"
+          min={ 0 }
+          max={ Number.MAX_SAFE_INTEGER }
           defaultValue={ 0 }
           data-size={ obj.dimensions.replace(/\s/g, '') }
-          onChange={ this.changeQuantity } />
+          data-price={ obj.price }
+          onChange={ this.changeQuantity }
+          onMouseOver={ this.enableInput }
+          onMouseLeave={ this.disableInput }
+          disabled />
+        <output
+          htmlFor={ `size-${obj.size}` } >
+          { `$${(index * 5) + 10}` }
+        </output>
       </li>
     );
   }
@@ -49,13 +71,16 @@ class ItemQuantityForm extends Component {
     const SIZES = [
       {
         size: 'small',
-        dimensions: '4 x 6'
+        dimensions: '4 x 6',
+        price: 5
       }, {
         size: 'medium',
-        dimensions: '5 x 7'
+        dimensions: '5 x 7',
+        price: 10
       }, {
         size: 'large',
-        dimensions: '8 x 10'
+        dimensions: '8 x 10',
+        price: 15
       }
     ];
     return (

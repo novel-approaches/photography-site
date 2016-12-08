@@ -5,18 +5,23 @@ import ItemQuantityForm from './ItemQuantityForm';
 import TrashCanGlyph from '../constants/svg/TrashCanGlyph_SVG';
 
 
-const ProductOrderItem = ({ item }) => (
+const ProductOrderItem = ({ itemNum, photo }) => (
   <li
     className="product-item">
-    <h5>{ item.public_id }</h5>
+    <TrashCanGlyph />
+    <h4>
+      {[
+        'Item N',
+        <sup key={ `SuperElement_${itemNum}` }>o</sup>,
+        ` ${itemNum}:  ${photo.public_id}`
+      ]}
+    </h4>
     <div>
       <img
-        src={ item.secure_url }
-        alt={ `Photograph thumbnail ${item.public_id}` }
-        height="75px" />
+        src={ photo.secure_url }
+        alt={ `Photograph thumbnail ${photo.public_id}` } />
       <ItemQuantityForm
-        photoID={ item.public_id } />
-      <TrashCanGlyph />
+        photoID={ photo.public_id } />
     </div>
   </li>
 );

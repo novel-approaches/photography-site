@@ -4,7 +4,7 @@ import Modal from 'react-modal';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { orderPhoto, toggleModal, submitOrder } from '../actions/index';
+import { toggleModal, submitOrder } from '../actions/index';
 import ProductOrderItem from '../components/ProductOrderItem';
 import OrderTotal from '../components/OrderTotal';
 import SubmitOrder from '../components/SubmitOrder';
@@ -23,10 +23,11 @@ class OrderFormModal extends Component {
   }
 
   renderProducts(cart) {
-    return Object.values(cart).map((item, index, list) =>
+    return Object.values(cart).map((photo, index, list) =>
       <ProductOrderItem
         key={ `ProductOrder_${index}` }
-        item={ item } />
+        photo={ photo }
+        itemNum={ index + 1 } />
     );
   }
 
@@ -54,21 +55,14 @@ class OrderFormModal extends Component {
 };
 
 let mapStateToProps = (state) => ({
-  photoOrder: state.photoOrder,
   orderFormModal: state.orderFormModal,
-  shoppingCart: state.shoppingCart,
-  orderQuantities: state.orderQuantity
+  orderQuantities: state.orderQuantity,
+  shoppingCart: state.shoppingCart
 });
 
 let mapDispatchToProps = (dispatch) => bindActionCreators({
-  orderPhoto,
   toggleModal,
   submitOrder
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(OrderFormModal);
-
-
-// <div id="order-form"></div>
-
-// style={ customStyles }

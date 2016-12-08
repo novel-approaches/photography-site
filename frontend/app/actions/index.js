@@ -4,10 +4,8 @@ import axios from 'axios';
 
 export const MODIFY_GRID_MARGINS = 'MODIFY_GRID_MARGINS';
 export const MODIFY_GRID_SIZE = 'MODIFY_GRID_SIZE';
-export const ORDER_PHOTO = 'ORDER_PHOTO';
 export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 export const ADD_TO_SHOPPING_CART = 'ADD_TO_SHOPPING_CART';
-export const SELECT_PHOTO = 'SELECT_PHOTO';
 export const TOGGLE_PHOTO_SELECTION_STATE = 'TOGGLE_PHOTO_SELECTION_STATE';
 export const GET_IMAGE_OBJECT = 'GET_IMAGE_OBJECT';
 export const SET_AJAX_SPINNER = 'SET_AJAX_SPINNER';
@@ -46,9 +44,9 @@ export const getPhotos = () => {
 
 // Action creator stages or unsets the AJAX loading spinner:
 //  @param {booean} loading
-export const setAjaxSpinner = (bool) => ({
+export const setAjaxSpinner = (loading) => ({
   type: SET_AJAX_SPINNER,
-  loading: bool
+  loading
 });
 
 export const submitOrder = (order, phone, email) => {
@@ -88,23 +86,13 @@ export const modifyGridSize = (size) => ({
   size
 });
 
-export const orderPhoto = (photo) => ({
-  type: ORDER_PHOTO,
-  photo
-});
-
 // Action used to handle display toggle of OrderFormModal React container:
 export const toggleModal = () => ({
   type: TOGGLE_MODAL
 });
 
-export const addToShoppingCart = (payload) => ({
+export const addToShoppingCart = (photo) => ({
   type: ADD_TO_SHOPPING_CART,
-  payload
-});
-
-export const selectPhoto = (photo) => ({
-  type: SELECT_PHOTO,
   photo
 });
 

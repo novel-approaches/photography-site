@@ -10,10 +10,10 @@ export default class OrderTotal extends Component {
   render() {
     return (
       <div>
-        <li
-          className="product-item">
-          <h5>Order Total: </h5>
-          <output>
+      <li
+        className="product-item">
+        <h3>Order Total: </h3>
+        <output>
 
           </output>
         </li>

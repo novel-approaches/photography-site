@@ -2,11 +2,29 @@
 import { ADD_TO_SHOPPING_CART } from '../actions/index';
 
 
-export default function shoppingCart(state = {}, action) {
+const toggleSelectedState = (photo) => Object.assign({}, photo, { selected: !photo.selected });
+
+export default function photoSelect(state = {}, action) {
   switch (action.type) {
     case ADD_TO_SHOPPING_CART:
+<<<<<<< HEAD
       // console.log(`Action <${action.type}> registered with payload <item: `, action.payload, '>');
       return action.payload;
+=======
+      // console.log(`Action <${action.type}> registered with payload <photo: `, action.photo, '>');
+      
+      const statePhotoKey = action.photo['public_id'],
+            toggledPhoto = toggleSelectedState(action.photo);
+      if (!state.hasOwnProperty(statePhotoKey)) {
+        return Object.assign({}, state, { [statePhotoKey]: toggledPhoto });
+      } else if (state.hasOwnProperty(statePhotoKey)) {
+        let newState = Object.assign({}, state);
+        delete newState[statePhotoKey];
+        return newState;
+      } else {
+        return null;
+      }
+>>>>>>> dev
     default:
       return state;
   }
