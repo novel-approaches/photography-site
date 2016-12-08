@@ -6,6 +6,7 @@ export const MODIFY_GRID_MARGINS = 'MODIFY_GRID_MARGINS';
 export const MODIFY_GRID_SIZE = 'MODIFY_GRID_SIZE';
 export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 export const ADD_TO_SHOPPING_CART = 'ADD_TO_SHOPPING_CART';
+export const EMPTY_SHOPPING_CART = 'EMPTY_SHOPPING_CART';
 export const TOGGLE_PHOTO_SELECTION_STATE = 'TOGGLE_PHOTO_SELECTION_STATE';
 export const GET_IMAGE_OBJECT = 'GET_IMAGE_OBJECT';
 export const SET_AJAX_SPINNER = 'SET_AJAX_SPINNER';
@@ -13,26 +14,6 @@ export const SUBMIT_ORDER = 'SUBMIT_ORDER';
 export const CHANGE_ITEM_QUANTITY = 'CHANGE_ITEM_QUANTITY';
 
 
-// export const getPhotos = () => {
-//   const FetchImageURLs = (
-//     $.ajax({
-//       url: '/images',
-//       type: 'get',
-//       success(res) {
-//         console.log('RES:', res);
-//         return res;
-//       },
-//       error(err) {
-//         console.log(err);
-//       }
-//     })
-//   );
-//   console.log('GOT PHOTOS:', FetchImageURLs);
-//   return {
-//     type: GET_IMAGE_OBJECT,
-//     payload: FetchImageURLs
-//   };
-// }
 export const getPhotos = () => {
   const request = axios.get('/images');
   return {
@@ -87,6 +68,10 @@ export const toggleModal = () => ({
 export const addToShoppingCart = (photo) => ({
   type: ADD_TO_SHOPPING_CART,
   photo
+});
+
+export const emptyShoppingCart = () => ({
+  type: EMPTY_SHOPPING_CART
 });
 
 export const toggleGalleryPhotoSelection = (photo) => ({
