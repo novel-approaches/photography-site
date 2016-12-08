@@ -289,7 +289,7 @@ export default class Grid extends Component {
     };
 
     return (
-      <div className="perfect-grid" ref="perfectGrid" style={ style }>
+      <div className="grid" ref="perfectGrid" style={ style }>
         <ScrollHandler onResize={::this.setContainerWidth} />
         { perfectGrid }
       </div>
