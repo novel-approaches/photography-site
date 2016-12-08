@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import OrderTotal from '../components/OrderTotal';
 import SubmitOrder from '../components/SubmitOrder';
 import ProductOrderItem from '../components/ProductOrderItem';
-import { addToShoppingCart, toggleModal, submitOrder } from '../actions/index';
+import { addToShoppingCart, emptyShoppingCart, toggleModal, submitOrder } from '../actions/index';
 import OrderFormModalStyles from '../constants/json/OrderFormModalStyles.json';
 import ImagePlaceholderGlyph from '../constants/svg/ImagePlaceholderGlyph_SVG';
 
@@ -17,6 +17,8 @@ class OrderFormModal extends Component {
     super(props);
     this.closeOrderFormModal = this.closeOrderFormModal.bind(this);
     this.removePhotoFromOrder = this.removePhotoFromOrder.bind(this);
+    this.clearOrder = this.clearOrder.bind(this);
+    this.sendOrder = this.sendOrder.bind(this);
     this.renderProducts = this.renderProducts.bind(this);
     this.orderFormContents = this.orderFormContents.bind(this);
     this.displayContents = this.displayContents.bind(this);
@@ -28,6 +30,14 @@ class OrderFormModal extends Component {
 
   removePhotoFromOrder(photo) {
     this.props.addToShoppingCart(photo);
+  }
+
+  clearOrder() {
+    this.props.emptyShoppingCart();
+  }
+
+  sendOrder(order) {
+    this.props.submitOrder(order);
   }
 
   renderProducts(cart) {
@@ -53,7 +63,8 @@ class OrderFormModal extends Component {
           { this.renderProducts(cart) }
           <OrderTotal />
           <SubmitOrder
-            sub={ this.props.submitOrder }
+            clearOrder={ this.clearOrder }
+            sendOrder={ this.sendOrder }
             order={ this.props.orderQuantities } />
         </ul>
       </div>
@@ -95,6 +106,7 @@ let mapStateToProps = (state) => ({
 
 let mapDispatchToProps = (dispatch) => bindActionCreators({
   addToShoppingCart,
+  emptyShoppingCart,
   toggleModal,
   submitOrder
 }, dispatch);
