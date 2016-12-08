@@ -44,7 +44,7 @@
   }
 
   .checkbox-glyph {
-    @include svgBase(none, 1, 1, #FFF, 0);
+    @include svgBase(1, none, 1, #FFF, 0);
     @include fade();
     width: auto;
     height: inherit;

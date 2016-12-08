@@ -1,7 +1,10 @@
 // Global Styles:
-* {
+*,
+*:before,
+*:after {
   -webkit-tap-highlight-color: transparent;
   -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
 }
 
 body {
@@ -41,12 +44,6 @@ sup { text-decoration: underline solid #000; }
   @include flex(flex, row, space-between, center);
   width: 100vw;
   height: 87.5vh;
-}
-
-.txt-of {
-  white-space: nowrap;
-  overflow: hidden;
-  word-break: break-all;
 }
 
 .spinner {

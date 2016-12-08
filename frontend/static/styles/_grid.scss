@@ -11,22 +11,13 @@
 
 
 .grid {
-  @include flex(flex, row, space-between, flex-start, wrap);
+  @include flex(flex, row, flex-start, flex-start, wrap);
   width: 100%;
-  height: 100%;
   flex: 1;
-  box-sizing: border-box;
-
-  *,
-  *:before,
-  *:after { box-sizing: inherit; }
 
   &-link { cursor: pointer; }
-  &-rows { display: flex; }
-  &-row {
-    display: inline-flex;
-    flex-wrap: wrap;
-  }
+  &-rows { @include flex(flex); }
+  &-row { @include flex(flex, row, space-between, flex-start, wrap); }
 
   &-wrapper {    
     position: relative;
@@ -36,8 +27,7 @@
   }
 
   &-item {
-    position: relative;
-    display: inline-flex;
+    @include flex(inline-flex);
     overflow: hidden;
 
     > * { z-index: 2; }
@@ -64,6 +54,7 @@
     &:after {
       @include alignPseudo(bottom);
       @extend %hidden;
+      @extend %txt-of;
       content: 'Res. ' attr(data-dims) ' - ' attr(data-domain);
       height: 0;
       background-color: rgba(102, 102, 102, 0.73);

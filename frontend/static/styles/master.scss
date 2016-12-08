@@ -1,10 +1,10 @@
 
 // Sass Variables:
 $theme-primary: #9651DF;
-$theme-secondary: Gold;
+$theme-secondary: #C9B131;
 $theme-disabled: Gainsboro;
+$theme-primary-focus: #8C44D8;
 $body-bckg: #DFE7EE;
-$thumbColor: Gold;
 $borderColor: #010101;
 $shadowColor: #0D0D0D;
 
@@ -45,6 +45,12 @@ $shadowColor: #0D0D0D;
   -webkit-border-radius: 50%;
   -moz-border-radius:    50%;
   border-radius:         50%;
+}
+
+%txt-of {
+  white-space: nowrap;
+  overflow: hidden;
+  word-break: break-all;
 }
 
 %visible {
@@ -114,6 +120,12 @@ $shadowColor: #0D0D0D;
   // -ms-flex-pack:   distribute;
   justify-content: $justify;
   align-items: $items;
+}
+
+@mixin cbBorderRadii($radius: 0) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius:    $radius;
+  border-radius:         $radius;
 }
 
 
