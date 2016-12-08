@@ -16,10 +16,19 @@ Server.use(BodyParser.json());
 
 //TODO figure out what is going on here, and make sure we are actually grabbing photos.
 Server.get('/images', (req, res) => {
+  const parse = (url) => {
+    const query = `/upload/w_800,c_fill`;
+    return url.split('/upload').join(query);
+  }
   let url = `${API.admin_url}/resources/image`;
   Request(url, (error, response, body) => {
     let data = JSON.parse(body).resources;
-    data.forEach(obj => obj.selected = false);
+    data.forEach( (obj) => {
+      obj.selected = false;
+      obj.url = parse(obj.url);
+      obj.secure_url = parse(obj.secure_url);
+    });
+
     res.send(data);
   });
 });

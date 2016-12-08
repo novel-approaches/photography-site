@@ -11,8 +11,8 @@
     "lint": "eslint app",
     "error-log": "webpack --display-error-details",
     "test": "mocha -w app/test/helpers/browser.js app/test/*_test.js",
-    "setup": "webpack --config webpack.config.js",
-    "deploy": "webpack --config webpack_deploy.config.js --progress -p",
+    "setup": "webpack --config webpack_deploy.config.js",
+    "wpdeploy": "webpack --config webpack_deploy.config.js --progress -p",
     "dev": "webpack-dev-server --progress --profile --colors"
   },
   "repository": {
@@ -49,10 +49,10 @@
   ],
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.15.3",
     "react": "^15.4.1",
     "request": "^2.79.0",
-    "util": "^0.10.3"
+    "util": "^0.10.3",
+    "webpack": "^1.13.3"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",
@@ -83,7 +83,7 @@
     "redux-thunk": "^2.1.0",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
-    "webpack": "^1.13.3",
+    "webpack2": "^2.1.0-beta.27",
     "webpack-dev-server": "^1.16.2"
   },
   "optionalDependencies": {},

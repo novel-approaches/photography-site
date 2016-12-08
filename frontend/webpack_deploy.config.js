@@ -18,10 +18,10 @@ module.exports = {
       }, {
         test: /\.scss$/i,
         loaders: [
-          'style-loader',
-          'css-loader',
-          'autoprefixer-loader?browsers=last 3 versions',
-          'sass-loader?outputStyle=expanded'
+          'style',
+          'css',
+          'autoprefixer?browsers=last 3 versions',
+          'sass?outputStyle=expanded'
         ]
       }, {
         test: /\.json$/i,
@@ -33,10 +33,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.LoaderOptionsPlugin({
-      minimize: true,
-      debug: false
-    }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
