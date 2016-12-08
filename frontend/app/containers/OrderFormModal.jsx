@@ -4,10 +4,10 @@ import Modal from 'react-modal';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { addToShoppingCart, toggleModal, submitOrder } from '../actions/index';
-import ProductOrderItem from '../components/ProductOrderItem';
 import OrderTotal from '../components/OrderTotal';
 import SubmitOrder from '../components/SubmitOrder';
+import ProductOrderItem from '../components/ProductOrderItem';
+import { addToShoppingCart, toggleModal, submitOrder } from '../actions/index';
 import OrderFormModalStyles from '../constants/json/OrderFormModalStyles.json';
 import ImagePlaceholderGlyph from '../constants/svg/ImagePlaceholderGlyph_SVG';
 
@@ -47,13 +47,16 @@ class OrderFormModal extends Component {
 
   orderFormContents(cart) {
     return (
-      <ul id="orders-list">
-        { this.renderProducts(cart) }
-        <OrderTotal />
-        <SubmitOrder
-          sub={ this.props.submitOrder }
-          order={ this.props.orderQuantities } />
-      </ul>
+      <div>
+        <h3>Your Order Summary</h3>
+        <ul id="orders-list">
+          { this.renderProducts(cart) }
+          <OrderTotal />
+          <SubmitOrder
+            sub={ this.props.submitOrder }
+            order={ this.props.orderQuantities } />
+        </ul>
+      </div>
     );
   }
 
@@ -62,6 +65,7 @@ class OrderFormModal extends Component {
       ? this.orderFormContents(cart)
       : (
         <div className="empty-order">
+          <h3>Your shopping cart's empty :(</h3>
           <ImagePlaceholderGlyph />
         </div>
       );
@@ -72,7 +76,6 @@ class OrderFormModal extends Component {
       <Modal
         isOpen={ this.props.orderFormModal }
         style={ OrderFormModalStyles }>
-        <h3>Your Order Summary</h3>
         <i
           id="close-modal-btn"
           onClick={ this.closeOrderFormModal }>
