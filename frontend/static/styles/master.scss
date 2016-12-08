@@ -6,6 +6,7 @@ $thumbColor: Gold;
 $borderColor: #010101;
 $shadowColor: #0D0D0D;
 
+
 // Sass placeholders declarations:
 %vAlign {
   position: relative;
@@ -42,6 +43,7 @@ $shadowColor: #0D0D0D;
   opacity: 0;
 }
 
+
 // Sass mixin declarations:
 @mixin align($dir: vertical, $pos: relative) {
   $sides: top;
@@ -75,7 +77,11 @@ $shadowColor: #0D0D0D;
   $timing-func: '#{$duration} cubic-bezier(0.0, 0.0, 0.2, 1)';
 
   @each $property in $properties {
-    $shorthand: $shorthand + ', #{$property} ' + $timing-func;
+    @if index($properties, $property) < length($properties) {
+      $shorthand: '#{$shorthand} #{$property} #{$timing-func}, ';
+    } @else {
+      $shorthand: '#{$shorthand} #{$property} #{$timing-func}';
+    }
   }
 
   -webkit-transition: unquote($shorthand);
@@ -87,71 +93,9 @@ $shadowColor: #0D0D0D;
 
 
 // Import Sass partials:
+@import 'main';       // Styles for classless HTML elements
 @import 'sliders';    // Styles for range input sliders
 @import 'svg-icons';  // Styles for inline SVG icons
 @import 'grid';       // Styles for photo grid
 @import 'modal';      // Styles for OrderFormModal component
 @import 'scrollbar';  // Styles for scrollbar
-
-// Global Styles:
-* { -webkit-tap-highlight-color: transparent; }
-
-body {
-  display: flex;
-  height: 100%;
-  margin: 0;
-  align-items: flex-end;
-  line-height: 1.5;
-  font-size: 125%;
-  background-color: rgb(223, 231, 238);
-  overflow-x: hidden;
-}
-
-main {
-  position: relative;
-  display: block;
-  width: 90%;
-  height: 100%;
-  margin: 0 0 0 10vw;
-}
-
-.midsection {
-  position: relative;
-  display: flex;
-  width: 100vw;
-  height: 87.5vh;
-  flex-flow: row nowrap;
-}
-
-fieldset {
-  position: relative;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-between;
-}
-
-header {
-  position: relative;
-  height: 12.5vh;
-
-  img[role='logo'] {
-    height: 100%;
-    display: inline-block;
-    float: left;
-  }
-}
-
-.txt-of {
-  white-space: nowrap;
-  overflow: hidden;
-  word-break: break-all;
-}
-
-.spinner {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-sup { text-decoration: underline solid #000; }
