@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { changeItemQuantity } from '../actions/index';
+import PhotoData from '../constants/json/PhotoData.json';
 
 
 class ItemQuantityForm extends Component {
@@ -68,51 +69,19 @@ class ItemQuantityForm extends Component {
   }
 
   render() {
-    const SIZES = [
-      {
-        size: 'small',
-        dimensions: '4 x 6',
-        price: 5
-      }, {
-        size: 'medium',
-        dimensions: '5 x 7',
-        price: 10
-      }, {
-        size: 'large',
-        dimensions: '8 x 10',
-        price: 15
-      }
-    ];
     return (
       <form className="quantity-form">
         <ul className="sizes-list">
-          { this.renderSizes(SIZES) }
+          { this.renderSizes(PhotoData) }
         </ul>
       </form>
     );
   }
 };
 
-let mapStateToProps = (state) => ({
-
-});
 
 let mapDispatchToProps = (dispatch) => bindActionCreators({
   changeItemQuantity
 }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(ItemQuantityForm);
-
-
-// {
-//   "mmhqphjs5fohx0vljsjd": {
-//     "4x6": 0,
-//     "5x7": 0,
-//     "8x10": 0
-//   },
-//   "mmhqphjs5fohx0vljsjd": {
-//     "4x6": 0,
-//     "5x7": 0,
-//     "8x10": 0
-//   }
-// }
+export default connect(null, mapDispatchToProps)(ItemQuantityForm);
