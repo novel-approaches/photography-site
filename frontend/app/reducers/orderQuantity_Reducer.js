@@ -6,7 +6,6 @@ export default function orderQuantity(state = {}, action) {
   switch (action.type) {
     case CHANGE_ITEM_QUANTITY:
       // console.log(`Action <${action.type}> registered with payload <payload: `, action.payload, '>');
-      
       let { photoID, quantity, price } = action.payload,
           stateCopy;
       if (!state.hasOwnProperty(photoID)) {
