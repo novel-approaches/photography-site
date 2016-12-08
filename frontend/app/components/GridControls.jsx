@@ -35,7 +35,7 @@ class GridControls extends Component {
             className="vrange"
             type="range"
             min={ 100 }
-            max={ Math.floor(window.innerHeight / 2.5) }
+            max={ Math.max(500, Math.floor(window.innerHeight / 2.5)) }
             step={ 5 }
             defaultValue={ 300 }
             onChange={ this.onSlideSizeRange } />
