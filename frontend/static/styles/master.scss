@@ -113,11 +113,8 @@ $shadowColor: #0D0D0D;
 
 @mixin flex($display: flex, $dir: row, $justify: space-around, $items: initial, $wrap: nowrap) {
   position: relative;
-  // display: -ms-flexbox;
   display: $display;
-  // -ms-flex-flow: $dir $wrap;
-  flex-flow:     $dir $wrap;
-  // -ms-flex-pack:   distribute;
+  flex-flow: $dir $wrap;
   justify-content: $justify;
   align-items: $items;
 }
