@@ -5,27 +5,19 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import promise from 'redux-promise';
 
+import Top from './containers/Top';
 import rootReducer from './reducers/rootReducer';
 import '../static/styles/master.scss';
-import Top from './containers/Top';
 
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <Provider store={createStoreWithMiddleware(rootReducer)} >
-        <Top />
-      </Provider>
-    );
-  }
-};
+const App = () => (
+  <Provider store={createStoreWithMiddleware(rootReducer)} >
+    <Top />
+  </Provider>
+);
 
 export default App;
 
