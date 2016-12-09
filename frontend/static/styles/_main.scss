@@ -38,6 +38,38 @@ header {
   }
 }
 
+h1,
+h2 {
+  height: 5vh;
+  margin: 0;
+  text-align: center;
+}
+h3,
+h4,
+h5,
+h6 { text-align: left; }
+
+button {
+  @include fade(0.25s, ease-in-out);
+  @include cbBorderRadii(4px);
+  width: 30%;
+  height: 2rem;
+  margin: 1rem auto;
+  border: none;
+  color: #FFF;
+  background-color: $theme-primary;
+  font: bolder 1.25rem/1 'Helvetica Neue', sans-serif;
+  cursor: pointer;
+
+  &:hover {
+    color: $theme-primary;
+    background-color: #FFF;
+    -webkit-box-shadow: 0 6px 13px 2px #A5A5A5;
+    -moz-box-shadow:    0 6px 13px 2px #A5A5A5;
+    box-shadow:         0 6px 13px 2px #A5A5A5;
+  }
+}
+
 sup { text-decoration: underline solid #000; }
 
 .midsection {
@@ -46,6 +78,4 @@ sup { text-decoration: underline solid #000; }
   height: 87.5vh;
 }
 
-.spinner {
-  @include align(all, absolute);
-}
+.spinner { @include align(all, absolute); }
