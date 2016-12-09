@@ -27,8 +27,6 @@
   cursor: pointer;
 }
 
-&:hover .trashcan-glyph { @extend %visible; }
-
 
 // Check Mark Glyph Icon
 .grid-item {
@@ -153,4 +151,5 @@
   @include svgBase(0, #B16767);
   width: auto;
   height: 1rem;
+  margin: 0 2rem;
 }
