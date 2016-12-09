@@ -34,7 +34,7 @@
   }
   
   &-media {
-    @include fade(0.135s, transform -webkit-transform);
+    @include fade(0.135s, cubic-bezier(0.0, 0.0, 0.2, 1), transform -webkit-transform);
     position: relative;
     height: 100%;
     width: 100%;
