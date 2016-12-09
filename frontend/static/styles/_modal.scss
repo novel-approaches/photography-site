@@ -13,11 +13,6 @@
   cursor: pointer;
 }
 
-.ReactModal__Content h3 {
-  height: 5vh;
-  text-align: center;
-}
-
 .empty-order { height: 55vh; }
 
 #orders-list {
@@ -28,16 +23,16 @@
   overflow-x: hidden;
   overflow-y: scroll;
 
-  h3 { text-align: left; }
   h4 {
     margin: 0;
     padding: 0 0 0.75rem 0;
   }
+
   > li {
     padding: 1rem 0.5rem 1.5rem 0.5rem;
-
     &:nth-of-type(odd) { background-color: #E8E8E8; }
   }
+  .modal-actions { @include flex(); }
 }
 
 .product-item {
@@ -45,7 +40,6 @@
 
   > div {
     @include flex(flex, row, space-between, center);
-
     > *:first-child { margin: 0 0 0 3rem; }
     > *:last-child { margin: 0 3rem 0 0; }
 
