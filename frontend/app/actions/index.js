@@ -12,6 +12,8 @@ export const GET_IMAGE_OBJECT = 'GET_IMAGE_OBJECT';
 export const SET_AJAX_SPINNER = 'SET_AJAX_SPINNER';
 export const SUBMIT_ORDER = 'SUBMIT_ORDER';
 export const CHANGE_ITEM_QUANTITY = 'CHANGE_ITEM_QUANTITY';
+export const REFRESH_SUBTOTAL = 'REFRESH_SUBTOTAL';
+export const CLEAR_ITEM_FROM_ORDER = 'CLEAR_ITEM_FROM_ORDER';
 
 
 export const getPhotos = () => {
@@ -30,15 +32,10 @@ export const setAjaxSpinner = (loading) => ({
 });
 
 export const submitOrder = (order) => {
-  const request = axios.post('/order', {
-      order
-    })
-    .then(function(response) {
-      console.log(response);
-    })
-    .catch(function(error) {
-      console.log(error);
-    });
+  const request = axios
+    .post('/order', { order })
+    .then(response => { console.log(response); })
+    .catch(error => { console.log(error); });
   return {
     type: SUBMIT_ORDER,
     payload: request
@@ -47,6 +44,11 @@ export const submitOrder = (order) => {
 
 export const changeItemQuantity = (item) => ({
   type: CHANGE_ITEM_QUANTITY,
+  payload: item
+});
+
+export const refreshSubtotal = (item) => ({
+  type: REFRESH_SUBTOTAL,
   payload: item
 });
 
@@ -67,6 +69,11 @@ export const toggleModal = () => ({
 
 export const addToShoppingCart = (photo) => ({
   type: ADD_TO_SHOPPING_CART,
+  photo
+});
+
+export const clearItemFromOrder = (photo) => ({
+  type: CLEAR_ITEM_FROM_ORDER,
   photo
 });
 
