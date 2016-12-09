@@ -130,3 +130,91 @@
   display: block;
   margin: auto;
 }
+
+
+// Grid Controls Size glyph:
+.grid-controls-size-glyph {
+  width: 40px;
+  height: auto;
+
+  marker path {
+    fill: #FFF;
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: #FFF;
+    stroke-width: 1pt;
+    stroke-opacity: 1;
+  }
+
+  marker:first-child path,
+  marker:nth-child(5) path,
+  marker:nth-child(6) path,
+  marker:last-child path {
+    fill: #FFF;
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: #FFF;
+    stroke-width: 0.625;
+    stroke-linejoin: round;
+    stroke-opacity: 1;
+  }
+
+  g path {
+    opacity: 1;
+    fill: #000;
+    fill-opacity: 1;
+    fill-rule: nonzero;
+    stroke: #000;
+    stroke-width: 0;
+    stroke-linecap: square;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+    stroke-opacity: 1;
+  }
+}
+
+
+// Grid Controls Margins glyph:
+.grid-controls-margins-glyph {
+  width: 40px;
+  height: auto;
+  
+  marker path {
+    fill: #FFF;
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: #FFF;
+    stroke-width: 1pt;
+    stroke-opacity: 1;
+  }
+
+  marker:nth-child(5) path,
+  marker:nth-child(6) path,
+  marker:last-child path {
+    fill: #FFF;
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: #FFF;
+    stroke-width: 0.625;
+    stroke-linejoin: round;
+    stroke-opacity: 1;
+  }
+
+  g path {
+    opacity: 1;
+    fill: #000;
+    fill-opacity: 1;
+    fill-rule: nonzero;
+    stroke: #000;
+    stroke-width: 0;
+    stroke-linecap: square;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+    stroke-opacity: 1;
+  }
+}
+

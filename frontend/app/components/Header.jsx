@@ -37,6 +37,7 @@ class Header extends Component {
         </a>
         <div
           className="shopping-cart"
+          title={ `You currently have ${ this.displayCartCount() } items in your shopping cart. Click to view your cart.` }
           onClick={ this.renderModal }>
           <ShoppingCartGlyph />
           <i>{ this.displayCartCount() }</i>
