@@ -14,6 +14,7 @@ class Header extends Component {
     super(props);
     this.renderModal = this.renderModal.bind(this);
     this.displayCartCount = this.displayCartCount.bind(this);
+    this.shoppingCartToolTip = this.shoppingCartToolTip.bind(this);
   }
 
   renderModal(evt) {
@@ -22,6 +23,13 @@ class Header extends Component {
 
   displayCartCount() {
     return Object.keys(this.props.cart).length;
+  }
+
+  shoppingCartToolTip() {
+    let cartSize = Object.keys(this.props.cart).length;
+    return cartSize
+      ? `You currently have ${cartSize} item${cartSize > 1 ? 's' : ''} in your cart. Click to view your cart.`
+      : 'Your shopping cart\'s empty!';
   }
 
   render() {
@@ -37,7 +45,7 @@ class Header extends Component {
         </a>
         <div
           className="shopping-cart"
-          title={ `You currently have ${ this.displayCartCount() } items in your shopping cart. Click to view your cart.` }
+          title={ this.shoppingCartToolTip() }
           onClick={ this.renderModal }>
           <ShoppingCartGlyph />
           <i>{ this.displayCartCount() }</i>
