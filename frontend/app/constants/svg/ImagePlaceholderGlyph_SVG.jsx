@@ -5,8 +5,6 @@ import React from 'react';
 const ImagePlaceholderGlyph = () => (
   <svg
     className="image-placeholder-glyph"
-    width="84.666664mm"
-    height="63.340511mm"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 299.99999 224.43488">
