@@ -5,6 +5,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { modifyGridMargins, modifyGridSize } from '../actions/index';
+import GridControlsSizeGlyph from '../constants/svg/GridControlsSizeGlyph_SVG';
+import GridControlsMarginsGlyph from '../constants/svg/GridControlsMarginsGlyph_SVG';
 
 
 class GridControls extends Component {
@@ -27,8 +29,9 @@ class GridControls extends Component {
       <form name="grid-form">
         <fieldset>
           <label
-            htmlFor="size-inpt">
-            Size:&nbsp;
+            htmlFor="size-inpt"
+            title="Photo size">
+            <GridControlsSizeGlyph />
           </label>
           <input
             id="size-inpt"
@@ -49,8 +52,9 @@ class GridControls extends Component {
         
         <fieldset>
           <label
-            htmlFor="margin-inpt">
-            Margins:&nbsp;
+            htmlFor="margin-inpt"
+            title="Photo margins">
+            <GridControlsMarginsGlyph />
           </label>
           <input
             id="margin-inpt"
