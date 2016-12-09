@@ -92,9 +92,9 @@ $shadowColor: #0D0D0D;
   transform:         $translation;
 }
 
-@mixin fade($duration: 0.135s, $properties: all) {
+@mixin fade($duration: 0.135s, $easingFunc: cubic-bezier(0.0, 0.0, 0.2, 1),$properties: all) {
   $shorthand: '';
-  $timing-func: '#{$duration} cubic-bezier(0.0, 0.0, 0.2, 1)';
+  $timing-func: '#{$duration} #{$easingFunc}';
 
   @each $property in $properties {
     @if index($properties, $property) < length($properties) {
