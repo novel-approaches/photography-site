@@ -5,12 +5,12 @@ import ItemQuantityForm from './ItemQuantityForm';
 import TrashCanGlyph from '../constants/svg/TrashCanGlyph_SVG';
 
 
-const ProductOrderItem = ({ itemNum, photo, trashItem }) => (
+const ProductOrderItem = ({ itemNum, photo, removePhotoFromOrder, changeItemQuantity, disableInput, enableInput, refreshSubtotal }) => (
   <li
     className="product-item">
     <TrashCanGlyph
       photo={ photo }
-      trashItem={ trashItem } />
+      removePhotoFromOrder={ removePhotoFromOrder } />
     <h4>
       {[
         'Item N',
@@ -23,7 +23,11 @@ const ProductOrderItem = ({ itemNum, photo, trashItem }) => (
         src={ photo.secure_url }
         alt={ `Photograph thumbnail ${photo.public_id}` } />
       <ItemQuantityForm
-        photoID={ photo.public_id } />
+        photoID={ photo.public_id }
+        disableInput={ disableInput }
+        enableInput={ enableInput }
+        changeItemQuantity={ changeItemQuantity }
+        refreshSubtotal={ refreshSubtotal } />
     </div>
   </li>
 );
