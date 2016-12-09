@@ -15,6 +15,7 @@
   stroke-dashoffset: 0;
 }
 
+
 // Trash Bin Glyph Icon:
 .trashcan-glyph {
   @include fade();
@@ -26,9 +27,8 @@
   cursor: pointer;
 }
 
-&:hover .trashcan-glyph {
-  @extend %visible;
-}
+&:hover .trashcan-glyph { @extend %visible; }
+
 
 // Check Mark Glyph Icon
 .grid-item {
@@ -41,7 +41,7 @@
     cursor: pointer;
     z-index: 2;
   }
-
+  
   .checkbox-glyph {
     @include svgBase(1, none, 1, #FFF, 0);
     @include fade();
@@ -75,6 +75,7 @@
   &:hover .checkbox-glyph { fill-opacity: 0.54; }
 }
 
+
 // Shopping Cart Glyph Icon:
 .shopping-cart {
   position: relative;
@@ -84,6 +85,7 @@
   top: 2.25vh;
   float: right;
   color: #FFF;
+  cursor: pointer;
   
   svg {
     @include align(vertical);
@@ -118,17 +120,19 @@
   fill-rule: evenodd;
 }
 
-.shopping-cart-glyph ellipse {
-  @include svgBase(0, #000, 0.80861248)
-}
+.shopping-cart-glyph ellipse { @include svgBase(0, #000, 0.80861248); }
+
 
 // Image placeholder glyph:
 .image-placeholder-glyph {
   @include align(all, absolute);
   @include svgBase(10, #D0D0D0, 1, none);
   display: block;
+  height: 50%;
+  width: auto;
   margin: auto;
 }
+
 
 // Grid Controls Size glyph:
 .grid-controls-size-glyph,
@@ -141,4 +145,12 @@
     stroke-linecap: square;
     stroke-linejoin: miter;
   }
+}
+
+
+// Info glyph icon:
+.info-glyph {
+  @include svgBase(0, #B16767);
+  width: auto;
+  height: 1rem;
 }
