@@ -7,9 +7,16 @@ import { connect } from 'react-redux';
 import OrderTotal from '../components/OrderTotal';
 import SubmitOrder from '../components/SubmitOrder';
 import ProductOrderItem from '../components/ProductOrderItem';
-import { addToShoppingCart, emptyShoppingCart, toggleModal, submitOrder } from '../actions/index';
 import OrderFormModalStyles from '../constants/json/OrderFormModalStyles.json';
 import ImagePlaceholderGlyph from '../constants/svg/ImagePlaceholderGlyph_SVG';
+import InfoGlyph from '../constants/svg/InfoGlyph_SVG';
+import {
+  changeItemQuantity,
+  clearItemFromOrder,
+  emptyShoppingCart,
+  refreshSubtotal,
+  submitOrder,
+  toggleModal } from '../actions/index';
 
 
 class OrderFormModal extends Component {
@@ -22,43 +29,43 @@ class OrderFormModal extends Component {
     this.renderProducts = this.renderProducts.bind(this);
     this.orderFormContents = this.orderFormContents.bind(this);
     this.displayContents = this.displayContents.bind(this);
+    this.changeItemQuantity = this.changeItemQuantity.bind(this);
+    this.refreshSubtotal = this.refreshSubtotal.bind(this);
   }
 
-  closeOrderFormModal(evt) {
-    this.props.toggleModal();
-  }
-
-  removePhotoFromOrder(photo) {
-    this.props.addToShoppingCart(photo);
-  }
-
-  clearOrder() {
-    this.props.emptyShoppingCart();
-  }
-
-  sendOrder(order) {
-    this.props.submitOrder(order);
-  }
+  changeItemQuantity(data) { this.props.changeItemQuantity(data); }
+  clearOrder() { this.props.emptyShoppingCart(); }
+  closeOrderFormModal(evt) { this.props.toggleModal(); }
+  disableInput(evt) { if (!(evt.target.value > 0)) evt.target.setAttribute('disabled', true); }
+  enableInput(evt) { evt.target.removeAttribute('disabled'); }
+  refreshSubtotal(data) { this.props.refreshSubtotal(data); }
+  removePhotoFromOrder(photo) { this.props.clearItemFromOrder(photo); }
+  sendOrder(order) { this.props.submitOrder(order); }
 
   renderProducts(cart) {
-    return Object.keys(cart).length
-      ? Object.values(cart).map((photo, index, list) =>
-        <ProductOrderItem
-          key={ `ProductOrder_${index}` }
-          photo={ photo }
-          itemNum={ index + 1 }
-          trashItem={ this.removePhotoFromOrder } />
-      ) : (
-        <div className="empty-order">
-          <ImagePlaceholderGlyph />
-        </div>
-      );
+    return Object.values(cart).map((photo, index, list) =>
+      <ProductOrderItem
+        key={ `ProductOrder_${index}` }
+        photo={ photo }
+        itemNum={ index + 1 }
+        removePhotoFromOrder={ this.removePhotoFromOrder }
+        disableInput={ this.disableInput }
+        enableInput={ this.enableInput }
+        changeItemQuantity={ this.changeItemQuantity }
+        refreshSubtotal={ this.refreshSubtotal } />
+    );
   }
 
   orderFormContents(cart) {
     return (
-      <div>
-        <h3>Your Order Summary</h3>
+      <div className="modal">
+        <header>
+          <h2>Your Order Summary</h2>
+          <div>
+            <InfoGlyph />
+            <em>All photos are printed on high quality enhanced matte paper</em>
+          </div>
+        </header>
         <ul id="orders-list">
           { this.renderProducts(cart) }
           <OrderTotal />
@@ -76,7 +83,7 @@ class OrderFormModal extends Component {
       ? this.orderFormContents(cart)
       : (
         <div className="empty-order">
-          <h3>Your shopping cart's empty :(</h3>
+          <h2>Your shopping cart's empty :(</h2>
           <ImagePlaceholderGlyph />
         </div>
       );
@@ -105,10 +112,12 @@ let mapStateToProps = (state) => ({
 });
 
 let mapDispatchToProps = (dispatch) => bindActionCreators({
-  addToShoppingCart,
+  changeItemQuantity,
+  clearItemFromOrder,
   emptyShoppingCart,
-  toggleModal,
-  submitOrder
+  refreshSubtotal,
+  submitOrder,
+  toggleModal
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(OrderFormModal);
