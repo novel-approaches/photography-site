@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import Header from '../components/Header';
 import ThumbnailsMap from '../components/ThumbnailsMap';
-import GridControls from '../components/GridControls';
+
 import { toggleModal, addToShoppingCart } from '../actions/index';
 
 
@@ -16,7 +16,6 @@ class Top extends Component {
   }
 
   selFote(photo) {
-      console.log('PHOTOS SELECTED:\n', this.props);
     this.props.addToShoppingCart(photo);
   }
 
@@ -26,7 +25,6 @@ class Top extends Component {
         <Header
           cart={ this.props.shoppingCart } />
         <div className="midsection">
-          <GridControls />
           <ThumbnailsMap
             selFote={ this.selFote } />
         </div>

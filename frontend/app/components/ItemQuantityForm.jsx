@@ -102,33 +102,3 @@ let mapDispatchToProps = (dispatch) => bindActionCreators({
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(ItemQuantityForm);
-
-
-
-
-
-
-
-
-// {
-//   "mmhqphjs5fohx0vljsjd": {
-//     "4x6": 0,
-//     "5x7": 0,
-//     "8x10": 0
-//   },
-//   "mmhqphjs5fohx0vljsjd": {
-//     "4x6": 0,
-//     "5x7": 0,
-//     "8x10": 0
-//   }
-// }
-
-
-
-
-
-
-
-
-
-

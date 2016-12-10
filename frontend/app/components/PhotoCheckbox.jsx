@@ -10,16 +10,7 @@ import CheckboxGlyph from '../constants/svg/CheckboxGlyph_SVG';
 export default class PhotoCheckbox extends Component {
   constructor(props) {
     super(props);
-    // this.selectPhoto = this.selectPhoto.bind(this);
   }
-
-  // selectPhoto(evt) {
-  //   evt.currentTarget.classList.toggle('checked');
-  //   let $parEl = $(evt.currentTarget);
-  //     // console.log('Parent Element:', $(this), '\n', 'EVT:', $(evt.currentTarget));
-  //   this.props.selectPhoto(this.props.photo);
-  //   this.props.toggleGalleryPhotoSelection(this.props.photo);
-  // };
 
   render() {
     return (
@@ -33,11 +24,3 @@ export default class PhotoCheckbox extends Component {
     );
   }
 };
-
-
-// let mapDispatchToProps = (dispatch) => bindActionCreators({
-//   selectPhoto,
-//   toggleGalleryPhotoSelection
-// }, dispatch);
-
-// export default connect(null, mapDispatchToProps)(PhotoCheckbox);

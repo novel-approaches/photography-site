@@ -54,10 +54,3 @@ let mapDispatchToProps = (dispatch) => bindActionCreators({
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
-
-
-// <img
-//   src="https://cdn4.iconfinder.com/data/icons/greicons-2/1052/CARRITO-512.png"
-//   alt="Shopping cart glyph icon (Gray)."
-//   height="35px"
-//   onClick={ this.addToShoppingCart } />

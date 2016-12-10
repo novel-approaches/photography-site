@@ -14,7 +14,6 @@ const customStyles = {
   }
 };
 
-// const Modal = ({ img }) => (
 export default class ModalView extends Component {
   constructor(props) {
     super(props);
@@ -46,7 +45,7 @@ export default class ModalView extends Component {
         <Modal
           onAfterOpen={ this.afterOpenModal }
           onRequestClose={ this.closeModal }
-          style={ customStyles} 
+          style={ customStyles}
           contentLabel="Example Modal">
           <button onClick={ this.closeModal }>Close</button>
           <img
@@ -56,8 +55,4 @@ export default class ModalView extends Component {
       </div>
     );
   }
-
-// );
 };
-
-// export default ModalView;

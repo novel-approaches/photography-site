@@ -17,8 +17,7 @@ class SubmitOrder extends Component {
   }
 
   onSub(evt) {
-    // evt.preventDefault();
-    console.log('\n STATE FROM SUB:', this.state);
+    // console.log('\n STATE FROM SUB:', this.state);
     this.props.sub(this.props.order, this.state.email, this.state.phone);
   }
 
@@ -35,8 +34,8 @@ class SubmitOrder extends Component {
   }
 
   render() {
-    console.log('##RENDER STATE###')
-    console.log(this.state);
+    // console.log('##RENDER STATE###')
+    // console.log(this.state);
     return (
       <div>
         <form className="quantity-form">

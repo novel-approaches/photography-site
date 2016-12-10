@@ -7,11 +7,10 @@ import path from 'path';
 import { addToShoppingCart, getPhotos, setAjaxSpinner } from '../actions/index';
 import Grid from '../PhotoGridAPI/scripts/Grid';
 
-
+//Whoever wrote all the ternaries in here,  I hate you. :( TODO refactor the ternaries. 
 class ThumbnailsMap extends Component {
   constructor(props) {
     super(props);
-    // this.addToShoppingCart = this.addToShoppingCart.bind(this);
     this.applyButtonStyle = this.applyButtonStyle.bind(this);
     this.setActive = this.setActive.bind(this);
     this.setToActive = this.setToActive.bind(this);
@@ -69,31 +68,11 @@ class ThumbnailsMap extends Component {
       : '';
   }
 
-// <<<<<<< HEAD
-//   addToShoppingCart() {
-//     this.props.addToShoppingCart(this.props.photoSelect);
-//   }
-//
-//   selFote(photo) {
-//     // evt.currentTarget.classList.toggle('checked');
-//     // let $parEl = $(evt.currentTarget);
-//       // console.log('Parent Element:', $(this), '\n', 'EVT:', $(evt.currentTarget));
-//     // console.log('PHOTOS SELECTED:\n', this.props.photoSelect);
-//     this.props.selectPhoto(photo);
-//     // this.props.toggleGalleryPhotoSelection(this.props.photo);
-//   };
-//
-//   setToActive(photo) {
-//     // console.log('LOOOG:\n', photo.public_id, photo.public_id in this.props.photoSelect, this.props.photoSelect);
-//     return 'perfect-grid__item ' + (photo['public_id'] in (this.props.photoSelect)
-// =======
   setToActive(photo) {
-    // console.log('LOOOG:\n', photo.public_id, photo.public_id in this.props.photoSelect, this.props.photoSelect);
     return 'perfect-grid__item ' + (photo['public_id'] in (this.props.shoppingCart)
-// >>>>>>> dev
       ? 'activateMe'
       : 'nah');
-  }
+  } //FIXME WHAT THE FUCK, nah...
 
   render() {
     return (
@@ -122,10 +101,3 @@ let mapDispatchToProps = (dispatch) => bindActionCreators({
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(ThumbnailsMap);
-
-// <PerfectGrid
-//   items={items}
-//   maxHeight={300}  // maximum height of row
-//   margins={20}     // margins in pixels
-//   order={true}     // keep images order or not
-// />

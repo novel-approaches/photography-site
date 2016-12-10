@@ -1,5 +1,7 @@
 'use strict';
-const API = require('./api');
+
+//FIXME whats this for?!
+// const API = require('../backend/api_be');
 
 function ajaxSuccess(){
   let res = JSON.parse(this.response);
