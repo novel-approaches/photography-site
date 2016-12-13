@@ -17,11 +17,30 @@ body {
 }
 
 main {
+  @include fade(0.35s, 0s, ease-in-out, margin);
   position: relative;
   display: block;
-  width: 90%;
+  min-width: 90%;
   height: 100%;
-  margin: 0 0 0 10vw;
+  margin-left: 10vw;
+}
+
+aside {
+  position: fixed;
+  width: 10vw;
+  height: 100%;
+  top: 12.5vh;
+  overflow: visible;
+  z-index: 10;
+}
+
+a:focus,
+a:target,
+a:active,
+a:visited {
+  outline: none;
+  text-decoration: none;
+  color: initial;
 }
 
 fieldset { @include flex(flex, column, space-between, center); }
@@ -49,7 +68,7 @@ h5,
 h6 { text-align: left; }
 
 button {
-  @include fade(0.25s, ease-in-out);
+  @include fade(0.25s, 0s, ease-in-out);
   @include cbBorderRadii(4px);
   width: 30%;
   height: 2rem;
@@ -61,12 +80,13 @@ button {
   cursor: pointer;
 
   &:hover {
+    @include cbBoxShadow(0 6px 13px 2px #A5A5A5);
     color: $theme-primary;
     background-color: #FFF;
-    -webkit-box-shadow: 0 6px 13px 2px #A5A5A5;
-    -moz-box-shadow:    0 6px 13px 2px #A5A5A5;
-    box-shadow:         0 6px 13px 2px #A5A5A5;
   }
+
+  &:active,
+  &:focus { outline: none; }
 }
 
 sup { text-decoration: underline solid #000; }
@@ -88,4 +108,4 @@ sup { text-decoration: underline solid #000; }
   cursor: pointer;
 }
 
-.spinner { @include align(all, absolute); }
+.spinner { @include center(all, absolute); }
