@@ -71,7 +71,7 @@ class OrderFormModal extends Component {
           <h2>Your Order Summary</h2>
           <div>
             <InfoGlyph />
-            <em>All photos are printed on high quality enhanced matte paper</em>
+            <em>All photos are printed on high quality enhanced matte paper!</em>
           </div>
         </header>
         <ul id="orders-list">
