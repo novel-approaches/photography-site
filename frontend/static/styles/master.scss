@@ -65,7 +65,7 @@ $shadowColor: #0D0D0D;
 
 
 // Sass mixin declarations:
-@mixin align($dir: vertical, $pos: relative) {
+@mixin center($dir: vertical, $pos: relative) {
   $sides: top;
   $translation: translateY(-50%);
 
@@ -92,9 +92,9 @@ $shadowColor: #0D0D0D;
   transform:         $translation;
 }
 
-@mixin fade($duration: 0.135s, $easingFunc: cubic-bezier(0.0, 0.0, 0.2, 1),$properties: all) {
+@mixin fade($duration: 0.135s, $delay: 0s, $easingFunc: cubic-bezier(0.0, 0.0, 0.2, 1), $properties: all) {
   $shorthand: '';
-  $timing-func: '#{$duration} #{$easingFunc}';
+  $timing-func: '#{$duration} #{$delay} #{$easingFunc}';
 
   @each $property in $properties {
     @if index($properties, $property) < length($properties) {
@@ -119,10 +119,39 @@ $shadowColor: #0D0D0D;
   align-items: $items;
 }
 
+@mixin svgBase($strokeWidth: 4, $stroke: #000, $strokeOpacity: 1, $fill: #000, $fillOpacity: 1) {
+  opacity: 1;
+  fill: $fill;
+  fill-opacity: $fillOpacity;
+  fill-rule: nonzero;
+  stroke: $stroke;
+  stroke-opacity: $strokeOpacity;
+  stroke-width: $strokeWidth;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 4;  
+  stroke-dasharray: none;
+  stroke-dashoffset: 0;
+}
+
+@mixin cbTransform($transforms...) {
+  -webkit-transform: $transforms;
+  -moz-transform:    $transforms;
+  -ms-transform:     $transforms;
+  -o-transform:      $transforms;
+  transform:         $transforms;
+}
+
 @mixin cbBorderRadii($radius: 0) {
   -webkit-border-radius: $radius;
   -moz-border-radius:    $radius;
   border-radius:         $radius;
+}
+
+@mixin cbBoxShadow($shadows...) {
+  -webkit-box-shadow: $shadows;
+  -moz-box-shadow:    $shadows;
+  box-shadow:         $shadows;
 }
 
 
