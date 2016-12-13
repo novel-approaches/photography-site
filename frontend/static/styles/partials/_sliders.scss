@@ -1,11 +1,6 @@
 
-// Sass Variables:
-$borderColor: #010101;
-$shadowColor: #0D0D0D;
-
 // Sass Placeholders:
 %boxShadow { @include cbBoxShadow(1px 1px 1px #000, 0 0 1px $shadowColor); }
-
 
 %sliderThumb {
   @include cbBorderRadii(3px);
@@ -32,6 +27,7 @@ $shadowColor: #0D0D0D;
   width: 65%;
   max-width: 100px;
   height: 40px;
+  left: calc(50% + 5px);
   bottom: calc(12.5vh + 10px);
   margin: auto;
   font: bolder 2rem/1 'Arial', sans-serif;
@@ -41,7 +37,7 @@ $shadowColor: #0D0D0D;
     @include fade(0.35s, 0s, ease-in-out, left transform);
     transform-style: preserve-3d;
   }
-  &.affixed {
+  &.fix-left {
     @include cbBoxShadow(
       0 -2px 12px 0.5px rgba(255, 255, 255, 0.6),
       2px 0 12px 0.5px rgba(255, 255, 255, 0.60)
@@ -51,7 +47,7 @@ $shadowColor: #0D0D0D;
 
     > * { @include cbTransform(rotate(0.5turn)); }
     &:hover {
-      background-color: #7A41B7;
+      background-color: $theme-primary-focus;
       color: #FFF;
     }
   }
@@ -114,11 +110,16 @@ input[type='range']:focus { outline: none; }
 input[type='range']::-webkit-slider-thumb {
   @include cbBorderRadii(3px);
   -webkit-appearance: none;
-  height: 36px;
   width: 16px;
+  height: 10px;
+  // height: 36px;
+  top: 20px;
   margin-top: -14px;  // Necessary margin specification for Chrome; automatic in Firefox & IE
-  border: 1px solid #000;
-  background-color: $theme-secondary;
+  background-color: transparent;
+  border-width: 17.5px 10px 10px 10px;
+  border-style: solid;
+  border-color: #C9B131 transparent transparent transparent;
+  box-sizing: border-box;
   cursor: ns-resize, pointer;
 }
 // All the same stuff for Firefox
@@ -164,7 +165,7 @@ input[type='range']:focus::-ms-fill-lower {
 input[type='range']::-ms-fill-upper {
   @include cbBorderRadii(2.6px);
   @extend %boxShadow;
-  background-color: $theme-primary;
+  background-color: $theme-primary-focus;
   border: 0.2px solid $borderColor;
 }
 input[type='range']:focus::-ms-fill-upper {
