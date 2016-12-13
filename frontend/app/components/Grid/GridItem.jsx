@@ -17,20 +17,24 @@ class GridItem extends Component {
   render() {
     let { itemHeight, margins, over, media, ratio, resource_type, type, element, link } = this.props;
     let src = ( media ? media.src : null ),
-        [height, width, margin] = [itemHeight, itemHeight * ratio, margins / 2].map(val => `${val}px`);
-
-    let style = {
-      height,
-      width,
-      margin
-    };
+        [height, width, margin] = [itemHeight, itemHeight * ratio, margins / 2].map(val => `${val}px`),
+        style = { height, width, margin },
+        onClick = link ? ::this.onClick : null;
 
     switch (resource_type) {
       case 'image':
-        media = ( <img src={ src } /> );
+        media = (
+          <img
+          src={ src }
+          alt="Grid image item." />
+        );
         break;
       case 'video':
-        media = ( <video src={ src } controls /> );
+        media = (
+          <video
+            src={ src }
+            controls />
+          );
         break;
       case 'element':
         return (
@@ -42,11 +46,9 @@ class GridItem extends Component {
           </div>
         );
       default:
-        throw new Error(`Unrecognized media format: ${type}`);
+        throw new ReferenceError(`Unrecognized media format: ${type}`);
         break;
     }
-
-    let onClick = link ? ::this.onClick : null;
 
     return (
       <div
