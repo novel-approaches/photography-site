@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import OrderFormModal from '../../containers/OrderFormModal';
 import { toggleModal } from '../../actions/index';
-import Logo from '../../../static/images/logo_lv7v7x.png';
+import Logo from '../../../static/images/store_logo.svg';
 import ShoppingCartGlyph from '../../constants/svg/ShoppingCartGlyph_SVG';
 
 
