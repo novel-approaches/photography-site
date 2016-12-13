@@ -4,9 +4,9 @@ import Modal from 'react-modal';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import OrderTotal from '../components/OrderTotal';
-import SubmitOrder from '../components/SubmitOrder';
-import ProductOrderItem from '../components/ProductOrderItem';
+import OrderTotal from '../components/Modal/OrderTotal';
+import SubmitOrder from '../components/Modal/SubmitOrder';
+import ProductOrderItem from '../components/Modal/ProductOrderItem';
 import OrderFormModalStyles from '../constants/json/OrderFormModalStyles.json';
 import ImagePlaceholderGlyph from '../constants/svg/ImagePlaceholderGlyph_SVG';
 import InfoGlyph from '../constants/svg/InfoGlyph_SVG';

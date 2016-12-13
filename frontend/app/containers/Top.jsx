@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import Header from '../components/Header';
+import Header from '../components/Layout/Header';
 import ThumbnailsMap from '../components/ThumbnailsMap';
 import GridControls from '../components/Grid/GridControls';
 import { toggleModal, addToShoppingCart } from '../actions/index';
