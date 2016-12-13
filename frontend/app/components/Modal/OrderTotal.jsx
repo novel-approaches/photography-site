@@ -1,14 +1,12 @@
 'use strict';
-import React, { Component } from 'react';
+import React from 'react';
 
 
-const OrderTotal = () => (
+const OrderTotal = ({ calculateTotal, order }) => (
   <li
     className="product-item order-total">
     <h3>Order Total: </h3>
-    <output>
-
-    </output>
+    <strong>&emsp;{ `$ ${calculateTotal(order)}` }</strong>
   </li>
 );
 
