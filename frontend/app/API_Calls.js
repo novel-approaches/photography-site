@@ -1,4 +1,6 @@
 'use strict';
+
+
 export const FetchImageURLs = function(callback = function() {}) {
   $.ajax({
     url: '/images',
