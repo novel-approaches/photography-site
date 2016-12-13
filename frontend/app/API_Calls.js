@@ -6,25 +6,10 @@ export const FetchImageURLs = function(callback = function() {}) {
     url: '/images',
     type: 'get',
     success(res) {
-      callback(res);
+      callback('Image URLs succesfully fetched:', res);
     },
     error(err) {
-      console.log(err);
-    }
-  });
-};
-
-export const FetchImageURLs1 = function() {
-  return $.ajax({
-    url: '/images',
-    type: 'get',
-    async: false,
-    success(res) {
-      console.log(res);
-      // callback(res);
-    },
-    error(err) {
-      console.log(err);
+      console.log('Error encountered in fetching image URLs:', err);
     }
   });
 };
@@ -34,11 +19,11 @@ export function FetchImageData(callback) {
     url: '/images',
     type: 'get',
     success(res) {
-      console.log(res);
+      console.log('Image data successfully fetched:', res);
       callback(res);
     },
     error(err) {
-      console.log(err);
+      console.log('Error encountered in fetching image data:', err);
     }
   });
 };
