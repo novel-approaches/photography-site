@@ -6,7 +6,7 @@ const OrderTotal = ({ calculateTotal, order }) => (
   <li
     className="product-item order-total">
     <h3>Order Total: </h3>
-    <strong>&emsp;{ `$ ${calculateTotal(order)}` }</strong>
+    <strong>&emsp;{ calculateTotal(order) }</strong>
   </li>
 );
 

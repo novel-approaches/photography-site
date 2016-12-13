@@ -50,7 +50,7 @@ class OrderFormModal extends Component {
     for (let item in order) {
       total += sumSubtotals(order[item].price);
     }
-    return total;
+    return `$${total.toFixed(2)}`;
   }
 
   displayContents(cart) {
