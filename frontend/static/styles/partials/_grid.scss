@@ -50,9 +50,9 @@
       @extend %txt-of;
       content: 'Res. ' attr(data-dims) ' - ' attr(data-domain);
       height: 0;
-      background-color: rgba(102, 102, 102, 0.73);
+      background-color: hsla(0, 0, 27%, 0.9);
       color: #FFF;
-      font: 200 0.85rem 'Helvetica Neue', sans-serif;
+      font: 400 0.85rem 'Helvetica Neue', sans-serif;
       text-indent: 0.75rem;
     }
     &:hover:after {

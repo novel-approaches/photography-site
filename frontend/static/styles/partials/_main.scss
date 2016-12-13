@@ -68,23 +68,13 @@ h5,
 h6 { text-align: left; }
 
 button {
-  @include fade(0.25s, 0s, ease-in-out);
-  @include cbBorderRadii(4px);
+  @extend %primaryBtn;
   width: 30%;
   height: 2rem;
   margin: 1rem auto;
-  border: none;
-  color: #FFF;
-  background-color: $theme-primary;
   font: bolder 1.25rem/1 'Helvetica Neue', sans-serif;
-  cursor: pointer;
 
-  &:hover {
-    @include cbBoxShadow(0 6px 13px 2px #A5A5A5);
-    color: $theme-primary;
-    background-color: #FFF;
-  }
-
+  &:hover { @extend %primaryBtnInverted; }
   &:active,
   &:focus { outline: none; }
 }

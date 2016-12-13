@@ -1,16 +1,14 @@
 
 #close-modal-btn {
+  @extend %primaryBtn;
+  @extend %br-circle;
   position: absolute;
   width: 4rem;
   height: 4rem;
   right: -2rem;
   top: -2rem;
-  font: bolder 4rem/1 Arial, sans-serif;
-  background-color: $theme-primary;
-  color: #FFF;
-  border-radius: 50%;
-  text-align: center;
-  cursor: pointer;
+
+  &:hover { background-color: $theme-primary-focus; }
 }
 
 .modal {
@@ -35,10 +33,13 @@
   h4 {
     margin: 0;
     padding: 0 0 1.5rem;
+    color: $theme-primary;
 
     &:before {
       counter-increment: item;                            /* Increment the section counter*/
       content: 'Item \2116\0000A0' counter(item) ': ';    /* Display the counter */
+      text-transform: capitalize;
+      color: #000;
     }
   }
   .order-total h3 { display: inline; }
@@ -66,7 +67,7 @@
       min-height: 50px;
       max-height: 100px;
       outline: 5px inset $theme-secondary;
-      outline-offset: 5px;
+      outline-offset: 2.5px;
     }
   }
 

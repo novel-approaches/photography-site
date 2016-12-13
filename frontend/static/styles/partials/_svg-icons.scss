@@ -35,7 +35,7 @@
   }
 
   &.checked {
-    background-color: #A2A2A2;
+    background-color: #C1C1C1;
 
     .checkbox { background-color: #FFF; }
     &:hover .checkbox-glyph { fill-opacity: 1; }
@@ -143,7 +143,7 @@
 
 // Info glyph icon:
 .info-glyph {
-  @include svgBase(0, #B16767, 1, $theme-primary);
+  @include svgBase(0, none, 1, $theme-primary);
   width: auto;
   height: 1rem;
   margin: 0 1rem;
