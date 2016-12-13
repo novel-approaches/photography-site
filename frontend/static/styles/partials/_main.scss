@@ -10,10 +10,12 @@
 body {
   height: 100%;
   margin: 0;
-  font: normal 125%/1.5 'Helvetica Neue', sans-serif;
+  font: normal 125%/1.5 Roboto, RobotoDraft, 'Helvetica Neue', sans-serif;
   background-color: $body-bckg;
   counter-reset: item;    /* Initialize the 'item' counter to 0 */
   overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust:         100%;
 }
 
 main {
@@ -46,6 +48,7 @@ a:visited {
 fieldset { @include flex(flex, column, space-between, center); }
 
 header {
+  @extend %no-select;
   position: relative;
   height: 12.5vh;
 
@@ -79,7 +82,7 @@ button {
   &:focus { outline: none; }
 }
 
-sup { text-decoration: underline solid #000; }
+sup { text-decoration: underline solid $theme-content-dark; }
 
 .midsection {
   @include flex(flex, row, space-between, center);

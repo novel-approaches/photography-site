@@ -30,6 +30,8 @@
     @include fade();
     width: auto;
     height: inherit;
+    box-sizing: content-box;
+    pointer-events: visiblePainted;
 
     &:hover { fill-opacity: 1 !important; }
   }
@@ -37,15 +39,17 @@
   &.checked {
     background-color: #C1C1C1;
 
-    .checkbox { background-color: #FFF; }
+    // .checkbox { background-color: #FFF; }
+    .checkbox-glyph {
+      @extend %br-circle;
+      fill: $theme-primary;
+      fill-opacity: 1;
+      background-color: #FFF;
+    }
     &:hover .checkbox-glyph { fill-opacity: 1; }
     .grid-media {
       @include cbTransform(translateZ(0) scale3d(0.89, 0.85, 1));
       margin: auto;
-    }
-    .checkbox-glyph {
-      fill: $theme-primary;
-      fill-opacity: 1;
     }
   }
   &:hover .checkbox-glyph { fill-opacity: 0.54; }
@@ -79,7 +83,7 @@
       @include cbTransform(translate(-94.171148px, -35.450901px));
       > g { @include cbTransform(matrix(0.99576168, 0, 0, 0.99588655, 0.43673883, 1.2169663)); }
     }
-    &[data-section='cart'] > path { @include svgBase(15.00000095, #000, 1, none); }
+    &[data-section='cart'] > path { @include svgBase(15.00000095, $theme-content-dark, 1, none); }
     &[data-section='cart-wheels'] {
       @include cbTransform(matrix(1.2919356, 0, 0, 1.2824417, -26.130068, -85.83637));
       ellipse {
@@ -94,7 +98,7 @@
       ellipse { @include svgBase(10.00000191, none, 1, $theme-primary); }
     }
     &[data-section='cart-frame'] path {
-      @include svgBase(17.57341766, #000, 1, none);
+      @include svgBase(17.57341766, $theme-content-dark, 1, none);
       fill-rule: evenodd;
     }
     &[data-section='cart-basket'] {

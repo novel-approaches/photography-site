@@ -2,6 +2,7 @@
 #close-modal-btn {
   @extend %primaryBtn;
   @extend %br-circle;
+  @extend %no-select;
   position: absolute;
   width: 4rem;
   height: 4rem;
@@ -39,7 +40,7 @@
       counter-increment: item;                            /* Increment the section counter*/
       content: 'Item \2116\0000A0' counter(item) ': ';    /* Display the counter */
       text-transform: capitalize;
-      color: #000;
+      color: $theme-content-dark;
     }
   }
   .order-total h3 { display: inline; }
@@ -60,6 +61,7 @@
     > *:last-child { margin: 0 3rem 0 0; }
 
     img {
+      @extend %no-select;
       width: auto;
       min-width: 75px;
       max-width: 30%;
