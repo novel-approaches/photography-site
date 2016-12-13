@@ -12,6 +12,7 @@ const Emailer = require('./emailer');
 Server.use(Express.static(Path.join(__dirname + '/static')));
 Server.use(BodyParser.json());
 
+// 'images' Endpoint:
 Server.get('/images', (req, res) => {
   let url = `${API.admin_url}/resources/image`;
   Request(url, (error, response, body) => {
@@ -21,6 +22,7 @@ Server.get('/images', (req, res) => {
   });
 });
 
+// 'order' Endpoint:
 Server.post('/order', (req, res) => {
   console.log(req.body);
   let emailed = Emailer.sendOrderEmail(req.body)
@@ -29,6 +31,7 @@ Server.post('/order', (req, res) => {
   res.send(JSON.parse(emailed));
 });
 
+// Wilcard route redirects to landing page:
 Server.get('/*', (req, res) => {
   res.redirect('/');
 });
