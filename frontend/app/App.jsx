@@ -12,7 +12,6 @@ import '../static/styles/master.scss';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
-
 const App = () => (
   <Provider store={createStoreWithMiddleware(rootReducer)} >
     <Top />
