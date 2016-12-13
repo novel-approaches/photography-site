@@ -9,61 +9,6 @@ $borderColor: #010101;
 $shadowColor: #0D0D0D;
 
 
-// Sass placeholders declarations:
-%vAlign {
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform:    translateY(-50%);
-  -ms-transform:     translateY(-50%);
-  -o-transform:      translateY(-50%);
-  transform:         translateY(-50%);
-}
-
-%hAlign {
-  position: relative;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -moz-transform:    translateX(-50%);
-  -ms-transform:     translateX(-50%);
-  -o-transform:      translateX(-50%);
-  transform:         translateX(-50%);
-}
-
-%alignAll {
-  position: relative;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform:    translate(-50%, -50%);
-  -ms-transform:     translate(-50%, -50%);
-  -o-transform:      translate(-50%, -50%);
-  transform:         translate(-50%, -50%);
-}
-
-%br-circle {
-  -webkit-border-radius: 50%;
-  -moz-border-radius:    50%;
-  border-radius:         50%;
-}
-
-%txt-of {
-  white-space: nowrap;
-  overflow: hidden;
-  word-break: break-all;
-}
-
-%visible {
-  visibility: visible;
-  opacity: 1;
-}
-
-%hidden {
-  visibility: hidden;
-  opacity: 0;
-}
-
-
 // Sass mixin declarations:
 @mixin center($dir: vertical, $pos: relative) {
   $sides: top;
@@ -153,6 +98,77 @@ $shadowColor: #0D0D0D;
   -moz-box-shadow:    $shadows;
   box-shadow:         $shadows;
 }
+
+
+// Sass placeholders declarations:
+%vAlign {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform:    translateY(-50%);
+  -ms-transform:     translateY(-50%);
+  -o-transform:      translateY(-50%);
+  transform:         translateY(-50%);
+}
+
+%hAlign {
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform:    translateX(-50%);
+  -ms-transform:     translateX(-50%);
+  -o-transform:      translateX(-50%);
+  transform:         translateX(-50%);
+}
+
+%alignAll {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform:    translate(-50%, -50%);
+  -ms-transform:     translate(-50%, -50%);
+  -o-transform:      translate(-50%, -50%);
+  transform:         translate(-50%, -50%);
+}
+
+%primaryBtn {
+  @include fade(0.25s, 0s, ease-in-out);
+  @include cbBorderRadii(4px);
+  border: none;
+  font: bolder 4rem/1 Arial, sans-serif;
+  background-color: $theme-primary;
+  color: #FFF;
+  text-align: center;
+  cursor: pointer;
+}
+
+%primaryBtnInverted {
+  @include cbBoxShadow(0 6px 13px 2px #A5A5A5);
+  background-color: #FFF;
+  color: $theme-primary;
+}
+
+%br-circle {
+  @include cbBorderRadii(50%);
+}
+
+%txt-of {
+  white-space: nowrap;
+  overflow: hidden;
+  word-break: break-all;
+}
+
+%visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+%hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
 
 
 // Import Sass partials:
