@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import Header from '../components/Layout/Header';
-import ThumbnailsMap from '../components/ThumbnailsMap';
+import ThumbnailsMap from '../containers/ThumbnailsMap';
 import GridControls from '../components/Grid/GridControls';
 import { toggleModal, addToShoppingCart } from '../actions/index';
 
@@ -16,7 +16,6 @@ class Top extends Component {
   }
 
   selectPhoto(photo) {
-      console.log('PHOTOS SELECTED:\n', this.props);
     this.props.addToShoppingCart(photo);
   }
 
