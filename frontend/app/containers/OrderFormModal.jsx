@@ -22,6 +22,7 @@ import {
 class OrderFormModal extends Component {
   constructor(props) {
     super(props);
+    this.calculateTotal = this.calculateTotal.bind(this);
     this.closeOrderFormModal = this.closeOrderFormModal.bind(this);
     this.removePhotoFromOrder = this.removePhotoFromOrder.bind(this);
     this.clearOrder = this.clearOrder.bind(this);
@@ -42,18 +43,25 @@ class OrderFormModal extends Component {
   removePhotoFromOrder(photo) { this.props.clearItemFromOrder(photo); }
   sendOrder(order) { this.props.submitOrder(order); }
 
-  renderProducts(cart) {
-    return Object.values(cart).map((photo, index, list) =>
-      <ProductOrderItem
-        key={ `ProductOrder_${index}` }
-        photo={ photo }
-        itemNum={ index + 1 }
-        removePhotoFromOrder={ this.removePhotoFromOrder }
-        disableInput={ this.disableInput }
-        enableInput={ this.enableInput }
-        changeItemQuantity={ this.changeItemQuantity }
-        refreshSubtotal={ this.refreshSubtotal } />
-    );
+  calculateTotal(order) {
+    const sumSubtotals = (obj) => Object.keys(obj).reduce((memo, curr) => memo += obj[curr], 0);
+    let total = 0;
+
+    for (let item in order) {
+      total += sumSubtotals(order[item].price);
+    }
+    return total;
+  }
+
+  displayContents(cart) {
+    return Object.keys(cart).length
+      ? this.orderFormContents(cart)
+      : (
+        <div className="empty-order">
+          <h2>Your shopping cart's empty :(</h2>
+          <ImagePlaceholderGlyph />
+        </div>
+      );
   }
 
   orderFormContents(cart) {
@@ -68,7 +76,9 @@ class OrderFormModal extends Component {
         </header>
         <ul id="orders-list">
           { this.renderProducts(cart) }
-          <OrderTotal />
+          <OrderTotal
+            calculateTotal={ this.calculateTotal }
+            order={ this.props.orderQuantities } />
           <SubmitOrder
             clearOrder={ this.clearOrder }
             sendOrder={ this.sendOrder }
@@ -78,15 +88,18 @@ class OrderFormModal extends Component {
     );
   }
 
-  displayContents(cart) {
-    return Object.keys(cart).length
-      ? this.orderFormContents(cart)
-      : (
-        <div className="empty-order">
-          <h2>Your shopping cart's empty :(</h2>
-          <ImagePlaceholderGlyph />
-        </div>
-      );
+  renderProducts(cart) {
+    return Object.values(cart).map((photo, index, list) =>
+      <ProductOrderItem
+        key={ `ProductOrder_${index}` }
+        photo={ photo }
+        itemNum={ index + 1 }
+        removePhotoFromOrder={ this.removePhotoFromOrder }
+        disableInput={ this.disableInput }
+        enableInput={ this.enableInput }
+        changeItemQuantity={ this.changeItemQuantity }
+        refreshSubtotal={ this.refreshSubtotal } />
+    );
   }
 
   render() {
