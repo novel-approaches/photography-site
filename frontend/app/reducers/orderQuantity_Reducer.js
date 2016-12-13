@@ -35,8 +35,10 @@ export default function orderQuantity(state = {}, action) {
       let priceCopy = Object.assign({}, state[photoID].price, action.payload.price);
       stateCopy = Object.assign({}, state[photoID], { price: priceCopy });
       let newState = Object.assign({}, state, { [photoID]: stateCopy });
+      console.log('NEW STATE:\n', newState);
       return newState;
     default:
+      // console.log(`Action <${action.type}> unrecognized! Reverting to default state.`);
       return state;
   }
 };

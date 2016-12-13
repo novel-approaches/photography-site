@@ -25,6 +25,7 @@ export default function photoGallerySelect(state = SELECTION_STATES, action) {
       let photoID = action.photo.public_id;
       return Object.assign({}, state, { [photoID]: !state[photoID] });
     default:
+      // console.log(`Action <${action.type}> unrecognized! Reverting to default state.`);
       return state;
   }
 };

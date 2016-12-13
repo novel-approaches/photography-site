@@ -26,6 +26,7 @@ export default function photoSelect(state = {}, action) {
         return null;
       }
     default:
+      // console.log(`Action <${action.type}> unrecognized! Reverting to default state.`);
       return state;
   }
 };
