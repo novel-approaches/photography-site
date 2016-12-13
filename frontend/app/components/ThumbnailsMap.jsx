@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import path from 'path';
 
 import { addToShoppingCart, getPhotos, setAjaxSpinner } from '../actions/index';
-import Grid from '../PhotoGridAPI/scripts/Grid';
+import Grid from './Grid/Grid';
 
 
 class ThumbnailsMap extends Component {

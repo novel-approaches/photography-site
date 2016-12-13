@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import Header from '../components/Header';
 import ThumbnailsMap from '../components/ThumbnailsMap';
-import GridControls from '../components/GridControls';
+import GridControls from '../components/Grid/GridControls';
 import { toggleModal, addToShoppingCart } from '../actions/index';
 
 
