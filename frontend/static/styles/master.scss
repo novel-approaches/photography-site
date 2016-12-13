@@ -127,9 +127,9 @@ $shadowColor: #0D0D0D;
 
 
 // Import Sass partials:
-@import 'main';       // Styles for classless HTML elements
-@import 'sliders';    // Styles for range input sliders
-@import 'svg-icons';  // Styles for inline SVG icons
-@import 'grid';       // Styles for photo grid
-@import 'modal';      // Styles for OrderFormModal component
-@import 'scrollbar';  // Styles for scrollbar
+@import './partials/main';       // Styles for classless HTML elements
+@import './partials/sliders';    // Styles for range input sliders
+@import './partials/svg-icons';  // Styles for inline SVG icons
+@import './partials/grid';       // Styles for photo grid
+@import './partials/modal';      // Styles for OrderFormModal component
+@import './partials/scrollbar';  // Styles for scrollbar
