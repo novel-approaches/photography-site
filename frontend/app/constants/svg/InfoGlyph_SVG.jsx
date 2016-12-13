@@ -5,8 +5,6 @@ import React from 'react';
 const InfoGlyph = () => (
   <svg
     className="info-glyph"
-    width="56.444447mm"
-    height="56.444447mm"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 200.00001 200.00001">
