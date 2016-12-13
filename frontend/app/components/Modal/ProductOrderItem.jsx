@@ -11,13 +11,7 @@ const ProductOrderItem = ({ itemNum, photo, removePhotoFromOrder, changeItemQuan
     <TrashCanGlyph
       photo={ photo }
       removePhotoFromOrder={ removePhotoFromOrder } />
-    <h4>
-      {[
-        'Item N',
-        <sup key={ `SuperElement_${itemNum}` }>o</sup>,
-        ` ${itemNum}:  ${photo.public_id}`
-      ]}
-    </h4>
+    <h4>{ photo.public_id }</h4>
     <div>
       <img
         src={ photo.secure_url }
