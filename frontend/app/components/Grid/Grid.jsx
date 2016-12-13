@@ -168,7 +168,7 @@ export default class Grid extends Component {
             selectPhoto={ this.props.selectPhoto }
             setClassName={ this.props.setClassName }
             domain="cloudinary.com"
-            margins={ margins }
+            margins={ `0 ${((margins / 2) + 'px ') + margins + 'px'}` }
             photo={ item }
             nativeDimensions={ `${item.width} x ${item.height} px` }
             {...item} />
@@ -180,7 +180,7 @@ export default class Grid extends Component {
       <div
         className="grid"
         ref="photoGrid"
-        style={{ padding: `${margins / 2}px` }}>
+        style={{ padding: `0 ${(margins / 2) + 'px'} 10px` }}>
         <ScrollHandler
           onResize={::this.setContainerWidth} />
         { gridItems }

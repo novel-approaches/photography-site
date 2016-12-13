@@ -17,7 +17,7 @@ class GridItem extends Component {
   render() {
     let { itemHeight, margins, over, media, ratio, resource_type, type, element, link } = this.props;
     let src = ( media ? media.src : null ),
-        [height, width, margin] = [itemHeight, itemHeight * ratio, margins / 2].map(val => `${val}px`),
+        [height, width, margin] = [itemHeight, itemHeight * ratio, margins].map((val, index) => index < 2 ? `${val}px` : val),
         style = { height, width, margin },
         onClick = link ? ::this.onClick : null;
 
