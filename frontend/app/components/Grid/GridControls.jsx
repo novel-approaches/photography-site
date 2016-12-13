@@ -1,90 +1,58 @@
 'use strict';
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import React from 'react';
 
-import { modifyGridMargins, modifyGridSize } from '../../actions/index';
 import GridControlsSizeGlyph from '../../constants/svg/GridControlsSizeGlyph_SVG';
 import GridControlsMarginsGlyph from '../../constants/svg/GridControlsMarginsGlyph_SVG';
 
 
-class GridControls extends Component {
-  constructor(props) {
-    super(props);
-    this.onSlideMarginsRange = this.onSlideMarginsRange.bind(this);
-    this.onSlideSizeRange = this.onSlideSizeRange.bind(this);
-  }
+const GridControls = ({ gridMargins, gridSize, onSlideMarginsRange, onSlideSizeRange }) => (
+  <form name="grid-form">
+    <fieldset>
+      <label
+        htmlFor="size-input"
+        title="Photo size">
+        <GridControlsSizeGlyph />
+        <span>Size</span>
+      </label>
+      <input
+        id="size-input"
+        className="vrange"
+        type="range"
+        min={ 100 }
+        max={ Math.max(600, Math.floor(window.innerHeight / 2.5)) }
+        step={ 5 }
+        defaultValue={ 300 }
+        onChange={ onSlideSizeRange } />
+      <output
+        htmlFor="size-input"
+        name="size-output">
+        { gridSize }
+      </output>
+    </fieldset>
+    
+    <fieldset>
+      <label
+        htmlFor="margin-input"
+        title="Photo margins">
+        <GridControlsMarginsGlyph />
+        <span>Spacing</span>
+      </label>
+      <input
+        id="margin-input"
+        className="vrange"
+        type="range"
+        min={ 2 }
+        max={ 75 }
+        step={ 1 }
+        defaultValue={ 10 }
+        onChange={ onSlideMarginsRange } />
+      <output
+        htmlFor="margin-input"
+        name="margin-output">
+        { gridMargins }
+      </output>
+    </fieldset>
+  </form>
+);
 
-  onSlideMarginsRange(evt, outputTarg) {
-    this.props.modifyGridMargins(evt.target.value);
-  }
-
-  onSlideSizeRange(evt, outputTarg) {
-    this.props.modifyGridSize(evt.target.value);
-  }
-
-  render() {
-    return(
-      <form name="grid-form">
-        <fieldset>
-          <label
-            htmlFor="size-inpt"
-            title="Photo size">
-            <GridControlsSizeGlyph />
-          </label>
-          <input
-            id="size-inpt"
-            className="vrange"
-            type="range"
-            min={ 100 }
-            max={ Math.max(500, Math.floor(window.innerHeight / 2.5)) }
-            step={ 5 }
-            defaultValue={ 300 }
-            onChange={ this.onSlideSizeRange } />
-          <output
-            htmlFor="size-inpt"
-            name="size-output"
-            ref="sizeOutput">
-            { this.props.gridSize }
-          </output>
-        </fieldset>
-        
-        <fieldset>
-          <label
-            htmlFor="margin-inpt"
-            title="Photo margins">
-            <GridControlsMarginsGlyph />
-          </label>
-          <input
-            id="margin-inpt"
-            className="vrange"
-            type="range"
-            min={ 2 }
-            max={ 75 }
-            step={ 1 }
-            defaultValue={ 10 }
-            onChange={ this.onSlideMarginsRange } />
-          <output
-            htmlFor="margin-inpt"
-            name="margin-output"
-            ref="marginOutput">
-            { this.props.gridMargins }
-          </output>
-        </fieldset>
-      </form>
-    );
-  }
-};
-
-let mapStateToProps = (state) => ({ 
-  gridMargins: state.gridMargins,
-  gridSize: state.gridSize
-});
-
-let mapDispatchToProps = (dispatch) => bindActionCreators({
-  modifyGridMargins,
-  modifyGridSize
-}, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(GridControls);
+export default GridControls;
