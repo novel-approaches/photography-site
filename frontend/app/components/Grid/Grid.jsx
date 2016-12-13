@@ -9,6 +9,7 @@ export default class Grid extends Component {
   constructor(props) {
     super(props);
     this.resizeTimeout = null;
+    this.linkHandler = this.linkHandler.bind(this);
     this.state = {
       items: ( props.order ? Array(props.items.length).fill(null) : [] ),
       itemWidth: 0
@@ -38,6 +39,10 @@ export default class Grid extends Component {
       if (currItem && nextItem.url !== currItem.url) { flag = true; }
     }
     if (flag) { this.loadItems(nextProps); }
+  }
+
+  linkHandler(link) {
+    window.open(link);
   }
 
   loadItems(props = this.props) {
@@ -165,6 +170,7 @@ export default class Grid extends Component {
             key={ `GridItem_(${i}.${j})` }
             path={ item.url }
             itemHeight={ row.rowHeight }
+            linkHandler={ this.linkHandler }
             selectPhoto={ this.props.selectPhoto }
             setClassName={ this.props.setClassName }
             domain="cloudinary.com"
