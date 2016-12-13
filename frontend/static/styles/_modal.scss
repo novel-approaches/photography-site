@@ -34,8 +34,9 @@
 
   h4 {
     margin: 0;
-    padding: 0 0 0.75rem 0;
+    padding: 0 0 1.5rem;
   }
+  .order-total h3 { display: inline; }
   .modal-actions { @include flex(); }
 }
 
