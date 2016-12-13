@@ -61,9 +61,7 @@ class ThumbnailsMap extends Component {
   render() {
     return (
       <main id="photo-gallery">
-        <div className="grid-wrapper">
-          { this.renderGrid() }
-        </div>
+        { this.renderGrid() }
       </main>
     );
   }
