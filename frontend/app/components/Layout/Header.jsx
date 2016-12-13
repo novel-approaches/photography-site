@@ -47,8 +47,8 @@ class Header extends Component {
           className="shopping-cart"
           title={ this.shoppingCartToolTip() }
           onClick={ this.renderModal }>
-          <ShoppingCartGlyph />
-          <i>{ this.displayCartCount() }</i>
+          <ShoppingCartGlyph
+            cartCount={ this.displayCartCount() } />
         </div>
         <OrderFormModal />
       </header>
@@ -57,8 +57,7 @@ class Header extends Component {
 };
 
 let mapStateToProps = (state) => ({
-  orderFormModal: state.orderFormModal,
-  shoppingCart: state.shoppingCart
+  orderFormModal: state.orderFormModal
 });
 
 let mapDispatchToProps = (dispatch) => bindActionCreators({
@@ -66,3 +65,6 @@ let mapDispatchToProps = (dispatch) => bindActionCreators({
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
+
+
+// <i>{ this.displayCartCount() }</i>
