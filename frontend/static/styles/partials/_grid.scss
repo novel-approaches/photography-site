@@ -19,13 +19,6 @@
   &-rows { @include flex(flex); }
   &-row { @include flex(flex, row, space-between, flex-start, wrap); }
 
-  &-wrapper {    
-    position: relative;
-    height: calc(100% - 57.5px);
-    top: 20px;
-    overflow-y: scroll;
-  }
-
   &-item {
     @include flex(inline-flex);
     overflow: hidden;
@@ -34,7 +27,7 @@
   }
   
   &-media {
-    @include fade(0.135s, cubic-bezier(0.0, 0.0, 0.2, 1), transform -webkit-transform);
+    @include fade(0.135s, 0s, cubic-bezier(0.0, 0.0, 0.2, 1), transform -webkit-transform);
     position: relative;
     height: 100%;
     width: 100%;
