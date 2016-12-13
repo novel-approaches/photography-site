@@ -18,13 +18,22 @@
 
 // Trash Bin Glyph Icon:
 .trashcan-glyph {
-  @include fade();
   @extend %hidden;
   position: absolute;
-  width: 2rem;
-  right: 1rem;
+  width: 1.5rem;
   height: auto;
+  right: 1rem;
+  overflow: visible;
   cursor: pointer;
+  
+  .trashcan-glyph-lid { @include fade(0.25s, ease, transform); }
+  &:hover .trashcan-glyph-lid {
+    -webkit-transform: rotate(-30deg) translateX(-4px);
+    -moz-transform:    rotate(-30deg) translateX(-4px);
+    -ms-transform:     rotate(-30deg) translateX(-4px);
+    -o-transform:      rotate(-30deg) translateX(-4px);
+    transform:         rotate(-30deg) translateX(-4px);
+  }
 }
 
 
@@ -151,5 +160,5 @@
   @include svgBase(0, #B16767, 1, $theme-primary);
   width: auto;
   height: 1rem;
-  margin: 0 1rem 0 2rem;
+  margin: 0 1rem;
 }
