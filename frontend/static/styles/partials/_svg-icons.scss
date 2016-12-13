@@ -1,0 +1,157 @@
+
+// Sass placeholder declarations:
+@mixin svgBase($strokeWidth: 4, $stroke: #000, $strokeOpacity: 1, $fill: #000, $fillOpacity: 1) {
+  opacity: 1;
+  fill: $fill;
+  fill-opacity: $fillOpacity;
+  fill-rule: nonzero;
+  stroke: $stroke;
+  stroke-opacity: $strokeOpacity;
+  stroke-width: $strokeWidth;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 4;  
+  stroke-dasharray: none;
+  stroke-dashoffset: 0;
+}
+
+
+// Trash Bin Glyph Icon:
+.trashcan-glyph {
+  @extend %hidden;
+  position: absolute;
+  width: 1.5rem;
+  height: auto;
+  right: 1rem;
+  overflow: visible;
+  cursor: pointer;
+  
+  .trashcan-glyph-lid { @include fade(0.25s, ease, transform); }
+  &:hover .trashcan-glyph-lid {
+    -webkit-transform: rotate(-30deg) translateX(-4px);
+    -moz-transform:    rotate(-30deg) translateX(-4px);
+    -ms-transform:     rotate(-30deg) translateX(-4px);
+    -o-transform:      rotate(-30deg) translateX(-4px);
+    transform:         rotate(-30deg) translateX(-4px);
+  }
+}
+
+
+// Check Mark Glyph Icon
+.grid-item {
+  .checkbox {
+    @extend %br-circle;
+    position: absolute;
+    width: 2.25rem;
+    height: 2.25rem;
+    margin: 0.5rem;
+    cursor: pointer;
+    z-index: 2;
+  }
+  
+  .checkbox-glyph {
+    @include svgBase(1, none, 1, #FFF, 0);
+    @include fade();
+    width: auto;
+    height: inherit;
+
+    &:hover { fill-opacity: 1 !important; }
+  }
+
+  &.checked {
+    background-color: #CCC;
+
+    .checkbox { background-color: #FFF; }
+
+    .grid-media {
+      margin: auto;
+      -webkit-transform: translateZ(0) scale3d(0.89, 0.85, 1);
+      -moz-transform:    translateZ(0) scale3d(0.89, 0.85, 1);
+      -ms-transform:     translateZ(0) scale3d(0.89, 0.85, 1);
+      -o-transform:      translateZ(0) scale3d(0.89, 0.85, 1);
+      transform:         translateZ(0) scale3d(0.89, 0.85, 1);
+    }
+    &:hover .checkbox-glyph { fill-opacity: 1; }
+
+    .checkbox-glyph {
+      fill: $theme-primary;
+      fill-opacity: 1;
+    }
+  }
+
+  &:hover .checkbox-glyph { fill-opacity: 0.54; }
+}
+
+
+// Shopping Cart Glyph Icon:
+.shopping-cart-glyph {
+  @include align(vertical);
+  width: auto;
+  height: 80%;
+
+  text {
+    @include svgBase(1px, none, 1, #FFF);
+    font: normal normal bold 60.00000763px/125% Arial, sans-serif;
+    -inkscape-font-specification: 'Arial, Bold';
+    font-stretch: normal;
+    text-align: start;
+    text-anchor: start;
+    letter-spacing: 0;
+    word-spacing: 0;
+    writing-mode: lr-tb;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+  }
+
+  [data-section='cart-body'] {
+    path {
+      @include svgBase(2.9391818);
+      stroke-linecap: square;
+      stroke-linejoin: miter;
+    }
+  }
+
+  [data-section='cart-frame'] {
+    ellipse { @include svgBase(0, #DE2626, 0.80861248); }
+    path {
+      @include svgBase(7.5, #000, 1, none);
+      fill-rule: evenodd;
+    }
+  }
+
+  [data-section='cart-count'] ellipse { @include svgBase(10.00000191, none, 0.51674643, $theme-primary, 1); }
+}
+
+
+// Image placeholder glyph:
+.image-placeholder-glyph {
+  @include align(all, absolute);
+  @include svgBase(10, #D0D0D0, 1, none);
+  display: block;
+  height: 50%;
+  width: auto;
+  margin: auto;
+}
+
+
+// Grid Controls Size glyph:
+.grid-controls-size-glyph,
+.grid-controls-margins-glyph {
+  width: 40px;
+  height: auto;
+
+  path {
+    @include svgBase(0)
+    stroke-linecap: square;
+    stroke-linejoin: miter;
+  }
+}
+
+
+// Info glyph icon:
+.info-glyph {
+  @include svgBase(0, #B16767, 1, $theme-primary);
+  width: auto;
+  height: 1rem;
+  margin: 0 1rem;
+}

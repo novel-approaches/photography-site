@@ -1,0 +1,80 @@
+
+// Sass mixin declarations:
+@mixin alignPseudo($vertAlign: top) {
+  @include fade(0.35s);
+  #{$vertAlign}: 0;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  opacity: 0;
+}
+
+
+.grid {
+  @include flex(flex, row, flex-start, flex-start, wrap);
+  width: 100%;
+  flex: 1;
+
+  &-link { cursor: pointer; }
+  &-rows { @include flex(flex); }
+  &-row { @include flex(flex, row, space-between, flex-start, wrap); }
+
+  &-wrapper {    
+    position: relative;
+    height: calc(100% - 57.5px);
+    top: 20px;
+    overflow-y: scroll;
+  }
+
+  &-item {
+    @include flex(inline-flex);
+    overflow: hidden;
+
+    > * { z-index: 2; }
+  }
+  
+  &-media {
+    @include fade(0.135s, cubic-bezier(0.0, 0.0, 0.2, 1), transform -webkit-transform);
+    position: relative;
+    height: 100%;
+    width: 100%;
+    vertical-align: middle;
+    z-index: 1;
+
+    &:before {
+      @include alignPseudo(top);
+      content: '';
+      height: 100%;
+      background-image: -webkit-linear-gradient(to bottom, rgba(0, 0, 0, 0.26), transparent 56px, transparent);
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.26), transparent 56px, transparent);
+      z-index: 2;
+    }
+    &:hover:before { opacity: 1; }
+
+    &:after {
+      @include alignPseudo(bottom);
+      @extend %hidden;
+      @extend %txt-of;
+      content: 'Res. ' attr(data-dims) ' - ' attr(data-domain);
+      height: 0;
+      background-color: rgba(102, 102, 102, 0.73);
+      color: #FFF;
+      font: 200 0.85rem 'Helvetica Neue', sans-serif;
+      text-indent: 0.75rem;
+    }
+    &:hover:after {
+      @extend %visible;
+      height: 20px;
+      z-index: 1;
+    }
+
+    img,
+    video {
+      position: relative;
+      display: block;
+      height: 100%;
+      background-color: transparent;
+      z-index: 1;
+    }
+  }
+}
