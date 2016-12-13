@@ -1,25 +1,25 @@
 'use strict';
 import React, { Component } from 'react';
 
-import PhotoCheckbox from '../PhotoCheckbox';
+import PhotoCheckbox from './PhotoCheckbox';
 
 
 class GridItem extends Component {
   constructor(props) {
     super(props);
-    this.onClick = this.onClick.bind(this);
+    // this.onClick = this.onClick.bind(this);
   }
 
-  onClick(evt) {
-    window.open(this.props.link);
-  }
+  // onClick(evt) {
+  //   window.open(this.props.link);
+  // }
 
   render() {
-    let { itemHeight, margins, over, media, ratio, resource_type, type, element, link } = this.props;
+    let { itemHeight, margins, over, media, ratio, resource_type, type, element, link, linkHandler } = this.props;
     let src = ( media ? media.src : null ),
         [height, width, margin] = [itemHeight, itemHeight * ratio, margins].map((val, index) => index < 2 ? `${val}px` : val),
         style = { height, width, margin },
-        onClick = link ? ::this.onClick : null;
+        onClick = (link ? linkHandler : null);
 
     switch (resource_type) {
       case 'image':
