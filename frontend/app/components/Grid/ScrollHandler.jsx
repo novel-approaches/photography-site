@@ -17,7 +17,7 @@ export default class ScrollBarAdapter extends Component {
       return;
     }
     try {
-      var evt = new UIEvent('resize');
+      let evt = new UIEvent('resize');
       window.dispatchEvent(evt);
     } catch(evt) {
 
