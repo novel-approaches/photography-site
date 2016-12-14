@@ -7,12 +7,7 @@ import PhotoCheckbox from './PhotoCheckbox';
 class GridItem extends Component {
   constructor(props) {
     super(props);
-    // this.onClick = this.onClick.bind(this);
   }
-
-  // onClick(evt) {
-  //   window.open(this.props.link);
-  // }
 
   render() {
     let { itemHeight, margins, over, media, ratio, resource_type, type, element, link, linkHandler } = this.props;
@@ -25,8 +20,8 @@ class GridItem extends Component {
       case 'image':
         media = (
           <img
-          src={ src }
-          alt="Grid image item." />
+            src={ src }
+            alt="Grid image item." />
         );
         break;
       case 'video':

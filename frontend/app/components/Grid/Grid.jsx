@@ -1,6 +1,7 @@
 'use strict';
 import React, { Component } from 'react';
 
+import { GridImageURL } from '../../Mixins/index';
 import GridItem from './GridItem';
 import ScrollHandler from './ScrollHandler';
 
@@ -41,6 +42,16 @@ export default class Grid extends Component {
     if (flag) { this.loadItems(nextProps); }
   }
 
+  setContainerWidth() {
+    if (this.refs.photoGrid) {
+      let offsetWidth = this.refs.photoGrid.offsetWidth;
+      if (offsetWidth !== this.state.itemWidth) {
+        if (this.props.debug) { console.debug(`Setting container width: ${offsetWidth}`); }
+        this.setState({ itemWidth: offsetWidth });
+      }
+    }
+  }
+
   linkHandler(link) {
     window.open(link);
   }
@@ -57,16 +68,6 @@ export default class Grid extends Component {
       if (this.props.success) { this.props.success(); }
       if (this.props.debug) { console.debug('All images loaded!'); }
     });
-  }
-
-  setContainerWidth() {
-    if (this.refs.photoGrid) {
-      let offsetWidth = this.refs.photoGrid.offsetWidth;
-      if (offsetWidth !== this.state.itemWidth) {
-        if (this.props.debug) { console.debug(`Setting container width: ${offsetWidth}`); }
-        this.setState({ itemWidth: offsetWidth });
-      }
-    }
   }
 
   loadItem(item, i) {
@@ -98,7 +99,7 @@ export default class Grid extends Component {
     item.type = 'image'
     return new Promise((resolve, reject) => {
       let image = new Image();
-      [image.src, item.media] = [item.url, image];
+      [image.src, item.media] = [GridImageURL(item.url), image];
       item.width && item.height
         ? resolve({ item, i })
         : image.onload = (evt) => {
@@ -109,9 +110,9 @@ export default class Grid extends Component {
   }
 
   isImage(url) {
-    const extensions = ['png', 'jpg', 'jpeg', 'gif'],
+    const extensions = ['bmp', 'png', 'jpg', 'jpeg', 'gif', 'svg'],
           regTest = new RegExp(`\\.${extensions.join('|\\.')}`);
-    return regTest.test(url)
+    return regTest.test(url);
   }
 
   addMedia({ item, i }) {
@@ -173,11 +174,11 @@ export default class Grid extends Component {
             linkHandler={ this.linkHandler }
             selectPhoto={ this.props.selectPhoto }
             setClassName={ this.props.setClassName }
-            domain="cloudinary.com"
+            domain="Cloudinary.com"
             margins={ `0 ${((margins / 2) + 'px ') + margins + 'px'}` }
             photo={ item }
             nativeDimensions={ `${item.width} x ${item.height} px` }
-            {...item} />
+            { ...item } />
         );
       })
     });
