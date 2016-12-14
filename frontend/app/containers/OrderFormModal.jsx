@@ -98,7 +98,8 @@ class OrderFormModal extends Component {
         disableInput={ this.disableInput }
         enableInput={ this.enableInput }
         changeItemQuantity={ this.changeItemQuantity }
-        refreshSubtotal={ this.refreshSubtotal } />
+        refreshSubtotal={ this.refreshSubtotal }
+        orderQuantities={ this.props.orderQuantities } />
     );
   }
 
