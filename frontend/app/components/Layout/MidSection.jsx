@@ -5,11 +5,23 @@ import ThumbnailsMap from '../../containers/ThumbnailsMap';
 import GridControlsSidebar from '../Grid/GridControlsSidebar';
 
 
-const MidSection = ({ gridMargins, gridSize, onSlideMarginsRange, onSlideSizeRange, selectPhoto, sidebarToggleState, sidebarToolTip }) => (
+const MidSection = ({
+  gridMargins,
+  gridSize,
+  onSlideStart,
+  onSlideEnd,
+  onSlideMarginsRange,
+  onSlideSizeRange,
+  selectPhoto,
+  sidebarToggleState,
+  sidebarToolTip }) => (
+  
   <div className="midsection">
     <GridControlsSidebar
       gridMargins={ gridMargins }
       gridSize={ gridSize }
+      onSlideStart={ onSlideStart }
+      onSlideEnd={ onSlideEnd }
       onSlideMarginsRange={ onSlideMarginsRange }
       onSlideSizeRange={ onSlideSizeRange }
       sidebarToggleState={ sidebarToggleState }
