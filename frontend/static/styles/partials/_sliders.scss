@@ -105,7 +105,7 @@
       top: 10px;
       margin: auto;
       padding: 0 1rem;
-      background-color: $theme-content-fade-primary;    // $theme-content-dark;
+      background-color: $theme-content-fade-primary;
       color: $theme-content-light;
       font: 600 1.15rem/2rem Roboto, sans-serif;
       letter-spacing: 2px;
@@ -139,7 +139,6 @@ input[type='range']::-webkit-slider-thumb {
   @include cbBorderRadii(3px);
   -webkit-appearance: none;
   width: 16px;
-  // height: 10px;
   height: 36px;
   top: 20px;
   margin-top: -14px;  // Necessary margin specification for Chrome; automatic in Firefox & IE
@@ -184,21 +183,21 @@ input[type='range']::-ms-track {
 input[type='range']::-ms-fill-lower {
   @include cbBorderRadii(2.6px);
   @extend %boxShadow;
-  background-color: $theme-primary;
   border: 0.2px solid $borderColor;
+  background-color: $theme-primary;
 }
 input[type='range']:focus::-ms-fill-lower {
-  background-color: $theme-primary;
   outline: none;
+  background-color: $theme-primary;
 }
 input[type='range']::-ms-fill-upper {
   @include cbBorderRadii(2.6px);
   @extend %boxShadow;
-  background-color: $theme-primary-focus;
   border: 0.2px solid $borderColor;
+  background-color: $theme-primary-focus;
 }
 input[type='range']:focus::-ms-fill-upper {
-  background-color: $theme-primary;
-  outline: none;
   border: none;
+  outline: none;
+  background-color: $theme-primary;
 }

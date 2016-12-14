@@ -1,3 +1,10 @@
+
+// Sass placholders:
+%squareMiter {
+  stroke-linecap: square;
+  stroke-linejoin: miter;  
+}
+
 // Trash Bin Glyph Icon:
 .trashcan-glyph {
   @extend %hidden;
@@ -112,8 +119,7 @@
       path {
         @include svgBase(2.86625862);
         @include cbTransform(translate(98.367597px, 69.984505px));
-        stroke-linecap: square;
-        stroke-linejoin: miter;
+        @extend %squareMiter;
 
         &:last-child { stroke-width: 2.2930069; }
       }
@@ -144,14 +150,13 @@
   g { @include cbTransform(translate(-421.56392px, -200.81073px)); }
   path {
     @include svgBase(0)
-    stroke-linecap: square;
-    stroke-linejoin: miter;
+    @extend %squareMiter;
   }
 }
 .grid-controls-size-glyph g { @include cbTransform(translate(0, -313.40129px)); }
 
 
-// Info glyph icon:
+// Info glyph:
 .info-glyph {
   @include svgBase(0, none, 1, $theme-primary);
   width: auto;
@@ -159,4 +164,17 @@
   margin: 0 1rem;
 
   g { @include cbTransform(translate(-17.027339px, -344.10155px)); }
+}
+
+
+// Loading spinner glyph:
+.loading-spinner-glyph {
+  @include center(all, absolute);
+  @include cbAnimation(spinner, 2s, infinite, linear);
+  height: 200px;
+  left: 40%;
+  top: 37.5%;
+
+  g { @include cbTransform(translate(-273.01219px, -392.95549px)); }
+  path { @include svgBase(2, none, 1, $theme-primary); }
 }
