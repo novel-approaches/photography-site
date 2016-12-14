@@ -8,6 +8,7 @@ export default function gridSize(state = 300, action) {
       // console.log(`Action <${action.type}> registered with payload <size: ${action.size}>`);
       return action.size;
     default:
+      // console.log(`Action <${action.type}> unrecognized! Reverting to default state.`);
       return state;
   }
 };

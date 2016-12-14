@@ -8,6 +8,7 @@ export default function gridMargins(state = 10, action) {
       // console.log(`Action <${action.type}> registered with payload <margins: ${action.margins}>`);
       return action.margins;
     default:
+      // console.log(`Action <${action.type}> unrecognized! Reverting to default state.`);
       return state;
   }
 };
