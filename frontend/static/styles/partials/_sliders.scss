@@ -8,7 +8,7 @@
   width: 16px;
   height: 36px;
   border: 1px solid $theme-content-dark;
-  background-color: #FFF;
+  background-color: $theme-content-light;
 }
 
 %sliderTrack {
@@ -48,7 +48,7 @@
     > * { @include cbTransform(rotate(0.5turn)); }
     &:hover {
       background-color: $theme-primary-focus;
-      color: #FFF;
+      color: $theme-content-light;
     }
   }
 }
@@ -86,9 +86,33 @@
         position: relative;
         display: block;
         top: -5px;
-        font: 300 1rem/1 'Helvetica Neue', sans-serif;
+        font: normal 0.75rem/1 Roboto, sans-serif;
+        color: $theme-content-fade-dark;
       }
     }
+
+    output {
+      @include fade(0.35s, 0.1s, cubic-bezier(0.0, 0.0, 0.2, 1), visibility opacity);
+      @include cbBorderRadii(6px);
+      @include cbBoxShadow(
+        -1px -1px 10px 0 rgba(41, 41, 41, 0.38),
+        -3px -3px 12px 0 rgba(0, 0, 0, 0.63)
+      );
+      @extend %hidden;
+      position: relative;
+      display: table;
+      height: 2rem;
+      top: 10px;
+      margin: auto;
+      padding: 0 1rem;
+      background-color: $theme-content-fade-primary;    // $theme-content-dark;
+      color: $theme-content-light;
+      font: 600 1.15rem/2rem Roboto, sans-serif;
+      letter-spacing: 2px;
+
+      &.active { @extend %visible; }
+    }
+
     .output-wrapper {
       @include flex(flex, row, space-between);
       width: 75%;
@@ -101,9 +125,12 @@
 input[type='range'] {
   @include cbBorderRadii(10px);
   @include cbTransform(rotate(-270deg));
-  height: 130px;
+  @include cbBoxShadow(0 0 3px $shadowColor);
+  height: 10px;
+  margin: 65px 0;
   background-color: transparent;
   -webkit-appearance: none;
+  cursor: pointer;
 }
 input[type='range']:focus { outline: none; }
 
@@ -112,26 +139,25 @@ input[type='range']::-webkit-slider-thumb {
   @include cbBorderRadii(3px);
   -webkit-appearance: none;
   width: 16px;
-  height: 10px;
-  // height: 36px;
+  // height: 10px;
+  height: 36px;
   top: 20px;
   margin-top: -14px;  // Necessary margin specification for Chrome; automatic in Firefox & IE
   background-color: transparent;
   border-width: 17.5px 10px 10px 10px;
   border-style: solid;
   border-color: #C9B131 transparent transparent transparent;
-  box-sizing: border-box;
-  cursor: ns-resize, pointer;
+  cursor: ns-resize;
 }
-// All the same stuff for Firefox
+// Mirror styles for Mozilla Firefox:
 input[type='range']::-moz-range-thumb {
   @extend %sliderThumb;
-  cursor: ns-resize, pointer;
+  cursor: ns-resize;
 }
-// All the same stuff for IE
+// Mirror styles for Microsoft IE:
 input[type='range']::-ms-thumb {
   @extend %sliderThumb;
-  cursor: ns-resize, pointer;
+  cursor: ns-resize;
 }
 
 // Styling the slider track:
@@ -139,7 +165,9 @@ input[type='range']::-webkit-slider-runnable-track {
   @include cbBorderRadii(10px);
   @extend %sliderTrack;
   height: 10px;
+  margin: 65px 0;
   background: $theme-primary;
+  cursor: pointer;
 }
 input[type='range']:focus::-webkit-slider-runnable-track { background-color: $theme-primary-focus; }
 input[type='range']::-moz-range-track { @extend %sliderTrack; }
