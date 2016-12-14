@@ -83,10 +83,3 @@ let mapDispatchToProps = (dispatch) => bindActionCreators({
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(ThumbnailsMap);
-
-// <PerfectGrid
-//   items={items}
-//   maxHeight={300}  // maximum height of row
-//   margins={20}     // margins in pixels
-//   order={true}     // keep images order or not
-// />
