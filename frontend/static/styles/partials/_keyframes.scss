@@ -1,0 +1,47 @@
+
+// Spinning Icon @keyframe Declarations
+// -------------------------------------------
+
+@-webkit-keyframes spinner {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+
+@-moz-keyframes spinner {
+  from {
+    -moz-transform: rotate(0deg);
+         transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(359deg);
+         transform: rotate(359deg);
+  }
+}
+
+@-o-keyframes spinner {
+  from {
+    -o-transform: rotate(0deg);
+       transform: rotate(0deg);
+  }
+  to {
+    -o-transform: rotate(359deg);
+       transform: rotate(359deg);
+  }
+}
+
+@keyframes spinner {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
