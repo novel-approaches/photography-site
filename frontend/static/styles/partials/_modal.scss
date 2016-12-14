@@ -43,7 +43,10 @@
       color: $theme-content-dark;
     }
   }
-  .order-total h3 { display: inline; }
+  .order-total {
+    h3 { display: inline; }
+    strong { color: $theme-primary; }
+  }
   .modal-actions { @include flex(); }
 }
 

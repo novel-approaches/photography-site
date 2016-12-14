@@ -52,7 +52,7 @@
       content: 'Res. ' attr(data-dims) ' - ' attr(data-domain);
       height: 0;
       background-color: hsla(0, 0, 27%, 0.9);
-      color: #FFF;
+      color: $theme-content-light;
       font: 400 0.85rem 'Helvetica Neue', sans-serif;
       text-indent: 0.75rem;
     }

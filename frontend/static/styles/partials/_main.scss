@@ -10,7 +10,7 @@
 body {
   height: 100%;
   margin: 0;
-  font: normal 125%/1.5 Roboto, RobotoDraft, 'Helvetica Neue', sans-serif;
+  font: normal 125%/1.5 Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
   background-color: $body-bckg;
   counter-reset: item;    /* Initialize the 'item' counter to 0 */
   overflow-x: hidden;
@@ -48,14 +48,14 @@ a:visited {
 fieldset { @include flex(flex, column, space-between, center); }
 
 header {
+  @include flex(flex, row, space-between, center, nowrap);
   @extend %no-select;
-  position: relative;
   height: 12.5vh;
 
-  img[role='logo'] {
-    height: 100%;
-    display: inline-block;
-    float: left;
+  > a {
+    margin-left: 25px;
+
+    img[role='logo'] { height: 100%; }
   }
 }
 
@@ -91,13 +91,8 @@ sup { text-decoration: underline solid $theme-content-dark; }
 }
 
 .shopping-cart {
-  position: relative;
-  display: inline-block;
   height: 8vh;
-  right: 50px;
-  top: 2.25vh;
-  float: right;
-  color: #FFF;
+  margin-right: 50px;
   cursor: pointer;
 }
 

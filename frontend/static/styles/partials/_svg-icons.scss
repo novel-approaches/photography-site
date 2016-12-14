@@ -22,29 +22,35 @@
     height: 2.25rem;
     margin: 0.5rem;
     cursor: pointer;
-    z-index: 2;
+    z-index: 3;
   }
   
   .checkbox-glyph {
-    @include svgBase(1, none, 1, #FFF, 0);
+    @include svgBase(1, none, 1, $theme-content-light, 0);
     @include fade();
     width: auto;
     height: inherit;
-    box-sizing: content-box;
     pointer-events: visiblePainted;
 
     &:hover { fill-opacity: 1 !important; }
   }
 
-  &.checked {
-    background-color: #C1C1C1;
+  &.unchecked {
+    .checkbox-glyph {
+      @extend %br-circle;
+      border: 3px solid $theme-content-light;
+      opacity: 0.54;  
+    }
+  }
 
-    // .checkbox { background-color: #FFF; }
+  &.checked {
+    background-color: $shadowEmphasis;
+
     .checkbox-glyph {
       @extend %br-circle;
       fill: $theme-primary;
       fill-opacity: 1;
-      background-color: #FFF;
+      background-color: $theme-content-light;
     }
     &:hover .checkbox-glyph { fill-opacity: 1; }
     .grid-media {
@@ -64,7 +70,7 @@
   overflow: visible;
 
   text {
-    @include svgBase(1px, none, 1, #FFF);
+    @include svgBase(1px, none, 1, $theme-content-light);
     @include cbTransform(scale(1.0079519, 0.9921108));
     font: normal normal bold 111.99184418px/125% Arial, sans-serif;
     -inkscape-font-specification: 'Arial, Bold';
