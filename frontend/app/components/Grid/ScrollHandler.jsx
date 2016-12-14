@@ -35,9 +35,15 @@ export default class ScrollBarAdapter extends Component {
   render() {
     return (
       <iframe
-        className="ScrollBarAdapter"
+        className="scroll-bar-adapter"
         ref="frame"
         style={ ScrollBarStyles } />
     );
   }
+};
+
+
+// Type Checking:
+ScrollBarAdapter.propTypes = {
+  onResize: React.PropTypes.func
 };
