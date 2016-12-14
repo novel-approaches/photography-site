@@ -5,7 +5,7 @@ import GridControlsSizeGlyph from '../../constants/svg/GridControlsSizeGlyph_SVG
 import GridControlsMarginsGlyph from '../../constants/svg/GridControlsMarginsGlyph_SVG';
 
 
-const GridControls = ({ gridMargins, gridSize, onSlideMarginsRange, onSlideSizeRange }) => (
+const GridControls = ({ gridMargins, gridSize, onSlideStart, onSlideEnd, onSlideMarginsRange, onSlideSizeRange }) => (
   <form name="grid-form">
     <fieldset>
       <label
@@ -22,11 +22,14 @@ const GridControls = ({ gridMargins, gridSize, onSlideMarginsRange, onSlideSizeR
         max={ Math.max(600, Math.floor(window.innerHeight / 2.5)) }
         step={ 5 }
         defaultValue={ 300 }
-        onChange={ onSlideSizeRange } />
+        onChange={ onSlideSizeRange }
+        onInput={ onSlideStart }
+        onMouseDown={ onSlideStart }
+        onMouseUp={ onSlideEnd } />
       <output
         htmlFor="size-input"
         name="size-output">
-        { gridSize }
+        { `${gridSize} px` }
       </output>
     </fieldset>
     
@@ -45,11 +48,13 @@ const GridControls = ({ gridMargins, gridSize, onSlideMarginsRange, onSlideSizeR
         max={ 75 }
         step={ 1 }
         defaultValue={ 10 }
-        onChange={ onSlideMarginsRange } />
+        onChange={ onSlideMarginsRange }
+        onMouseDown={ onSlideStart }
+        onMouseUp={ onSlideEnd } />
       <output
         htmlFor="margin-input"
         name="margin-output">
-        { gridMargins }
+        { `${gridMargins} px` }
       </output>
     </fieldset>
   </form>

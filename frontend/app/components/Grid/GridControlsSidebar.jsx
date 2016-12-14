@@ -6,7 +6,16 @@ import GridControls from './GridControls';
 
 
 
-const GridControlsSidebar = ({ gridMargins, gridSize, onSlideMarginsRange, onSlideSizeRange, sidebarToggleState, sidebarToolTip }) => {  
+const GridControlsSidebar = ({
+  gridMargins,
+  gridSize,
+  onSlideStart,
+  onSlideEnd,
+  onSlideMarginsRange,
+  onSlideSizeRange,
+  sidebarToggleState,
+  sidebarToolTip }) => {
+
   const toggleSidebar = function(evt) {
     sidebarToggleState();     // Trigger passed down props function
     evt = evt || window.evt;  // Fallback for legacy IE browsers
@@ -40,6 +49,8 @@ const GridControlsSidebar = ({ gridMargins, gridSize, onSlideMarginsRange, onSli
         <GridControls
           gridMargins={ gridMargins }
           gridSize={ gridSize }
+          onSlideStart={ onSlideStart }
+          onSlideEnd={ onSlideEnd }
           onSlideMarginsRange={ onSlideMarginsRange }
           onSlideSizeRange={ onSlideSizeRange } />
       </div>

@@ -11,22 +11,32 @@ import { addToShoppingCart, modifyGridMargins, modifyGridSize, toggleModal } fro
 class Top extends Component {
   constructor(props) {
     super(props);
+    this.onSlideStart = this.onSlideStart.bind(this);
+    this.onSlideEnd = this.onSlideEnd.bind(this);
     this.onSlideMarginsRange = this.onSlideMarginsRange.bind(this);
     this.onSlideSizeRange = this.onSlideSizeRange.bind(this);
     this.selectPhoto = this.selectPhoto.bind(this);
     this.sidebarToggleState = this.sidebarToggleState.bind(this);
     this.sidebarToolTip = this.sidebarToolTip.bind(this);
     
-    this.state = {
-      sidebarActive: true
-    };
+    this.state = { sidebarActive: true };
   }
 
-  onSlideMarginsRange(evt, outputTarg) {
+  onSlideStart(evt) {
+    $(evt.target).siblings('output').addClass('active');
+  }
+
+  onSlideEnd(evt) {
+    const $TARG = $(evt.target),
+          deactivate = () => { $TARG.siblings('output').removeClass('active'); };
+    return setTimeout(deactivate, 2000);
+  }
+
+  onSlideMarginsRange(evt) {
     this.props.modifyGridMargins(evt.target.value);
   }
 
-  onSlideSizeRange(evt, outputTarg) {
+  onSlideSizeRange(evt) {
     this.props.modifyGridSize(evt.target.value);
   }
 
@@ -50,6 +60,8 @@ class Top extends Component {
         <MidSection
           gridMargins={ this.props.gridMargins }
           gridSize={ this.props.gridSize }
+          onSlideStart={ this.onSlideStart }
+          onSlideEnd={ this.onSlideEnd }
           onSlideMarginsRange={ this.onSlideMarginsRange }
           onSlideSizeRange={ this.onSlideSizeRange }
           selectPhoto={ this.selectPhoto }
