@@ -8,7 +8,7 @@ const SubmitOrder = ({ order, clearOrder, sendOrder }) => (
       type="submit"
       name="submit-order-btn"
       onClick={ () => sendOrder(order) }>
-      Submit Order
+      Checkout
     </button>
     <button
       type="button"
