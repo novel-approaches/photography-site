@@ -12,6 +12,7 @@ const Emailer = require('./emailer');
 Server.use(Express.static(Path.join(__dirname + '/static')));
 Server.use(BodyParser.json());
 
+
 // 'images' Endpoint:
 Server.get('/images', (req, res) => {
   let url = `${API.admin_url}/resources/image`;
