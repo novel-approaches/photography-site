@@ -1,11 +1,20 @@
 'use strict';
 import React from 'react';
 
+import { ModalImageThumbnailURL } from '../../Mixins/index';
 import ItemQuantityForm from './ItemQuantityForm';
 import TrashCanGlyph from '../../constants/svg/TrashCanGlyph_SVG';
 
 
-const ProductOrderItem = ({ itemNum, photo, removePhotoFromOrder, changeItemQuantity, disableInput, enableInput, refreshSubtotal }) => (
+const ProductOrderItem = ({
+  itemNum,
+  photo,
+  removePhotoFromOrder,
+  changeItemQuantity,
+  disableInput,
+  enableInput,
+  refreshSubtotal,
+  orderQuantities }) => (
   <li
     className="product-item">
     <TrashCanGlyph
@@ -14,14 +23,15 @@ const ProductOrderItem = ({ itemNum, photo, removePhotoFromOrder, changeItemQuan
     <h4>{ photo.public_id }</h4>
     <div>
       <img
-        src={ photo.secure_url }
+        src={ ModalImageThumbnailURL(photo.secure_url) }
         alt={ `Photograph thumbnail ${photo.public_id}` } />
       <ItemQuantityForm
         photoID={ photo.public_id }
         disableInput={ disableInput }
         enableInput={ enableInput }
         changeItemQuantity={ changeItemQuantity }
-        refreshSubtotal={ refreshSubtotal } />
+        refreshSubtotal={ refreshSubtotal }
+        orderQuantities={ orderQuantities } />
     </div>
   </li>
 );
