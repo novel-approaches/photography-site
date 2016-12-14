@@ -36,10 +36,10 @@ $shadowEmphasis: #C1C1C1;
 
   position: $pos;
   -webkit-transform: $translation;
-  -moz-transform:    $translation;
-  -ms-transform:     $translation;
-  -o-transform:      $translation;
-  transform:         $translation;
+     -moz-transform: $translation;
+      -ms-transform: $translation;
+       -o-transform: $translation;
+          transform: $translation;
 }
 
 @mixin fade($duration: 0.135s, $delay: 0s, $easingFunc: cubic-bezier(0.0, 0.0, 0.2, 1), $properties: all) {
@@ -55,10 +55,10 @@ $shadowEmphasis: #C1C1C1;
   }
 
   -webkit-transition: unquote($shorthand);
-  -moz-transition:    unquote($shorthand);
-  -ms-transition:     unquote($shorthand);
-  -o-transition:      unquote($shorthand);
-  transition:         unquote($shorthand);
+     -moz-transition: unquote($shorthand);
+      -ms-transition: unquote($shorthand);
+       -o-transition: unquote($shorthand);
+          transition: unquote($shorthand);
 }
 
 @mixin flex($display: flex, $dir: row, $justify: space-around, $items: initial, $wrap: nowrap) {
@@ -84,24 +84,32 @@ $shadowEmphasis: #C1C1C1;
   stroke-dashoffset: 0;
 }
 
+@mixin cbAnimation($animName, $animDuration: 1s, $animIterationCount: 1, $animTimingFunc: ease, $animDirection: forwards) {
+  -webkit-animation: $animName $animDuration $animIterationCount $animTimingFunc $animDirection;
+     -moz-animation: $animName $animDuration $animIterationCount $animTimingFunc $animDirection;
+      -ms-animation: $animName $animDuration $animIterationCount $animTimingFunc $animDirection;
+       -o-animation: $animName $animDuration $animIterationCount $animTimingFunc $animDirection;
+          animation: $animName $animDuration $animIterationCount $animTimingFunc $animDirection;
+}
+
 @mixin cbTransform($transforms...) {
   -webkit-transform: $transforms;
-  -moz-transform:    $transforms;
-  -ms-transform:     $transforms;
-  -o-transform:      $transforms;
-  transform:         $transforms;
+     -moz-transform: $transforms;
+      -ms-transform: $transforms;
+       -o-transform: $transforms;
+          transform: $transforms;
 }
 
 @mixin cbBorderRadii($radius: 0) {
   -webkit-border-radius: $radius;
-  -moz-border-radius:    $radius;
-  border-radius:         $radius;
+     -moz-border-radius:    $radius;
+          border-radius:         $radius;
 }
 
 @mixin cbBoxShadow($shadows...) {
   -webkit-box-shadow: $shadows;
-  -moz-box-shadow:    $shadows;
-  box-shadow:         $shadows;
+     -moz-box-shadow: $shadows;
+          box-shadow: $shadows;
 }
 
 
@@ -110,20 +118,20 @@ $shadowEmphasis: #C1C1C1;
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
-  -moz-transform:    translateY(-50%);
-  -ms-transform:     translateY(-50%);
-  -o-transform:      translateY(-50%);
-  transform:         translateY(-50%);
+     -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+       -o-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 
 %hAlign {
   position: relative;
   left: 50%;
   -webkit-transform: translateX(-50%);
-  -moz-transform:    translateX(-50%);
-  -ms-transform:     translateX(-50%);
-  -o-transform:      translateX(-50%);
-  transform:         translateX(-50%);
+     -moz-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+       -o-transform: translateX(50%);
+          transform: translateX(-50%);
 }
 
 %alignAll {
@@ -131,10 +139,10 @@ $shadowEmphasis: #C1C1C1;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
-  -moz-transform:    translate(-50%, -50%);
-  -ms-transform:     translate(-50%, -50%);
-  -o-transform:      translate(-50%, -50%);
-  transform:         translate(-50%, -50%);
+     -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+       -o-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 %primaryBtn {
@@ -176,14 +184,14 @@ $shadowEmphasis: #C1C1C1;
 
 %no-select {
   -webkit-touch-callout: none;
-  -webkit-user-select:   none;
-  -khtml-user-select:    none;
-  -moz-user-select:      none;
-  -ms-user-select:       none;
-  -o-user-select:        none;
-  user-select:           none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+         -o-user-select: none;
+            user-select: none;
   -ms-pointer-events: visiblePainted;
-  pointer-events:     visiblePainted;
+      pointer-events: visiblePainted;
 }
 
 
@@ -195,3 +203,4 @@ $shadowEmphasis: #C1C1C1;
 @import './partials/grid';       // Styles for photo grid
 @import './partials/modal';      // Styles for OrderFormModal component
 @import './partials/scrollbar';  // Styles for scrollbar
+@import './partials/keyframes';  // Styles for CSS animation keyframes
