@@ -87,3 +87,24 @@ let mapDispatchToProps = (dispatch) => bindActionCreators({
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Top);
+
+
+// Type checking:
+Top.propTypes = {
+  addToShoppingCart: React.PropTypes.func,
+  gridMargins: React.PropTypes.number,
+  gridSize: React.PropTypes.number,
+  modifyGridMargins: React.PropTypes.func,
+  modifyGridSize: React.PropTypes.func,
+  orderFormModal: React.PropTypes.bool,
+  shoppingCart: React.PropTypes.object,
+  toggleModal: React.PropTypes.func
+};
+
+// Fallback Provisions:
+Top.defaultProps = {
+  gridMargins: 10,
+  gridSize: 300,
+  orderFormModal: false,
+  shoppingCart: {}
+};

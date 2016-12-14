@@ -15,7 +15,7 @@ const MidSection = ({
   selectPhoto,
   sidebarToggleState,
   sidebarToolTip }) => (
-  
+
   <div className="midsection">
     <GridControlsSidebar
       gridMargins={ gridMargins }
@@ -32,3 +32,23 @@ const MidSection = ({
 );
 
 export default MidSection;
+
+
+// Type Checking:
+MidSection.propTypes = {
+  gridMargins: React.PropTypes.number,
+  gridSize: React.PropTypes.number,
+  onSlideStart: React.PropTypes.func,
+  onSlideEnd: React.PropTypes.func,
+  onSlideMarginsRange: React.PropTypes.func,
+  onSlideSizeRange: React.PropTypes.func,
+  selectPhoto: React.PropTypes.func,
+  sidebarToggleState: React.PropTypes.func,
+  sidebarToolTip: React.PropTypes.func
+};
+
+// Fallback Provisions:
+MidSection.defaultProps = {
+  gridMargins: 10,
+  gridSize: 300
+};

@@ -67,4 +67,15 @@ let mapDispatchToProps = (dispatch) => bindActionCreators({
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
 
 
-// <i>{ this.displayCartCount() }</i>
+// Type Checking:
+Header.propTypes = {
+  cart: React.PropTypes.object,
+  orderFormModal: React.PropTypes.bool,
+  toggleModal: React.PropTypes.func
+};
+
+// Fallback Provisions:
+Header.defaultProps = {
+  cart: {},
+  orderFormModal: false
+};

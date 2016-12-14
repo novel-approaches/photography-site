@@ -4,8 +4,6 @@ import React from 'react';
 import GridControls from './GridControls';
 
 
-
-
 const GridControlsSidebar = ({
   gridMargins,
   gridSize,

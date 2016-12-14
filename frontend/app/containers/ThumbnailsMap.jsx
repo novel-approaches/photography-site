@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import path from 'path';
 
 import { addToShoppingCart, getPhotos, setAjaxSpinner } from '../actions/index';
+import LoadingSpinnerGlyph from '../constants/svg/LoadingSpinnerGlyph_SVG';
+import { SEED_DATA as SeedData } from '../constants/SeedData';
 import Grid from '../components/Grid/Grid';
 
 
@@ -14,6 +16,7 @@ class ThumbnailsMap extends Component {
     props.getPhotos();
     this.setClassName = this.setClassName.bind(this);
     this.init = 0;
+    console.log('seeddata:', SeedData);
   }
 
   renderGrid() {
@@ -27,25 +30,19 @@ class ThumbnailsMap extends Component {
           setClassName={ this.setClassName }
           maxHeight={ this.props.gridSize }
           margins={ this.props.gridMargins }
-          order={ true } />
+          order />
       );
     } else {
-      this.init
-        ? PhotoGrid =
-          <div className='noResultsShown'>
-            <h4 className='noResultsShown'>No Results Now</h4>
-          </div>
-        : (this.init++, PhotoGrid =
-          <div id='placesContainer'>
-            {[
-              <i 
-                className='fa fa-refresh fa-spin fa-5x fa-fw spinner' 
-                key='RefreshAnimation'>
-              </i>,
-              `\tLoading...`
-            ]}
-          </div>
+      this.init ? PhotoGrid = (
+        <div className='null-container'>
+          <h4>No Results Now</h4>
+        </div>
+      ) : (
+        this.init++,
+        PhotoGrid =(
+          <LoadingSpinnerGlyph />
         )
+      )
     }
     return PhotoGrid;
   }
@@ -83,3 +80,26 @@ let mapDispatchToProps = (dispatch) => bindActionCreators({
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(ThumbnailsMap);
+
+
+// Type Checking:
+ThumbnailsMap.propTypes = {
+  addToShoppingCart: React.PropTypes.func,
+  ajaxSpinner: React.PropTypes.bool,
+  getPhotos: React.PropTypes.func,
+  gridMargins: React.PropTypes.number,
+  gridSize: React.PropTypes.number,
+  imgObj: React.PropTypes.array,
+  setAjaxSpinner: React.PropTypes.func,
+  setClassName: React.PropTypes.func,
+  shoppingCart: React.PropTypes.object
+};
+
+// Fallback Provisions:
+ThumbnailsMap.defaultProps = {
+  gridMargins: 10,
+  gridSize: 300,
+  imgObj: SeedData,
+  shoppingCart: {},
+  ajaxSpinner: false
+};

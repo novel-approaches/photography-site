@@ -2,8 +2,9 @@
 import React, { Component } from 'react';
 
 import { GridImageURL } from '../../Mixins/index';
-import GridItem from './GridItem';
+import { SEED_DATA as SeedData } from '../../constants/SeedData';
 import ScrollHandler from './ScrollHandler';
+import GridItem from './GridItem';
 
 
 export default class Grid extends Component {
@@ -116,7 +117,7 @@ export default class Grid extends Component {
   }
 
   addMedia({ item, i }) {
-    let items = this.state.items.concat([]); // TODO: use react-addons-update instead
+    let items = this.state.items.concat([]);    // TODO: Use react-addons-update module;
     item.ratio = (item.width / item.height);
     this.props.order
       ? items[i] = item
@@ -197,10 +198,25 @@ export default class Grid extends Component {
 };
 
 
-Grid.childContextTypes = { debug: React.PropTypes.bool };
+Grid.childContextTypes = {
+  debug: React.PropTypes.bool
+};
+
+// Type Checking:
+Grid.propTypes = {
+  items: React.PropTypes.array,
+  margins: React.PropTypes.number,
+  maxHeight: React.PropTypes.number,
+  order: React.PropTypes.bool,
+  selectPhoto: React.PropTypes.func,
+  setClassName: React.PropTypes.func
+};
+
+// Fallback Provisions:
 Grid.defaultProps = {
-  margins: 0,
-  order: true,
+  debug: false,
+  items: SeedData,
+  margins: 10,
   maxHeight: 300,
-  debug: false
+  order: true
 };

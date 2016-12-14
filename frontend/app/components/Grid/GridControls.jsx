@@ -61,3 +61,20 @@ const GridControls = ({ gridMargins, gridSize, onSlideStart, onSlideEnd, onSlide
 );
 
 export default GridControls;
+
+
+// Type Checking:
+GridControls.propTypes = {
+  gridMargins: React.PropTypes.number,
+  gridSize: React.PropTypes.number,
+  onSlideStart: React.PropTypes.func,
+  onSlideEnd: React.PropTypes.func,
+  onSlideMarginsRange: React.PropTypes.func,
+  onSlideSizeRange: React.PropTypes.func
+};
+
+// Fallback Provisions:
+GridControls.defaultProps = {
+  gridMargins: 10,
+  gridSize: 300
+};
